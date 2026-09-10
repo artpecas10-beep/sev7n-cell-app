@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>SEV7N CELL</title>
+
+  <meta name="theme-color" content="#07111f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SEV7N CELL">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #12365c 0%, #07111f 45%, #02060c 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .logo-box {
+      background: linear-gradient(145deg, #07111f, #02050a);
+      border: 2px solid #0798ff;
+      border-radius: 28px;
+      padding: 25px 18px;
+      text-align: center;
+      box-shadow:
+        0 0 30px rgba(0, 153, 255, .35),
+        inset 0 0 30px rgba(0, 153, 255, .08);
+      margin-bottom: 28px;
+    }
+
+    .icone {
+      font-size: 55px;
+      margin-bottom: 6px;
+    }
+
+    .sev7n {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .sete {
+      color: #00a7ff;
+    }
+
+    .cell {
+      font-size: 22px;
+      letter-spacing: 12px;
+      margin-left: 12px;
+      margin-top: 6px;
+      color: #d9e9f7;
+    }
+
+    .subtitulo {
+      margin-top: 15px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #9ecff1;
+    }
+
+    .titulo-menu {
+      text-align: center;
+      font-size: 14px;
+      color: #a8c6dc;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: grid;
+      gap: 15px;
+    }
+
+    .botao {
+      min-height: 105px;
+      border-radius: 22px;
+      text-decoration: none;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+      font-weight: bold;
+      box-shadow: 0 8px 25px rgba(0,0,0,.35);
+      transition: transform .12s ease, filter .12s ease;
+    }
+
+    .botao:hover {
+      filter: brightness(1.08);
+    }
+
+    .botao:active {
+      transform: scale(.97);
+    }
+
+    .servico {
+      background: linear-gradient(135deg, #0754be, #008cff);
+    }
+
+    .venda {
+      background: linear-gradient(135deg, #067145, #00b77b);
+    }
+
+    .cpf {
+      background: linear-gradient(135deg, #d86b00, #ff9f00);
+    }
+
+    .emoji {
+      width: 65px;
+      height: 65px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 34px;
+      flex-shrink: 0;
+    }
+
+    .texto strong {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+    .texto span {
+      display: block;
+      font-size: 13px;
+      font-weight: normal;
+      opacity: .85;
+    }
+
+    .rodape {
+      text-align: center;
+      margin-top: 28px;
+      padding-bottom: 20px;
+      color: #7093ac;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    @media (min-width: 700px) {
+      body {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <section class="logo-box">
+      <div class="icone">📱🔧</div>
+
+      <div class="sev7n">
+        SEV<span class="sete">7</span>N
+      </div>
+
+      <div class="cell">CELL</div>
+
+      <div class="subtitulo">
+        SISTEMA DA LOJA
+      </div>
+    </section>
+
+    <div class="titulo-menu">
+      SELECIONE O QUE DESEJA FAZER
+    </div>
+
+    <section class="menu">
+
+      <a class="botao servico" href="#" onclick="return false;">
+        <div class="emoji">🔧</div>
+        <div class="texto">
+          <strong>SERVIÇO</strong>
+          <span>Ordem de serviço e assistência técnica</span>
+        </div>
+      </a>
+
+      <a class="botao venda" href="#" onclick="return false;">
+        <div class="emoji">📱</div>
+        <div class="texto">
+          <strong>VENDA DE APARELHO</strong>
+          <span>Venda, termo e emissão fiscal</span>
+        </div>
+      </a>
+
+      <a class="botao cpf" href="#" onclick="return false;">
+        <div class="emoji">🧾</div>
+        <div class="texto">
+          <strong>CPF NA NOTA</strong>
+          <span>Emissão rápida de NFC-e</span>
+        </div>
+      </a>
+
+    </section>
+
+    <div class="rodape">
+      SEV7N CELL • SISTEMA INTERNO
+    </div>
+
+  </main>
+
+</body>
+</html>
