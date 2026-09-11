@@ -6,5 +6,13 @@
   "scope": "/sev7n-cell-app/",
   "display": "standalone",
   "background_color": "#07111f",
-  "theme_color": "#07111f"
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "icone-sev7n.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
