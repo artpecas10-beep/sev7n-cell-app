@@ -8,6 +8,10 @@
 
   <meta name="theme-color" content="#07111f">
 
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icone-sev7n.png">
+  <link rel="apple-touch-icon" href="icone-sev7n.png">
+
   <style>
     * {
       box-sizing: border-box;
@@ -15,7 +19,8 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       min-height: 100%;
     }
 
@@ -46,9 +51,12 @@
       box-shadow: 0 0 25px rgba(31, 111, 255, 0.18);
     }
 
-    .logo-icon {
-      font-size: 58px;
-      margin-bottom: 8px;
+    .logo-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 24px;
+      margin-bottom: 15px;
     }
 
     .logo-box h1 {
@@ -143,6 +151,11 @@
         padding: 19px 16px;
         font-size: 18px;
       }
+
+      .logo-img {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
@@ -152,20 +165,25 @@
   <main class="app">
 
     <div class="logo-box">
-      <div class="logo-icon">📱🔧</div>
+
+      <img
+        src="icone-sev7n.png"
+        alt="SEV7N CELL"
+        class="logo-img"
+      >
 
       <h1>
         SEV<span>7</span>N CELL
       </h1>
 
       <p>SISTEMA DA LOJA</p>
+
     </div>
 
     <div class="titulo">
       SELECIONE O QUE DESEJA FAZER
     </div>
 
-    <!-- SERVIÇO -->
     <a
       class="botao servico"
       href="https://n8n.artpecascelular.com/form/4aea4778-ea9a-4cc5-befb-0dcccc34a286"
@@ -178,7 +196,6 @@
       </div>
     </a>
 
-    <!-- VENDA -->
     <a
       class="botao venda"
       href="https://n8n.artpecascelular.com/form/4f05cccd-3a9c-4014-91de-e8d0b2cd23b5"
@@ -191,7 +208,6 @@
       </div>
     </a>
 
-    <!-- CPF NA NOTA -->
     <a
       class="botao cpf"
       href="https://n8n.artpecascelular.com/form/83cb748e-1650-4726-8a49-24e29277da1a"
