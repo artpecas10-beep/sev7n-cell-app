@@ -1,0 +1,10 @@
+{
+  "name": "SEV7N CELL",
+  "short_name": "SEV7N CELL",
+  "description": "Sistema interno SEV7N CELL",
+  "start_url": "/sev7n-cell-app/",
+  "scope": "/sev7n-cell-app/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f"
+}
