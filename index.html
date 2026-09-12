@@ -89,6 +89,7 @@
       align-items: center;
       gap: 18px;
       width: 100%;
+      border: none;
       text-decoration: none;
       color: white;
       padding: 22px 20px;
@@ -98,6 +99,9 @@
       font-weight: 700;
       transition: 0.2s ease;
       box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: left;
     }
 
     .botao:hover {
@@ -113,6 +117,11 @@
       font-size: 34px;
       width: 45px;
       text-align: center;
+      flex-shrink: 0;
+    }
+
+    .texto {
+      flex: 1;
     }
 
     .texto small {
@@ -121,6 +130,11 @@
       font-weight: normal;
       margin-top: 5px;
       opacity: 0.85;
+    }
+
+    .seta {
+      font-size: 22px;
+      transition: transform 0.25s ease;
     }
 
     .servico {
@@ -133,6 +147,40 @@
 
     .cpf {
       background: linear-gradient(135deg, #ff8a00, #d95b00);
+    }
+
+    .submenu {
+      display: none;
+      margin-top: -8px;
+      margin-bottom: 20px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(4, 15, 31, 0.92);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .submenu.aberto {
+      display: block;
+    }
+
+    .submenu .botao {
+      margin-bottom: 12px;
+      padding: 18px 16px;
+      font-size: 17px;
+      border-radius: 14px;
+    }
+
+    .submenu .botao:last-child {
+      margin-bottom: 0;
+    }
+
+    .nova-venda {
+      background: linear-gradient(135deg, #18b563, #0a7f40);
+    }
+
+    .historico {
+      background: linear-gradient(135deg, #7652ff, #4a2db3);
     }
 
     .rodape {
@@ -196,17 +244,48 @@
       </div>
     </a>
 
-    <a
+    <button
       class="botao venda"
-      href="https://n8n.artpecascelular.com/form/4f05cccd-3a9c-4014-91de-e8d0b2cd23b5"
+      type="button"
+      onclick="abrirMenuVenda()"
     >
       <div class="icone">📱</div>
 
       <div class="texto">
         VENDA DE APARELHO
-        <small>Nova venda ou histórico de vendas</small>
+        <small>Nova venda ou histórico</small>
       </div>
-    </a>
+
+      <div class="seta" id="setaVenda">▼</div>
+    </button>
+
+    <div class="submenu" id="submenuVenda">
+
+      <a
+        class="botao nova-venda"
+        href="https://n8n.artpecascelular.com/form/4f05cccd-3a9c-4014-91de-e8d0b2cd23b5"
+      >
+        <div class="icone">➕</div>
+
+        <div class="texto">
+          NOVA VENDA
+          <small>Registrar venda de aparelho</small>
+        </div>
+      </a>
+
+      <a
+        class="botao historico"
+        href="https://n8n.artpecascelular.com/webhook/historico-vendas"
+      >
+        <div class="icone">📋</div>
+
+        <div class="texto">
+          HISTÓRICO DE VENDAS
+          <small>Consultar vendas realizadas</small>
+        </div>
+      </a>
+
+    </div>
 
     <a
       class="botao cpf"
@@ -225,6 +304,21 @@
     </div>
 
   </main>
+
+  <script>
+    function abrirMenuVenda() {
+      const submenu = document.getElementById('submenuVenda');
+      const seta = document.getElementById('setaVenda');
+
+      submenu.classList.toggle('aberto');
+
+      if (submenu.classList.contains('aberto')) {
+        seta.style.transform = 'rotate(180deg)';
+      } else {
+        seta.style.transform = 'rotate(0deg)';
+      }
+    }
+  </script>
 
 </body>
 </html>
