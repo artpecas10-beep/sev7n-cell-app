@@ -149,6 +149,10 @@
       background: linear-gradient(135deg, #ff8a00, #d95b00);
     }
 
+    .produtos {
+      background: linear-gradient(135deg, #00a7a7, #006d73);
+    }
+
     .submenu {
       display: none;
       margin-top: -8px;
@@ -299,6 +303,19 @@
       </div>
     </a>
 
+    <button
+      class="botao produtos"
+      type="button"
+      onclick="moduloProdutos()"
+    >
+      <div class="icone">🛒</div>
+
+      <div class="texto">
+        VENDA DE PRODUTOS
+        <small>Produtos, acessórios e peças</small>
+      </div>
+    </button>
+
     <div class="rodape">
       SEV7N CELL • Sistema Interno
     </div>
@@ -306,6 +323,7 @@
   </main>
 
   <script>
+
     function abrirMenuVenda() {
       const submenu = document.getElementById('submenuVenda');
       const seta = document.getElementById('setaVenda');
@@ -318,6 +336,14 @@
         seta.style.transform = 'rotate(0deg)';
       }
     }
+
+    function moduloProdutos() {
+      alert(
+        'VENDA DE PRODUTOS\n\n' +
+        'Módulo em configuração.'
+      );
+    }
+
   </script>
 
 </body>
