@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -236,6 +236,7 @@
       SELECIONE O QUE DESEJA FAZER
     </div>
 
+
     <!-- SERVIÇO -->
     <a
       class="botao servico"
@@ -312,17 +313,50 @@
 
 
     <!-- VENDA DE PRODUTOS -->
-    <a
+    <button
       class="botao produtos"
-      href="https://n8n.artpecascelular.com/form/625a01a9-ceae-425c-8f1a-af965096b76d"
+      type="button"
+      onclick="abrirMenuProdutos()"
     >
       <div class="icone">🛒</div>
 
       <div class="texto">
         VENDA DE PRODUTOS
-        <small>Produtos, acessórios e peças</small>
+        <small>Nova venda ou histórico</small>
       </div>
-    </a>
+
+      <div class="seta" id="setaProdutos">▼</div>
+    </button>
+
+
+    <!-- SUBMENU VENDA DE PRODUTOS -->
+    <div class="submenu" id="submenuProdutos">
+
+      <a
+        class="botao nova-venda"
+        href="https://n8n.artpecascelular.com/form/625a01a9-ceae-425c-8f1a-af965096b76d"
+      >
+        <div class="icone">➕</div>
+
+        <div class="texto">
+          NOVA VENDA
+          <small>Registrar venda de produtos</small>
+        </div>
+      </a>
+
+      <a
+        class="botao historico"
+        href="https://n8n.artpecascelular.com/webhook/historico-produtos"
+      >
+        <div class="icone">📋</div>
+
+        <div class="texto">
+          HISTÓRICO DE VENDAS
+          <small>Consultar vendas de produtos</small>
+        </div>
+      </a>
+
+    </div>
 
 
     <div class="rodape">
@@ -337,6 +371,20 @@
     function abrirMenuVenda() {
       const submenu = document.getElementById('submenuVenda');
       const seta = document.getElementById('setaVenda');
+
+      submenu.classList.toggle('aberto');
+
+      if (submenu.classList.contains('aberto')) {
+        seta.style.transform = 'rotate(180deg)';
+      } else {
+        seta.style.transform = 'rotate(0deg)';
+      }
+    }
+
+
+    function abrirMenuProdutos() {
+      const submenu = document.getElementById('submenuProdutos');
+      const seta = document.getElementById('setaProdutos');
 
       submenu.classList.toggle('aberto');
 
