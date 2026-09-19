@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -187,6 +187,10 @@
       background: linear-gradient(135deg, #7652ff, #4a2db3);
     }
 
+    .consultar-produtos {
+      background: linear-gradient(135deg, #1687ff, #0752b8);
+    }
+
     .rodape {
       text-align: center;
       margin-top: 28px;
@@ -322,7 +326,7 @@
 
       <div class="texto">
         VENDA DE PRODUTOS
-        <small>Nova venda ou histórico</small>
+        <small>Venda, consulta ou histórico</small>
       </div>
 
       <div class="seta" id="setaProdutos">▼</div>
@@ -343,6 +347,21 @@
           <small>Registrar venda de produtos</small>
         </div>
       </a>
+
+
+      <!-- CONSULTAR PRODUTOS -->
+      <a
+        class="botao consultar-produtos"
+        href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
+      >
+        <div class="icone">📦</div>
+
+        <div class="texto">
+          CONSULTAR PRODUTOS
+          <small>Consultar preços e disponibilidade</small>
+        </div>
+      </a>
+
 
       <a
         class="botao historico"
