@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro com Câmera - SEV7N CELL</title>
+  <title>Cadastro de Produto - SEV7N CELL</title>
 
   <script src="https://cdn.jsdelivr.net/npm/zxing-wasm@latest/dist/iife/reader/index.js"></script>
 
@@ -142,6 +142,21 @@
       color: #333;
     }
 
+    .btn-salvar {
+      width: 100%;
+      background: #15803d;
+      color: white;
+      font-size: 17px;
+      margin-top: 5px;
+    }
+
+    .btn-proximo {
+      width: 100%;
+      background: #e5e7eb;
+      color: #333;
+      margin-top: 10px;
+    }
+
     .mensagem {
       margin-top: 12px;
       min-height: 22px;
@@ -181,6 +196,16 @@
       font-size: 20px;
     }
 
+    .campo {
+      margin-bottom: 16px;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
     label {
       display: block;
       font-weight: bold;
@@ -196,6 +221,10 @@
       outline: none;
     }
 
+    input:focus {
+      border-color: #1d5da8;
+    }
+
     #codigoBarras {
       font-size: 21px;
       font-weight: bold;
@@ -206,7 +235,25 @@
       display: none;
     }
 
+    .foto-preview {
+      display: none;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .foto-preview img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+    }
+
     @media (max-width: 600px) {
+
+      .grade {
+        grid-template-columns: 1fr;
+      }
+
       .acoes {
         display: block;
       }
@@ -223,14 +270,16 @@
 
 <header>
   <h1>SEV7N CELL</h1>
-  <p>Leitor ao vivo de código de barras</p>
+  <p>Cadastro rápido de produtos</p>
 </header>
 
 <div class="container">
 
   <div class="card">
 
-    <h2 class="titulo">📷 Leitor ao vivo</h2>
+    <h2 class="titulo">
+      📷 Leitor ao vivo
+    </h2>
 
     <div id="leitor" class="leitor">
 
@@ -246,7 +295,6 @@
 
       <div class="dica">
         Mantenha o celular a cerca de 15–25 cm do código.
-        Não aproxime até desfocar.
       </div>
 
     </div>
@@ -256,7 +304,6 @@
     <div class="acoes">
 
       <button
-        id="btnAbrir"
         type="button"
         class="btn-abrir"
         onclick="iniciarLeitor()"
@@ -295,29 +342,213 @@
 
   </div>
 
+
   <div class="card">
 
     <h2 class="titulo">
-      Código de barras
+      Dados do produto
     </h2>
 
-    <label for="codigoBarras">
-      Código identificado
-    </label>
 
-    <input
-      id="codigoBarras"
-      type="text"
-      inputmode="numeric"
-      autocomplete="off"
-      placeholder="O código aparecerá aqui"
+    <div class="campo">
+
+      <label for="codigoBarras">
+        Código de barras *
+      </label>
+
+      <input
+        id="codigoBarras"
+        type="text"
+        inputmode="numeric"
+        autocomplete="off"
+        placeholder="Leia ou digite o código"
+      >
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="produto">
+        Produto / descrição *
+      </label>
+
+      <input
+        id="produto"
+        type="text"
+        autocomplete="off"
+        placeholder="Ex.: Cabo Tipo C 1 metro"
+      >
+
+    </div>
+
+
+    <div class="grade">
+
+      <div class="campo">
+
+        <label for="categoria">
+          Categoria
+        </label>
+
+        <input
+          id="categoria"
+          type="text"
+          placeholder="Ex.: CABO"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="marca">
+          Marca
+        </label>
+
+        <input
+          id="marca"
+          type="text"
+          placeholder="Ex.: INOVA"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="modelo">
+          Modelo
+        </label>
+
+        <input
+          id="modelo"
+          type="text"
+          placeholder="Modelo"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="cor">
+          Cor
+        </label>
+
+        <input
+          id="cor"
+          type="text"
+          placeholder="Cor"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="preco">
+          Preço de venda *
+        </label>
+
+        <input
+          id="preco"
+          type="number"
+          inputmode="decimal"
+          min="0"
+          step="0.01"
+          placeholder="0,00"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="estoque">
+          Estoque
+        </label>
+
+        <input
+          id="estoque"
+          type="number"
+          inputmode="numeric"
+          min="0"
+          step="1"
+          value="1"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="foto">
+        Foto do produto
+      </label>
+
+      <input
+        id="foto"
+        type="file"
+        accept="image/*"
+        capture="environment"
+        onchange="mostrarFoto(this)"
+      >
+
+      <div
+        id="fotoPreview"
+        class="foto-preview"
+      >
+
+        <img
+          id="imagemPreview"
+          alt="Foto do produto"
+        >
+
+      </div>
+
+    </div>
+
+
+    <button
+      type="button"
+      class="btn-salvar"
+      onclick="validarProduto()"
     >
+      SALVAR PRODUTO
+    </button>
+
+
+    <button
+      type="button"
+      class="btn-proximo"
+      onclick="proximoProduto()"
+    >
+      LIMPAR / PRÓXIMO PRODUTO
+    </button>
 
   </div>
 
 </div>
 
+
 <script>
+
+const CHAVE_RASCUNHO =
+  'sev7n_cadastro_produto_camera';
+
+const CAMPOS = [
+  'codigoBarras',
+  'produto',
+  'categoria',
+  'marca',
+  'modelo',
+  'cor',
+  'preco',
+  'estoque'
+];
 
 let streamCamera = null;
 let cameraAtiva = false;
@@ -325,21 +556,32 @@ let lendoQuadro = false;
 let loopLeitura = null;
 let ultimoCodigo = '';
 
-function mensagem(texto, tipo = '') {
 
-  const el =
+// ==========================================
+// MENSAGEM
+// ==========================================
+
+function mensagem(
+  texto,
+  tipo = ''
+) {
+
+  const elemento =
     document.getElementById(
       'mensagem'
     );
 
-  el.className =
+  elemento.className =
     'mensagem ' + tipo;
 
-  el.textContent =
+  elemento.textContent =
     texto || '';
 }
 
-function statusCamera(texto) {
+
+function statusCamera(
+  texto
+) {
 
   document
     .getElementById(
@@ -348,6 +590,93 @@ function statusCamera(texto) {
     .textContent =
       texto || '';
 }
+
+
+// ==========================================
+// SALVAR CAMPOS LOCALMENTE
+// ==========================================
+
+function salvarRascunho() {
+
+  try {
+
+    const dados = {};
+
+    CAMPOS.forEach(
+      id => {
+
+        const campo =
+          document.getElementById(id);
+
+        if (campo) {
+
+          dados[id] =
+            campo.value || '';
+        }
+      }
+    );
+
+    localStorage.setItem(
+      CHAVE_RASCUNHO,
+      JSON.stringify(dados)
+    );
+
+  } catch (erro) {
+
+    console.log(
+      'Erro ao salvar rascunho:',
+      erro
+    );
+  }
+}
+
+
+function restaurarRascunho() {
+
+  try {
+
+    const texto =
+      localStorage.getItem(
+        CHAVE_RASCUNHO
+      );
+
+    if (!texto) {
+      return;
+    }
+
+    const dados =
+      JSON.parse(texto);
+
+    CAMPOS.forEach(
+      id => {
+
+        const campo =
+          document.getElementById(id);
+
+        if (
+          campo &&
+          dados[id] !== undefined
+        ) {
+
+          campo.value =
+            dados[id];
+        }
+      }
+    );
+
+  } catch (erro) {
+
+    console.log(
+      'Erro ao restaurar:',
+      erro
+    );
+  }
+}
+
+
+// ==========================================
+// LIMITAR VALOR
+// ==========================================
 
 function limitar(
   valor,
@@ -366,10 +695,12 @@ function limitar(
 
 
 // ==========================================
-// AJUSTAR FOCO E ZOOM
+// AJUSTAR CÂMERA
 // ==========================================
 
-async function ajustarCamera(track) {
+async function ajustarCamera(
+  track
+) {
 
   const aplicados = [];
 
@@ -381,7 +712,7 @@ async function ajustarCamera(track) {
     ) {
 
       statusCamera(
-        'Câmera aberta com ajustes automáticos do iPhone.'
+        'Câmera usando ajustes automáticos.'
       );
 
       return;
@@ -392,10 +723,14 @@ async function ajustarCamera(track) {
 
     const constraints = {};
 
-    // Foco contínuo
+
     if (
-      Array.isArray(caps.focusMode) &&
-      caps.focusMode.includes('continuous')
+      Array.isArray(
+        caps.focusMode
+      ) &&
+      caps.focusMode.includes(
+        'continuous'
+      )
     ) {
 
       constraints.focusMode =
@@ -406,11 +741,15 @@ async function ajustarCamera(track) {
       );
     }
 
-    // Zoom 2x
+
     if (
       caps.zoom &&
-      Number.isFinite(caps.zoom.min) &&
-      Number.isFinite(caps.zoom.max)
+      Number.isFinite(
+        caps.zoom.min
+      ) &&
+      Number.isFinite(
+        caps.zoom.max
+      )
     ) {
 
       const zoomDesejado =
@@ -430,8 +769,11 @@ async function ajustarCamera(track) {
       );
     }
 
+
     if (
-      Object.keys(constraints).length > 0
+      Object.keys(
+        constraints
+      ).length > 0
     ) {
 
       await track.applyConstraints({
@@ -440,6 +782,7 @@ async function ajustarCamera(track) {
         ]
       });
     }
+
 
     if (
       aplicados.length > 0
@@ -453,19 +796,19 @@ async function ajustarCamera(track) {
     } else {
 
       statusCamera(
-        'O iPhone não liberou controle manual de zoom/foco. Usando foco automático.'
+        'Câmera usando foco automático.'
       );
     }
 
   } catch (erro) {
 
     console.log(
-      'Ajustes da câmera:',
+      'Ajuste câmera:',
       erro
     );
 
     statusCamera(
-      'Câmera aberta. Zoom/foco controlados automaticamente pelo iPhone.'
+      'Câmera usando foco automático.'
     );
   }
 }
@@ -477,15 +820,17 @@ async function ajustarCamera(track) {
 
 async function iniciarLeitor() {
 
-  if (cameraAtiva) {
+  if (
+    cameraAtiva
+  ) {
     return;
   }
+
+  salvarRascunho();
 
   mensagem(
     'Abrindo câmera...'
   );
-
-  statusCamera('');
 
   try {
 
@@ -495,9 +840,10 @@ async function iniciarLeitor() {
     ) {
 
       throw new Error(
-        'getUserMedia não disponível neste navegador'
+        'Câmera não disponível'
       );
     }
+
 
     if (
       typeof ZXingWASM === 'undefined' ||
@@ -505,17 +851,20 @@ async function iniciarLeitor() {
     ) {
 
       throw new Error(
-        'Leitor ZXing WASM não carregou'
+        'Leitor não carregou'
       );
     }
+
 
     const video =
       document.getElementById(
         'video'
       );
 
+
     streamCamera =
       await navigator.mediaDevices.getUserMedia({
+
         audio: false,
 
         video: {
@@ -533,10 +882,13 @@ async function iniciarLeitor() {
           }
 
         }
+
       });
+
 
     const tracks =
       streamCamera.getVideoTracks();
+
 
     if (
       tracks.length > 0
@@ -547,8 +899,10 @@ async function iniciarLeitor() {
       );
     }
 
+
     video.srcObject =
       streamCamera;
+
 
     document
       .getElementById(
@@ -558,22 +912,25 @@ async function iniciarLeitor() {
         'ativo'
       );
 
+
     await video.play();
+
 
     cameraAtiva =
       true;
 
+
     mensagem(
-      'Leitor ativo. Mantenha alguma distância e enquadre o código inteiro.',
+      'Leitor ativo. Aponte para o código.',
       'sucesso'
     );
+
 
     iniciarLoopLeitura();
 
   } catch (erro) {
 
     console.error(
-      'Erro ao abrir leitor:',
       erro
     );
 
@@ -581,8 +938,6 @@ async function iniciarLeitor() {
 
     mensagem(
       'ERRO: ' +
-      (erro?.name || 'SEM_NOME') +
-      ' | ' +
       (
         erro?.message ||
         String(erro)
@@ -594,17 +949,20 @@ async function iniciarLeitor() {
 
 
 // ==========================================
-// LOOP DE LEITURA
+// LOOP
 // ==========================================
 
 function iniciarLoopLeitura() {
 
-  if (loopLeitura) {
+  if (
+    loopLeitura
+  ) {
 
     clearInterval(
       loopLeitura
     );
   }
+
 
   loopLeitura =
     setInterval(
@@ -615,7 +973,7 @@ function iniciarLoopLeitura() {
 
 
 // ==========================================
-// TENTAR LER QUADRO
+// LER QUADRO
 // ==========================================
 
 async function tentarLerQuadro() {
@@ -624,13 +982,16 @@ async function tentarLerQuadro() {
     !cameraAtiva ||
     lendoQuadro
   ) {
+
     return;
   }
+
 
   const video =
     document.getElementById(
       'video'
     );
+
 
   if (
     !video ||
@@ -638,11 +999,14 @@ async function tentarLerQuadro() {
     !video.videoWidth ||
     !video.videoHeight
   ) {
+
     return;
   }
 
+
   lendoQuadro =
     true;
+
 
   try {
 
@@ -650,6 +1014,7 @@ async function tentarLerQuadro() {
       document.getElementById(
         'canvasLeitura'
       );
+
 
     const ctx =
       canvas.getContext(
@@ -659,34 +1024,48 @@ async function tentarLerQuadro() {
         }
       );
 
+
     const vw =
       video.videoWidth;
 
+
     const vh =
       video.videoHeight;
+
 
     const cropW =
       Math.floor(
         vw * 0.96
       );
 
+
     const cropH =
       Math.floor(
         vh * 0.50
       );
 
+
     const sx =
       Math.floor(
-        (vw - cropW) / 2
+        (
+          vw -
+          cropW
+        ) / 2
       );
+
 
     const sy =
       Math.floor(
-        (vh - cropH) / 2
+        (
+          vh -
+          cropH
+        ) / 2
       );
+
 
     const destinoW =
       1400;
+
 
     const destinoH =
       Math.max(
@@ -700,11 +1079,14 @@ async function tentarLerQuadro() {
         )
       );
 
+
     canvas.width =
       destinoW;
 
+
     canvas.height =
       destinoH;
+
 
     ctx.drawImage(
       video,
@@ -720,6 +1102,7 @@ async function tentarLerQuadro() {
       destinoH
     );
 
+
     const imagem =
       ctx.getImageData(
         0,
@@ -727,6 +1110,7 @@ async function tentarLerQuadro() {
         destinoW,
         destinoH
       );
+
 
     const resultados =
       await ZXingWASM.readBarcodes(
@@ -754,15 +1138,20 @@ async function tentarLerQuadro() {
         }
       );
 
+
     if (
-      Array.isArray(resultados) &&
+      Array.isArray(
+        resultados
+      ) &&
       resultados.length > 0
     ) {
 
       const codigo =
         String(
-          resultados[0]?.text || ''
+          resultados[0]?.text ||
+          ''
         ).trim();
+
 
       if (
         codigo &&
@@ -772,12 +1161,14 @@ async function tentarLerQuadro() {
         ultimoCodigo =
           codigo;
 
+
         document
           .getElementById(
             'codigoBarras'
           )
           .value =
             codigo;
+
 
         document
           .getElementById(
@@ -786,6 +1177,7 @@ async function tentarLerQuadro() {
           .textContent =
             codigo;
 
+
         document
           .getElementById(
             'codigoLido'
@@ -793,25 +1185,31 @@ async function tentarLerQuadro() {
           .style.display =
             'block';
 
+
+        salvarRascunho();
+
+
         mensagem(
           'Código lido com sucesso.',
           'sucesso'
         );
 
-        if (
-          navigator.vibrate
-        ) {
-
-          try {
-
-            navigator.vibrate(
-              120
-            );
-
-          } catch (erro) {}
-        }
 
         await pararLeitor();
+
+
+        setTimeout(
+          () => {
+
+            document
+              .getElementById(
+                'produto'
+              )
+              .focus();
+
+          },
+          250
+        );
       }
     }
 
@@ -836,7 +1234,9 @@ async function tentarLerQuadro() {
 
 async function pararLeitor() {
 
-  if (loopLeitura) {
+  if (
+    loopLeitura
+  ) {
 
     clearInterval(
       loopLeitura
@@ -846,11 +1246,14 @@ async function pararLeitor() {
       null;
   }
 
+
   cameraAtiva =
     false;
 
+
   lendoQuadro =
     false;
+
 
   if (
     streamCamera
@@ -861,19 +1264,23 @@ async function pararLeitor() {
       streamCamera
         .getTracks()
         .forEach(
-          track => track.stop()
+          track =>
+            track.stop()
         );
 
     } catch (erro) {}
+
 
     streamCamera =
       null;
   }
 
+
   const video =
     document.getElementById(
       'video'
     );
+
 
   if (video) {
 
@@ -883,9 +1290,11 @@ async function pararLeitor() {
 
     } catch (erro) {}
 
+
     video.srcObject =
       null;
   }
+
 
   document
     .getElementById(
@@ -897,14 +1306,267 @@ async function pararLeitor() {
 }
 
 
+// ==========================================
+// FOTO PRODUTO
+// ==========================================
+
+function mostrarFoto(
+  input
+) {
+
+  salvarRascunho();
+
+
+  if (
+    !input.files ||
+    !input.files[0]
+  ) {
+
+    return;
+  }
+
+
+  const url =
+    URL.createObjectURL(
+      input.files[0]
+    );
+
+
+  document
+    .getElementById(
+      'imagemPreview'
+    )
+    .src =
+      url;
+
+
+  document
+    .getElementById(
+      'fotoPreview'
+    )
+    .style.display =
+      'block';
+}
+
+
+// ==========================================
+// VALIDAR PRODUTO
+// ==========================================
+
+function validarProduto() {
+
+  salvarRascunho();
+
+
+  const codigo =
+    document
+      .getElementById(
+        'codigoBarras'
+      )
+      .value
+      .trim();
+
+
+  const produto =
+    document
+      .getElementById(
+        'produto'
+      )
+      .value
+      .trim();
+
+
+  const preco =
+    Number(
+      document
+        .getElementById(
+          'preco'
+        )
+        .value ||
+        0
+    );
+
+
+  if (
+    !codigo
+  ) {
+
+    mensagem(
+      'Leia ou informe o código de barras.',
+      'erro'
+    );
+
+    return;
+  }
+
+
+  if (
+    !produto
+  ) {
+
+    mensagem(
+      'Digite o nome do produto.',
+      'erro'
+    );
+
+    return;
+  }
+
+
+  if (
+    !Number.isFinite(
+      preco
+    ) ||
+    preco <= 0
+  ) {
+
+    mensagem(
+      'Informe o preço de venda.',
+      'erro'
+    );
+
+    return;
+  }
+
+
+  mensagem(
+    'Dados conferidos. Cadastro pronto para ser conectado ao n8n.',
+    'sucesso'
+  );
+}
+
+
+// ==========================================
+// PRÓXIMO PRODUTO
+// ==========================================
+
+async function proximoProduto() {
+
+  await pararLeitor();
+
+
+  ultimoCodigo =
+    '';
+
+
+  CAMPOS.forEach(
+    id => {
+
+      const campo =
+        document.getElementById(
+          id
+        );
+
+
+      if (campo) {
+
+        campo.value =
+          id === 'estoque'
+            ? '1'
+            : '';
+      }
+
+    }
+  );
+
+
+  document
+    .getElementById(
+      'foto'
+    )
+    .value =
+      '';
+
+
+  document
+    .getElementById(
+      'fotoPreview'
+    )
+    .style.display =
+      'none';
+
+
+  document
+    .getElementById(
+      'codigoLido'
+    )
+    .style.display =
+      'none';
+
+
+  localStorage.removeItem(
+    CHAVE_RASCUNHO
+  );
+
+
+  mensagem(
+    'Pronto para o próximo produto.'
+  );
+}
+
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+
+    restaurarRascunho();
+
+
+    CAMPOS.forEach(
+      id => {
+
+        const campo =
+          document.getElementById(
+            id
+          );
+
+
+        if (!campo) {
+          return;
+        }
+
+
+        campo.addEventListener(
+          'input',
+          salvarRascunho
+        );
+
+
+        campo.addEventListener(
+          'change',
+          salvarRascunho
+        );
+
+      }
+    );
+
+  }
+);
+
+
 window.addEventListener(
   'pagehide',
-  pararLeitor
+  function() {
+
+    salvarRascunho();
+    pararLeitor();
+
+  }
 );
+
 
 window.addEventListener(
   'beforeunload',
-  pararLeitor
+  function() {
+
+    salvarRascunho();
+    pararLeitor();
+
+  }
 );
 
 </script>
