@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Cadastro de Produto - SEV7N CELL</title>
 
   <script src="https://cdn.jsdelivr.net/npm/zxing-wasm@latest/dist/iife/reader/index.js"></script>
@@ -150,6 +151,11 @@
       margin-top: 5px;
     }
 
+    .btn-salvar:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
     .btn-proximo {
       width: 100%;
       background: #e5e7eb;
@@ -212,16 +218,19 @@
       margin-bottom: 7px;
     }
 
-    input {
+    input,
+    textarea {
       width: 100%;
       padding: 13px;
       font-size: 16px;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
       outline: none;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    input:focus {
+    input:focus,
+    textarea:focus {
       border-color: #1d5da8;
     }
 
@@ -248,8 +257,20 @@
       border: 1px solid #d1d5db;
     }
 
-    @media (max-width: 600px) {
+    .foto-ok {
+      margin-top: 8px;
+      color: #15803d;
+      font-weight: bold;
+      display: none;
+    }
 
+    .foto-ajuda {
+      margin-top: 7px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    @media (max-width: 600px) {
       .grade {
         grid-template-columns: 1fr;
       }
@@ -281,7 +302,10 @@
       📷 Leitor ao vivo
     </h2>
 
-    <div id="leitor" class="leitor">
+    <div
+      id="leitor"
+      class="leitor"
+    >
 
       <video
         id="video"
@@ -291,6 +315,7 @@
       ></video>
 
       <div class="mira"></div>
+
       <div class="linha"></div>
 
       <div class="dica">
@@ -349,7 +374,6 @@
       Dados do produto
     </h2>
 
-
     <div class="campo">
 
       <label for="codigoBarras">
@@ -388,7 +412,7 @@
       <div class="campo">
 
         <label for="categoria">
-          Categoria
+          Categoria *
         </label>
 
         <input
@@ -447,6 +471,36 @@
 
       <div class="campo">
 
+        <label for="armazenamento">
+          Armazenamento
+        </label>
+
+        <input
+          id="armazenamento"
+          type="text"
+          placeholder="Ex.: 128GB"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="localizacao">
+          Localização
+        </label>
+
+        <input
+          id="localizacao"
+          type="text"
+          placeholder="Ex.: PRATELEIRA A"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
         <label for="preco">
           Preço de venda *
         </label>
@@ -485,17 +539,35 @@
 
     <div class="campo">
 
+      <label for="observacoes">
+        Observações
+      </label>
+
+      <textarea
+        id="observacoes"
+        rows="3"
+        placeholder="Opcional"
+      ></textarea>
+
+    </div>
+
+
+    <div class="campo">
+
       <label for="foto">
-        Foto do produto
+        Foto do produto *
       </label>
 
       <input
         id="foto"
         type="file"
         accept="image/*"
-        capture="environment"
-        onchange="mostrarFoto(this)"
+        onchange="prepararFoto(this)"
       >
+
+      <div class="foto-ajuda">
+        No celular você poderá tirar uma foto ou escolher uma imagem da galeria.
+      </div>
 
       <div
         id="fotoPreview"
@@ -509,13 +581,21 @@
 
       </div>
 
+      <div
+        id="fotoOk"
+        class="foto-ok"
+      >
+        ✓ Foto pronta para salvar
+      </div>
+
     </div>
 
 
     <button
+      id="btnSalvar"
       type="button"
       class="btn-salvar"
-      onclick="validarProduto()"
+      onclick="salvarProduto()"
     >
       SALVAR PRODUTO
     </button>
@@ -536,8 +616,13 @@
 
 <script>
 
+const URL_SALVAR =
+  'https://n8n.artpecascelular.com/webhook/catalogo-salvar-produto';
+
+
 const CHAVE_RASCUNHO =
   'sev7n_cadastro_produto_camera';
+
 
 const CAMPOS = [
   'codigoBarras',
@@ -546,15 +631,23 @@ const CAMPOS = [
   'marca',
   'modelo',
   'cor',
+  'armazenamento',
+  'localizacao',
   'preco',
-  'estoque'
+  'estoque',
+  'observacoes'
 ];
+
 
 let streamCamera = null;
 let cameraAtiva = false;
 let lendoQuadro = false;
 let loopLeitura = null;
 let ultimoCodigo = '';
+
+let fotoBase64 = '';
+let fotoExtensao = '';
+let fotoPreparando = false;
 
 
 // ==========================================
@@ -593,7 +686,7 @@ function statusCamera(
 
 
 // ==========================================
-// SALVAR CAMPOS LOCALMENTE
+// RASCUNHO
 // ==========================================
 
 function salvarRascunho() {
@@ -606,27 +699,32 @@ function salvarRascunho() {
       id => {
 
         const campo =
-          document.getElementById(id);
+          document.getElementById(
+            id
+          );
 
         if (campo) {
-
           dados[id] =
             campo.value || '';
         }
+
       }
     );
 
     localStorage.setItem(
       CHAVE_RASCUNHO,
-      JSON.stringify(dados)
+      JSON.stringify(
+        dados
+      )
     );
 
   } catch (erro) {
 
     console.log(
-      'Erro ao salvar rascunho:',
+      'Erro rascunho:',
       erro
     );
+
   }
 }
 
@@ -645,31 +743,36 @@ function restaurarRascunho() {
     }
 
     const dados =
-      JSON.parse(texto);
+      JSON.parse(
+        texto
+      );
 
     CAMPOS.forEach(
       id => {
 
         const campo =
-          document.getElementById(id);
+          document.getElementById(
+            id
+          );
 
         if (
           campo &&
           dados[id] !== undefined
         ) {
-
           campo.value =
             dados[id];
         }
+
       }
     );
 
   } catch (erro) {
 
     console.log(
-      'Erro ao restaurar:',
+      'Erro restaurar:',
       erro
     );
+
   }
 }
 
@@ -790,7 +893,9 @@ async function ajustarCamera(
 
       statusCamera(
         'Ajustes ativos: ' +
-        aplicados.join(' • ')
+        aplicados.join(
+          ' • '
+        )
       );
 
     } else {
@@ -934,7 +1039,9 @@ async function iniciarLeitor() {
       erro
     );
 
+
     await pararLeitor();
+
 
     mensagem(
       'ERRO: ' +
@@ -982,7 +1089,6 @@ async function tentarLerQuadro() {
     !cameraAtiva ||
     lendoQuadro
   ) {
-
     return;
   }
 
@@ -999,7 +1105,6 @@ async function tentarLerQuadro() {
     !video.videoWidth ||
     !video.videoHeight
   ) {
-
     return;
   }
 
@@ -1027,7 +1132,6 @@ async function tentarLerQuadro() {
 
     const vw =
       video.videoWidth;
-
 
     const vh =
       video.videoHeight;
@@ -1089,32 +1193,41 @@ async function tentarLerQuadro() {
 
 
     ctx.drawImage(
+
       video,
 
       sx,
       sy,
+
       cropW,
       cropH,
 
       0,
       0,
+
       destinoW,
       destinoH
+
     );
 
 
     const imagem =
       ctx.getImageData(
+
         0,
         0,
+
         destinoW,
         destinoH
+
       );
 
 
     const resultados =
       await ZXingWASM.readBarcodes(
+
         imagem,
+
         {
 
           tryHarder: true,
@@ -1126,16 +1239,25 @@ async function tentarLerQuadro() {
           maxNumberOfSymbols: 1,
 
           formats: [
+
             'EAN13',
+
             'EAN8',
+
             'UPCA',
+
             'UPCE',
+
             'Code128',
+
             'Code39',
+
             'ITF'
+
           ]
 
         }
+
       );
 
 
@@ -1285,9 +1407,7 @@ async function pararLeitor() {
   if (video) {
 
     try {
-
       video.pause();
-
     } catch (erro) {}
 
 
@@ -1307,53 +1427,280 @@ async function pararLeitor() {
 
 
 // ==========================================
-// FOTO PRODUTO
+// PREPARAR FOTO
 // ==========================================
 
-function mostrarFoto(
+async function prepararFoto(
   input
 ) {
-
-  salvarRascunho();
-
 
   if (
     !input.files ||
     !input.files[0]
   ) {
-
     return;
   }
 
 
-  const url =
-    URL.createObjectURL(
-      input.files[0]
+  fotoPreparando =
+    true;
+
+
+  fotoBase64 =
+    '';
+
+
+  fotoExtensao =
+    '';
+
+
+  document
+    .getElementById(
+      'fotoOk'
+    )
+    .style.display =
+      'none';
+
+
+  mensagem(
+    'Preparando foto...'
+  );
+
+
+  try {
+
+    const arquivo =
+      input.files[0];
+
+
+    const imagem =
+      await carregarImagem(
+        arquivo
+      );
+
+
+    const maximo =
+      1600;
+
+
+    let largura =
+      imagem.width;
+
+
+    let altura =
+      imagem.height;
+
+
+    if (
+      largura > maximo ||
+      altura > maximo
+    ) {
+
+      const proporcao =
+        Math.min(
+
+          maximo / largura,
+
+          maximo / altura
+
+        );
+
+
+      largura =
+        Math.round(
+          largura *
+          proporcao
+        );
+
+
+      altura =
+        Math.round(
+          altura *
+          proporcao
+        );
+    }
+
+
+    const canvas =
+      document.createElement(
+        'canvas'
+      );
+
+
+    canvas.width =
+      largura;
+
+
+    canvas.height =
+      altura;
+
+
+    const ctx =
+      canvas.getContext(
+        '2d'
+      );
+
+
+    ctx.drawImage(
+
+      imagem,
+
+      0,
+      0,
+
+      largura,
+      altura
+
     );
 
 
-  document
-    .getElementById(
-      'imagemPreview'
-    )
-    .src =
-      url;
+    const dataUrl =
+      canvas.toDataURL(
+        'image/jpeg',
+        0.82
+      );
 
 
-  document
-    .getElementById(
-      'fotoPreview'
-    )
-    .style.display =
-      'block';
+    fotoBase64 =
+      dataUrl.split(',')[1];
+
+
+    fotoExtensao =
+      'jpg';
+
+
+    document
+      .getElementById(
+        'imagemPreview'
+      )
+      .src =
+        dataUrl;
+
+
+    document
+      .getElementById(
+        'fotoPreview'
+      )
+      .style.display =
+        'block';
+
+
+    document
+      .getElementById(
+        'fotoOk'
+      )
+      .style.display =
+        'block';
+
+
+    mensagem(
+      'Foto pronta.',
+      'sucesso'
+    );
+
+  } catch (erro) {
+
+    console.error(
+      erro
+    );
+
+
+    fotoBase64 =
+      '';
+
+
+    fotoExtensao =
+      '';
+
+
+    mensagem(
+      'Não foi possível preparar a foto.',
+      'erro'
+    );
+
+  } finally {
+
+    fotoPreparando =
+      false;
+  }
 }
 
 
 // ==========================================
-// VALIDAR PRODUTO
+// CARREGAR IMAGEM
 // ==========================================
 
-function validarProduto() {
+function carregarImagem(
+  arquivo
+) {
+
+  return new Promise(
+    (
+      resolve,
+      reject
+    ) => {
+
+      const leitor =
+        new FileReader();
+
+
+      leitor.onload =
+        function() {
+
+          const img =
+            new Image();
+
+
+          img.onload =
+            function() {
+
+              resolve(
+                img
+              );
+            };
+
+
+          img.onerror =
+            function() {
+
+              reject(
+                new Error(
+                  'Erro ao abrir imagem'
+                )
+              );
+            };
+
+
+          img.src =
+            leitor.result;
+        };
+
+
+      leitor.onerror =
+        function() {
+
+          reject(
+            new Error(
+              'Erro ao ler arquivo'
+            )
+          );
+        };
+
+
+      leitor.readAsDataURL(
+        arquivo
+      );
+
+    }
+  );
+}
+
+
+// ==========================================
+// SALVAR PRODUTO
+// ==========================================
+
+async function salvarProduto() {
 
   salvarRascunho();
 
@@ -1371,6 +1718,15 @@ function validarProduto() {
     document
       .getElementById(
         'produto'
+      )
+      .value
+      .trim();
+
+
+  const categoria =
+    document
+      .getElementById(
+        'categoria'
       )
       .value
       .trim();
@@ -1414,6 +1770,19 @@ function validarProduto() {
 
 
   if (
+    !categoria
+  ) {
+
+    mensagem(
+      'Informe a categoria do produto.',
+      'erro'
+    );
+
+    return;
+  }
+
+
+  if (
     !Number.isFinite(
       preco
     ) ||
@@ -1429,10 +1798,237 @@ function validarProduto() {
   }
 
 
+  if (
+    fotoPreparando
+  ) {
+
+    mensagem(
+      'Aguarde a foto terminar de processar.',
+      'aviso'
+    );
+
+    return;
+  }
+
+
+  if (
+    !fotoBase64
+  ) {
+
+    mensagem(
+      'Selecione ou tire uma foto do produto antes de salvar.',
+      'erro'
+    );
+
+    return;
+  }
+
+
+  const botao =
+    document.getElementById(
+      'btnSalvar'
+    );
+
+
+  botao.disabled =
+    true;
+
+
+  botao.textContent =
+    'SALVANDO...';
+
+
   mensagem(
-    'Dados conferidos. Cadastro pronto para ser conectado ao n8n.',
-    'sucesso'
+    'Enviando produto para o catálogo...'
   );
+
+
+  try {
+
+    const dados =
+      new FormData();
+
+
+    dados.append(
+      'produto',
+      produto
+    );
+
+
+    dados.append(
+      'categoria',
+      categoria
+    );
+
+
+    dados.append(
+      'marca',
+      document
+        .getElementById(
+          'marca'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'modelo',
+      document
+        .getElementById(
+          'modelo'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'cor',
+      document
+        .getElementById(
+          'cor'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'armazenamento',
+      document
+        .getElementById(
+          'armazenamento'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'descricao',
+      ''
+    );
+
+
+    dados.append(
+      'preco',
+      String(
+        preco
+      )
+    );
+
+
+    dados.append(
+      'estoque',
+      document
+        .getElementById(
+          'estoque'
+        )
+        .value ||
+        '1'
+    );
+
+
+    dados.append(
+      'codigo_barras',
+      codigo
+    );
+
+
+    dados.append(
+      'localizacao',
+      document
+        .getElementById(
+          'localizacao'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'ativo',
+      'true'
+    );
+
+
+    dados.append(
+      'destaque',
+      'false'
+    );
+
+
+    dados.append(
+      'observacoes',
+      document
+        .getElementById(
+          'observacoes'
+        )
+        .value
+        .trim()
+    );
+
+
+    dados.append(
+      'foto_base64',
+      fotoBase64
+    );
+
+
+    dados.append(
+      'foto_extensao',
+      fotoExtensao
+    );
+
+
+    await fetch(
+      URL_SALVAR,
+      {
+
+        method: 'POST',
+
+        mode: 'no-cors',
+
+        body: dados,
+
+        credentials: 'omit'
+
+      }
+    );
+
+
+    mensagem(
+      'Produto enviado para o catálogo. Confira no n8n antes de cadastrar o próximo.',
+      'sucesso'
+    );
+
+
+    botao.textContent =
+      'PRODUTO ENVIADO ✓';
+
+  } catch (erro) {
+
+    console.error(
+      'Erro ao salvar:',
+      erro
+    );
+
+
+    mensagem(
+      'Não foi possível enviar o produto. Tente novamente.',
+      'erro'
+    );
+
+
+    botao.textContent =
+      'SALVAR PRODUTO';
+
+  } finally {
+
+    botao.disabled =
+      false;
+  }
 }
 
 
@@ -1470,6 +2066,14 @@ async function proximoProduto() {
   );
 
 
+  fotoBase64 =
+    '';
+
+
+  fotoExtensao =
+    '';
+
+
   document
     .getElementById(
       'foto'
@@ -1488,10 +2092,26 @@ async function proximoProduto() {
 
   document
     .getElementById(
+      'fotoOk'
+    )
+    .style.display =
+      'none';
+
+
+  document
+    .getElementById(
       'codigoLido'
     )
     .style.display =
       'none';
+
+
+  document
+    .getElementById(
+      'btnSalvar'
+    )
+    .textContent =
+      'SALVAR PRODUTO';
 
 
   localStorage.removeItem(
@@ -1500,8 +2120,14 @@ async function proximoProduto() {
 
 
   mensagem(
-    'Pronto para o próximo produto.'
+    'Pronto para cadastrar o próximo produto.'
   );
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 
@@ -1553,6 +2179,7 @@ window.addEventListener(
   function() {
 
     salvarRascunho();
+
     pararLeitor();
 
   }
@@ -1564,6 +2191,7 @@ window.addEventListener(
   function() {
 
     salvarRascunho();
+
     pararLeitor();
 
   }
