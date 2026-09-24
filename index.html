@@ -2,17 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>SEV7N CELL</title>
 
-  <meta name="theme-color" content="#07111f">
+  <meta
+    name="theme-color"
+    content="#07111f"
+  >
 
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" href="icone-sev7n.png">
-  <link rel="apple-touch-icon" href="icone-sev7n.png">
+  <link
+    rel="manifest"
+    href="manifest.webmanifest"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="icone-sev7n.png"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="icone-sev7n.png"
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -26,203 +46,481 @@
 
     body {
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       background:
-        radial-gradient(circle at top, #102b49 0%, #07111f 45%, #030812 100%);
+        radial-gradient(
+          circle at top,
+          #102b49 0%,
+          #07111f 45%,
+          #030812 100%
+        );
+
       color: white;
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       padding: 25px 15px;
     }
+
 
     .app {
       width: 100%;
       max-width: 520px;
     }
 
+
+    /* ====================================== */
+    /* LOGO */
+    /* ====================================== */
+
     .logo-box {
+
       border: 2px solid #1f6fff;
+
       border-radius: 24px;
+
       padding: 28px 20px;
+
       text-align: center;
+
       margin-bottom: 35px;
-      background: rgba(4, 15, 31, 0.80);
-      box-shadow: 0 0 25px rgba(31, 111, 255, 0.18);
+
+      background:
+        rgba(
+          4,
+          15,
+          31,
+          0.80
+        );
+
+      box-shadow:
+        0 0 25px
+        rgba(
+          31,
+          111,
+          255,
+          0.18
+        );
     }
 
+
     .logo-img {
+
       width: 120px;
+
       height: 120px;
+
       object-fit: cover;
+
       border-radius: 24px;
+
       margin-bottom: 15px;
     }
 
+
     .logo-box h1 {
+
       font-size: 38px;
+
       letter-spacing: 2px;
+
       font-weight: 800;
     }
 
+
     .logo-box h1 span {
+
       color: #1687ff;
     }
 
+
     .logo-box p {
+
       margin-top: 8px;
+
       color: #a9b8ca;
+
       font-size: 14px;
+
       letter-spacing: 3px;
     }
 
+
     .titulo {
+
       text-align: center;
+
       font-size: 18px;
+
       margin-bottom: 24px;
+
       color: #dce7f5;
+
       font-weight: 700;
     }
 
+
+    /* ====================================== */
+    /* BOTÕES */
+    /* ====================================== */
+
     .botao {
+
       display: flex;
+
       align-items: center;
+
       gap: 18px;
+
       width: 100%;
+
       border: none;
+
       text-decoration: none;
+
       color: white;
+
       padding: 22px 20px;
+
       border-radius: 18px;
+
       margin-bottom: 18px;
+
       font-size: 20px;
+
       font-weight: 700;
+
       transition: 0.2s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+      box-shadow:
+        0 8px 20px
+        rgba(
+          0,
+          0,
+          0,
+          0.25
+        );
+
       cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       text-align: left;
     }
 
+
     .botao:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
+
+      transform:
+        translateY(-2px);
+
+      filter:
+        brightness(1.08);
     }
+
 
     .botao:active {
-      transform: scale(0.98);
+
+      transform:
+        scale(0.98);
     }
 
+
     .icone {
+
       font-size: 34px;
+
       width: 45px;
+
       text-align: center;
+
       flex-shrink: 0;
     }
 
+
     .texto {
+
       flex: 1;
     }
 
+
     .texto small {
+
       display: block;
+
       font-size: 12px;
+
       font-weight: normal;
+
       margin-top: 5px;
+
       opacity: 0.85;
     }
 
+
     .seta {
+
       font-size: 22px;
-      transition: transform 0.25s ease;
+
+      transition:
+        transform 0.25s ease;
     }
+
+
+    /* ====================================== */
+    /* CORES PRINCIPAIS */
+    /* ====================================== */
 
     .servico {
-      background: linear-gradient(135deg, #0868ff, #0047b8);
+
+      background:
+        linear-gradient(
+          135deg,
+          #0868ff,
+          #0047b8
+        );
     }
+
 
     .venda {
-      background: linear-gradient(135deg, #12a856, #08763b);
+
+      background:
+        linear-gradient(
+          135deg,
+          #12a856,
+          #08763b
+        );
     }
+
 
     .cpf {
-      background: linear-gradient(135deg, #ff8a00, #d95b00);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff8a00,
+          #d95b00
+        );
     }
+
 
     .produtos {
-      background: linear-gradient(135deg, #00a7a7, #006d73);
+
+      background:
+        linear-gradient(
+          135deg,
+          #00a7a7,
+          #006d73
+        );
     }
+
 
     .administracao {
-      background: linear-gradient(135deg, #45556b, #253244);
+
+      background:
+        linear-gradient(
+          135deg,
+          #45556b,
+          #253244
+        );
     }
+
+
+    /* ====================================== */
+    /* SUBMENU */
+    /* ====================================== */
 
     .submenu {
+
       display: none;
+
       margin-top: -8px;
+
       margin-bottom: 20px;
+
       padding: 16px;
+
       border-radius: 18px;
-      background: rgba(4, 15, 31, 0.92);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+
+      background:
+        rgba(
+          4,
+          15,
+          31,
+          0.92
+        );
+
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.10
+        );
+
+      box-shadow:
+        0 8px 20px
+        rgba(
+          0,
+          0,
+          0,
+          0.25
+        );
     }
 
+
     .submenu.aberto {
+
       display: block;
     }
 
+
     .submenu .botao {
+
       margin-bottom: 12px;
+
       padding: 18px 16px;
+
       font-size: 17px;
+
       border-radius: 14px;
     }
 
+
     .submenu .botao:last-child {
+
       margin-bottom: 0;
     }
 
+
     .nova-venda {
-      background: linear-gradient(135deg, #18b563, #0a7f40);
+
+      background:
+        linear-gradient(
+          135deg,
+          #18b563,
+          #0a7f40
+        );
     }
+
 
     .historico {
-      background: linear-gradient(135deg, #7652ff, #4a2db3);
+
+      background:
+        linear-gradient(
+          135deg,
+          #7652ff,
+          #4a2db3
+        );
     }
+
 
     .consultar-produtos {
-      background: linear-gradient(135deg, #1687ff, #0752b8);
+
+      background:
+        linear-gradient(
+          135deg,
+          #1687ff,
+          #0752b8
+        );
     }
 
+
+    .admin-catalogo {
+
+      background:
+        linear-gradient(
+          135deg,
+          #64748b,
+          #334155
+        );
+    }
+
+
+    .camera-produto {
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #0f3f99
+        );
+    }
+
+
+    /* ====================================== */
+    /* RODAPÉ */
+    /* ====================================== */
+
     .rodape {
+
       text-align: center;
+
       margin-top: 28px;
+
       color: #65758a;
+
       font-size: 12px;
     }
 
-    @media (max-width: 500px) {
+
+    /* ====================================== */
+    /* CELULAR */
+    /* ====================================== */
+
+    @media (
+      max-width: 500px
+    ) {
+
       .logo-box h1 {
+
         font-size: 32px;
       }
 
+
       .botao {
+
         padding: 19px 16px;
+
         font-size: 18px;
       }
 
+
       .logo-img {
+
         width: 100px;
+
         height: 100px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
   <main class="app">
+
+
+    <!-- ===================================== -->
+    <!-- LOGO -->
+    <!-- ===================================== -->
 
     <div class="logo-box">
 
@@ -236,202 +534,531 @@
         SEV<span>7</span>N CELL
       </h1>
 
-      <p>SISTEMA DA LOJA</p>
+      <p>
+        SISTEMA DA LOJA
+      </p>
 
     </div>
+
 
     <div class="titulo">
+
       SELECIONE O QUE DESEJA FAZER
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- SERVIÇO -->
+    <!-- ===================================== -->
+
     <a
       class="botao servico"
+
       href="https://n8n.artpecascelular.com/form/4aea4778-ea9a-4cc5-befb-0dcccc34a286"
     >
-      <div class="icone">🔧</div>
+
+      <div class="icone">
+        🔧
+      </div>
 
       <div class="texto">
+
         SERVIÇO
-        <small>Abrir ordem de serviço</small>
+
+        <small>
+          Abrir ordem de serviço
+        </small>
+
       </div>
+
     </a>
 
 
+
+    <!-- ===================================== -->
     <!-- VENDA DE APARELHO -->
+    <!-- ===================================== -->
+
     <button
       class="botao venda"
       type="button"
       onclick="abrirMenuVenda()"
     >
-      <div class="icone">📱</div>
 
-      <div class="texto">
-        VENDA DE APARELHO
-        <small>Nova venda ou histórico</small>
+      <div class="icone">
+        📱
       </div>
 
-      <div class="seta" id="setaVenda">▼</div>
+      <div class="texto">
+
+        VENDA DE APARELHO
+
+        <small>
+          Nova venda ou histórico
+        </small>
+
+      </div>
+
+      <div
+        class="seta"
+        id="setaVenda"
+      >
+        ▼
+      </div>
+
     </button>
 
 
-    <!-- SUBMENU VENDA DE APARELHO -->
-    <div class="submenu" id="submenuVenda">
+    <div
+      class="submenu"
+      id="submenuVenda"
+    >
+
 
       <a
         class="botao nova-venda"
+
         href="https://n8n.artpecascelular.com/form/4f05cccd-3a9c-4014-91de-e8d0b2cd23b5"
       >
-        <div class="icone">➕</div>
+
+        <div class="icone">
+          ➕
+        </div>
 
         <div class="texto">
+
           NOVA VENDA
-          <small>Registrar venda de aparelho</small>
+
+          <small>
+            Registrar venda de aparelho
+          </small>
+
         </div>
+
       </a>
+
+
 
       <a
         class="botao historico"
+
         href="https://n8n.artpecascelular.com/webhook/historico-vendas"
       >
-        <div class="icone">📋</div>
+
+        <div class="icone">
+          📋
+        </div>
 
         <div class="texto">
+
           HISTÓRICO DE VENDAS
-          <small>Consultar vendas realizadas</small>
+
+          <small>
+            Consultar vendas realizadas
+          </small>
+
         </div>
+
       </a>
+
 
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- CPF NA NOTA -->
+    <!-- ===================================== -->
+
     <a
       class="botao cpf"
+
       href="https://n8n.artpecascelular.com/form/83cb748e-1650-4726-8a49-24e29277da1a"
     >
-      <div class="icone">🧾</div>
+
+      <div class="icone">
+        🧾
+      </div>
 
       <div class="texto">
+
         CPF NA NOTA
-        <small>Emitir NFC-e com CPF</small>
+
+        <small>
+          Emitir NFC-e com CPF
+        </small>
+
       </div>
+
     </a>
 
 
+
+    <!-- ===================================== -->
     <!-- VENDA DE PRODUTOS -->
+    <!-- ===================================== -->
+
     <button
       class="botao produtos"
       type="button"
       onclick="abrirMenuProdutos()"
     >
-      <div class="icone">🛒</div>
 
-      <div class="texto">
-        VENDA DE PRODUTOS
-        <small>Venda, consulta ou histórico</small>
+      <div class="icone">
+        🛒
       </div>
 
-      <div class="seta" id="setaProdutos">▼</div>
+      <div class="texto">
+
+        VENDA DE PRODUTOS
+
+        <small>
+          Venda, consulta ou histórico
+        </small>
+
+      </div>
+
+      <div
+        class="seta"
+        id="setaProdutos"
+      >
+        ▼
+      </div>
+
     </button>
 
 
-    <!-- SUBMENU VENDA DE PRODUTOS -->
-    <div class="submenu" id="submenuProdutos">
+
+    <div
+      class="submenu"
+      id="submenuProdutos"
+    >
+
+
+      <!-- NOVA VENDA PRODUTOS -->
 
       <a
         class="botao nova-venda"
+
         href="https://n8n.artpecascelular.com/webhook/pdv-produtos"
       >
-        <div class="icone">➕</div>
+
+        <div class="icone">
+          ➕
+        </div>
 
         <div class="texto">
+
           NOVA VENDA
-          <small>Registrar venda de produtos</small>
+
+          <small>
+            Abrir PDV de produtos
+          </small>
+
         </div>
+
       </a>
 
+
+
+      <!-- CONSULTAR PRODUTOS -->
 
       <a
         class="botao consultar-produtos"
+
         href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
       >
-        <div class="icone">📦</div>
+
+        <div class="icone">
+          📦
+        </div>
 
         <div class="texto">
+
           CONSULTAR PRODUTOS
-          <small>Consultar preços e disponibilidade</small>
+
+          <small>
+            Consultar preços e disponibilidade
+          </small>
+
         </div>
+
       </a>
 
+
+
+      <!-- HISTÓRICO -->
 
       <a
         class="botao historico"
+
         href="https://n8n.artpecascelular.com/webhook/historico-vendas-produtos"
       >
-        <div class="icone">📋</div>
+
+        <div class="icone">
+          📋
+        </div>
 
         <div class="texto">
+
           HISTÓRICO DE VENDAS
-          <small>Consultar vendas de produtos</small>
+
+          <small>
+            Consultar vendas de produtos
+          </small>
+
         </div>
+
       </a>
 
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- ADMINISTRAÇÃO -->
-    <a
+    <!-- ===================================== -->
+
+    <button
       class="botao administracao"
-      href="https://n8n.artpecascelular.com/webhook/catalogo-admin"
+      type="button"
+      onclick="abrirMenuAdministracao()"
     >
-      <div class="icone">⚙️</div>
+
+      <div class="icone">
+        ⚙️
+      </div>
 
       <div class="texto">
-        ADMINISTRAÇÃO
-        <small>Gerenciar catálogo de produtos</small>
-      </div>
-    </a>
 
+        ADMINISTRAÇÃO
+
+        <small>
+          Catálogo e cadastro de produtos
+        </small>
+
+      </div>
+
+      <div
+        class="seta"
+        id="setaAdministracao"
+      >
+        ▼
+      </div>
+
+    </button>
+
+
+
+    <div
+      class="submenu"
+      id="submenuAdministracao"
+    >
+
+
+      <!-- ADMINISTRAÇÃO DO CATÁLOGO -->
+
+      <a
+        class="botao admin-catalogo"
+
+        href="https://n8n.artpecascelular.com/webhook/catalogo-admin"
+      >
+
+        <div class="icone">
+          ⚙️
+        </div>
+
+        <div class="texto">
+
+          ADMINISTRAÇÃO DO CATÁLOGO
+
+          <small>
+            Gerenciar, editar e desativar produtos
+          </small>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- CADASTRO COM CÂMERA -->
+
+      <a
+        class="botao camera-produto"
+
+        href="cadastro-camera.html"
+      >
+
+        <div class="icone">
+          📷
+        </div>
+
+        <div class="texto">
+
+          CADASTRAR PRODUTO COM CÂMERA
+
+          <small>
+            Ler código de barras e cadastrar produto
+          </small>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- RODAPÉ -->
+    <!-- ===================================== -->
 
     <div class="rodape">
+
       SEV7N CELL • Sistema Interno
+
     </div>
+
 
   </main>
 
 
+
   <script>
 
+
+    // =======================================
+    // MENU VENDA DE APARELHO
+    // =======================================
+
     function abrirMenuVenda() {
-      const submenu = document.getElementById('submenuVenda');
-      const seta = document.getElementById('setaVenda');
 
-      submenu.classList.toggle('aberto');
+      const submenu =
+        document.getElementById(
+          'submenuVenda'
+        );
 
-      if (submenu.classList.contains('aberto')) {
-        seta.style.transform = 'rotate(180deg)';
+
+      const seta =
+        document.getElementById(
+          'setaVenda'
+        );
+
+
+      submenu.classList.toggle(
+        'aberto'
+      );
+
+
+      if (
+        submenu.classList.contains(
+          'aberto'
+        )
+      ) {
+
+        seta.style.transform =
+          'rotate(180deg)';
+
       } else {
-        seta.style.transform = 'rotate(0deg)';
+
+        seta.style.transform =
+          'rotate(0deg)';
       }
+
     }
 
+
+
+    // =======================================
+    // MENU VENDA DE PRODUTOS
+    // =======================================
 
     function abrirMenuProdutos() {
-      const submenu = document.getElementById('submenuProdutos');
-      const seta = document.getElementById('setaProdutos');
 
-      submenu.classList.toggle('aberto');
+      const submenu =
+        document.getElementById(
+          'submenuProdutos'
+        );
 
-      if (submenu.classList.contains('aberto')) {
-        seta.style.transform = 'rotate(180deg)';
+
+      const seta =
+        document.getElementById(
+          'setaProdutos'
+        );
+
+
+      submenu.classList.toggle(
+        'aberto'
+      );
+
+
+      if (
+        submenu.classList.contains(
+          'aberto'
+        )
+      ) {
+
+        seta.style.transform =
+          'rotate(180deg)';
+
       } else {
-        seta.style.transform = 'rotate(0deg)';
+
+        seta.style.transform =
+          'rotate(0deg)';
       }
+
     }
 
+
+
+    // =======================================
+    // MENU ADMINISTRAÇÃO
+    // =======================================
+
+    function abrirMenuAdministracao() {
+
+      const submenu =
+        document.getElementById(
+          'submenuAdministracao'
+        );
+
+
+      const seta =
+        document.getElementById(
+          'setaAdministracao'
+        );
+
+
+      submenu.classList.toggle(
+        'aberto'
+      );
+
+
+      if (
+        submenu.classList.contains(
+          'aberto'
+        )
+      ) {
+
+        seta.style.transform =
+          'rotate(180deg)';
+
+      } else {
+
+        seta.style.transform =
+          'rotate(0deg)';
+      }
+
+    }
+
+
   </script>
+
 
 </body>
 </html>
