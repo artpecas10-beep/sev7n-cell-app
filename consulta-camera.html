@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>SEV7N CELL - Consulta por Câmera</title>
+
+  <meta
+    name="theme-color"
+    content="#071b3a"
+  >
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/zxing-wasm@latest/dist/iife/reader/index.js"
+  ></script>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f5f8;
+      color: #172033;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #071b3a;
+      color: white;
+      padding: 22px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      opacity: .85;
+      font-size: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.10);
+    }
+
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .camera-box {
+      position: relative;
+      width: 100%;
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      display: none;
+      margin-bottom: 18px;
+    }
+
+    video {
+      width: 100%;
+      display: block;
+      background: #000;
+    }
+
+    canvas {
+      display: none;
+    }
+
+    .mira {
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      top: 30%;
+      height: 40%;
+      border: 3px solid #22c55e;
+      border-radius: 12px;
+      box-shadow: 0 0 0 9999px rgba(0,0,0,.35);
+      pointer-events: none;
+    }
+
+    .texto-mira {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      text-shadow: 0 2px 5px rgba(0,0,0,.8);
+      pointer-events: none;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 17px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .abrir {
+      background: #0b63ce;
+      color: white;
+    }
+
+    .parar {
+      background: #e5e7eb;
+      color: #222;
+    }
+
+    .voltar {
+      background: #071b3a;
+      color: white;
+      margin-top: 18px;
+    }
+
+    .status {
+      margin-top: 18px;
+      min-height: 26px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .status.ok {
+      color: #15803d;
+    }
+
+    .status.erro {
+      color: #b91c1c;
+    }
+
+    .status.info {
+      color: #1d4ed8;
+    }
+
+    .codigo-lido {
+      margin-top: 18px;
+      padding: 16px;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      background: #f8fafc;
+      display: none;
+    }
+
+    .codigo-lido small {
+      display: block;
+      color: #64748b;
+      margin-bottom: 5px;
+    }
+
+    .codigo-lido strong {
+      display: block;
+      font-size: 24px;
+      word-break: break-all;
+      color: #071b3a;
+    }
+
+    .ajustes {
+      margin-top: 12px;
+      color: #64748b;
+      font-size: 13px;
+      min-height: 18px;
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 20px 18px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .titulo {
+        font-size: 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>
+    SEV7N CELL
+  </h1>
+
+  <p>
+    Consulta de preço por código de barras
+  </p>
+
+</header>
+
+
+
+<div class="container">
+
+
+  <div class="card">
+
+
+    <div class="titulo">
+
+      📷 Leitor pela câmera
+
+    </div>
+
+
+
+    <div
+      id="cameraBox"
+      class="camera-box"
+    >
+
+      <video
+        id="video"
+        autoplay
+        muted
+        playsinline
+      ></video>
+
+
+      <div class="mira"></div>
+
+
+      <div class="texto-mira">
+
+        Posicione o código de barras dentro do quadro verde
+
+      </div>
+
+    </div>
+
+
+
+    <canvas
+      id="canvas"
+    ></canvas>
+
+
+
+    <button
+      id="btnAbrir"
+      class="abrir"
+      type="button"
+      onclick="abrirCamera()"
+    >
+
+      📷 ABRIR LEITOR
+
+    </button>
+
+
+
+    <button
+      id="btnParar"
+      class="parar"
+      type="button"
+      onclick="pararCamera()"
+    >
+
+      PARAR
+
+    </button>
+
+
+
+    <div
+      id="status"
+      class="status"
+    ></div>
+
+
+
+    <div
+      id="codigoLido"
+      class="codigo-lido"
+    >
+
+      <small>
+        Código identificado:
+      </small>
+
+      <strong
+        id="codigoTexto"
+      ></strong>
+
+    </div>
+
+
+
+    <div
+      id="ajustes"
+      class="ajustes"
+    ></div>
+
+
+
+    <button
+      class="voltar"
+      type="button"
+      onclick="voltarConsulta()"
+    >
+
+      ← VOLTAR PARA CONSULTAR PRODUTOS
+
+    </button>
+
+
+  </div>
+
+
+</div>
+
+
+
+<script>
+
+
+// ==========================================
+// CONFIGURAÇÕES
+// ==========================================
+
+const URL_CONSULTA =
+  'https://n8n.artpecascelular.com/webhook/catalogo-vendedores';
+
+
+let streamCamera = null;
+
+let lendo = false;
+
+let loopLeitura = null;
+
+let codigoJaLido = false;
+
+
+
+// ==========================================
+// ELEMENTOS
+// ==========================================
+
+const video =
+  document.getElementById(
+    'video'
+  );
+
+
+const canvas =
+  document.getElementById(
+    'canvas'
+  );
+
+
+const contexto =
+  canvas.getContext(
+    '2d',
+    {
+      willReadFrequently:
+        true
+    }
+  );
+
+
+const cameraBox =
+  document.getElementById(
+    'cameraBox'
+  );
+
+
+const statusEl =
+  document.getElementById(
+    'status'
+  );
+
+
+const codigoLido =
+  document.getElementById(
+    'codigoLido'
+  );
+
+
+const codigoTexto =
+  document.getElementById(
+    'codigoTexto'
+  );
+
+
+const ajustesEl =
+  document.getElementById(
+    'ajustes'
+  );
+
+
+
+// ==========================================
+// STATUS
+// ==========================================
+
+function mostrarStatus(
+  texto,
+  tipo = ''
+) {
+
+  statusEl.className =
+    'status ' + tipo;
+
+  statusEl.textContent =
+    texto || '';
+
+}
+
+
+
+// ==========================================
+// AJUSTAR CÂMERA
+// ==========================================
+
+async function ajustarCamera(
+  track
+) {
+
+  try {
+
+    const capacidades =
+      track.getCapabilities
+        ? track.getCapabilities()
+        : {};
+
+
+    const constraints = {
+      advanced: []
+    };
+
+
+    let textoAjustes = [];
+
+
+    if (
+      Array.isArray(
+        capacidades.focusMode
+      ) &&
+      capacidades.focusMode.includes(
+        'continuous'
+      )
+    ) {
+
+      constraints.advanced.push({
+        focusMode:
+          'continuous'
+      });
+
+      textoAjustes.push(
+        'foco contínuo'
+      );
+
+    }
+
+
+    if (
+      capacidades.zoom
+    ) {
+
+      const minimo =
+        Number(
+          capacidades.zoom.min || 1
+        );
+
+
+      const maximo =
+        Number(
+          capacidades.zoom.max || 1
+        );
+
+
+      let zoomDesejado =
+        2;
+
+
+      if (
+        zoomDesejado >
+        maximo
+      ) {
+
+        zoomDesejado =
+          maximo;
+
+      }
+
+
+      if (
+        zoomDesejado <
+        minimo
+      ) {
+
+        zoomDesejado =
+          minimo;
+
+      }
+
+
+      constraints.advanced.push({
+        zoom:
+          zoomDesejado
+      });
+
+
+      textoAjustes.push(
+        'zoom ' +
+        zoomDesejado.toFixed(1) +
+        'x'
+      );
+
+    }
+
+
+    if (
+      constraints.advanced.length >
+      0
+    ) {
+
+      await track.applyConstraints(
+        constraints
+      );
+
+    }
+
+
+    if (
+      textoAjustes.length >
+      0
+    ) {
+
+      ajustesEl.textContent =
+        'Ajustes ativos: ' +
+        textoAjustes.join(
+          ' • '
+        );
+
+    } else {
+
+      ajustesEl.textContent =
+        '';
+
+    }
+
+
+  } catch (
+    erro
+  ) {
+
+    console.log(
+      'Não foi possível aplicar ajustes extras:',
+      erro
+    );
+
+  }
+
+}
+
+
+
+// ==========================================
+// ABRIR CÂMERA
+// ==========================================
+
+async function abrirCamera() {
+
+
+  if (
+    lendo
+  ) {
+
+    return;
+
+  }
+
+
+  codigoJaLido =
+    false;
+
+
+  codigoLido.style.display =
+    'none';
+
+
+  codigoTexto.textContent =
+    '';
+
+
+  mostrarStatus(
+    'Abrindo câmera...',
+    'info'
+  );
+
+
+  try {
+
+
+    if (
+      !navigator.mediaDevices ||
+      !navigator.mediaDevices.getUserMedia
+    ) {
+
+      throw new Error(
+        'Este navegador não permite acesso à câmera.'
+      );
+
+    }
+
+
+    streamCamera =
+      await navigator.mediaDevices.getUserMedia({
+
+        audio:
+          false,
+
+        video: {
+
+          facingMode: {
+            ideal:
+              'environment'
+          },
+
+          width: {
+            ideal:
+              1920
+          },
+
+          height: {
+            ideal:
+              1080
+          }
+
+        }
+
+      });
+
+
+    video.srcObject =
+      streamCamera;
+
+
+    cameraBox.style.display =
+      'block';
+
+
+    lendo =
+      true;
+
+
+    await video.play();
+
+
+    const tracks =
+      streamCamera.getVideoTracks();
+
+
+    if (
+      tracks.length > 0
+    ) {
+
+      await ajustarCamera(
+        tracks[0]
+      );
+
+    }
+
+
+    mostrarStatus(
+      'Câmera aberta. Aponte para o código de barras.',
+      'info'
+    );
+
+
+    iniciarLoopLeitura();
+
+
+  } catch (
+    erro
+  ) {
+
+
+    console.error(
+      erro
+    );
+
+
+    let mensagem =
+      erro.message ||
+      'Não foi possível abrir a câmera.';
+
+
+    if (
+      erro.name ===
+        'NotAllowedError' ||
+      mensagem
+        .toLowerCase()
+        .includes(
+          'permission'
+        )
+    ) {
+
+      mensagem =
+        'Permissão da câmera negada. Libere a câmera nas configurações do navegador.';
+
+    }
+
+
+    mostrarStatus(
+      'ERRO: ' +
+      mensagem,
+      'erro'
+    );
+
+
+    pararCamera();
+
+  }
+
+}
+
+
+
+// ==========================================
+// PARAR CÂMERA
+// ==========================================
+
+function pararCamera() {
+
+
+  lendo =
+    false;
+
+
+  if (
+    loopLeitura
+  ) {
+
+    clearTimeout(
+      loopLeitura
+    );
+
+
+    loopLeitura =
+      null;
+
+  }
+
+
+  if (
+    streamCamera
+  ) {
+
+    streamCamera
+      .getTracks()
+      .forEach(
+        track =>
+          track.stop()
+      );
+
+
+    streamCamera =
+      null;
+
+  }
+
+
+  video.srcObject =
+    null;
+
+
+  cameraBox.style.display =
+    'none';
+
+}
+
+
+
+// ==========================================
+// LOOP DE LEITURA
+// ==========================================
+
+function iniciarLoopLeitura() {
+
+
+  if (
+    !lendo ||
+    codigoJaLido
+  ) {
+
+    return;
+
+  }
+
+
+  loopLeitura =
+    setTimeout(
+      async () => {
+
+
+        try {
+
+
+          await tentarLerCodigo();
+
+
+        } catch (
+          erro
+        ) {
+
+          console.log(
+            'Leitura:',
+            erro
+          );
+
+        }
+
+
+        iniciarLoopLeitura();
+
+
+      },
+      400
+    );
+
+}
+
+
+
+// ==========================================
+// TENTAR LER CÓDIGO
+// ==========================================
+
+async function tentarLerCodigo() {
+
+
+  if (
+    !video.videoWidth ||
+    !video.videoHeight ||
+    codigoJaLido
+  ) {
+
+    return;
+
+  }
+
+
+  const larguraVideo =
+    video.videoWidth;
+
+
+  const alturaVideo =
+    video.videoHeight;
+
+
+  const larguraCorte =
+    Math.floor(
+      larguraVideo *
+      0.96
+    );
+
+
+  const alturaCorte =
+    Math.floor(
+      alturaVideo *
+      0.50
+    );
+
+
+  const inicioX =
+    Math.floor(
+      (
+        larguraVideo -
+        larguraCorte
+      ) / 2
+    );
+
+
+  const inicioY =
+    Math.floor(
+      (
+        alturaVideo -
+        alturaCorte
+      ) / 2
+    );
+
+
+  const larguraDestino =
+    1400;
+
+
+  const alturaDestino =
+    Math.max(
+      400,
+      Math.round(
+        larguraDestino *
+        alturaCorte /
+        larguraCorte
+      )
+    );
+
+
+  canvas.width =
+    larguraDestino;
+
+
+  canvas.height =
+    alturaDestino;
+
+
+  contexto.drawImage(
+
+    video,
+
+    inicioX,
+    inicioY,
+
+    larguraCorte,
+    alturaCorte,
+
+    0,
+    0,
+
+    larguraDestino,
+    alturaDestino
+
+  );
+
+
+  const imagem =
+    contexto.getImageData(
+
+      0,
+      0,
+
+      larguraDestino,
+      alturaDestino
+
+    );
+
+
+  const resultados =
+    await ZXingWASM.readBarcodes(
+
+      imagem,
+
+      {
+
+        tryHarder:
+          true,
+
+        tryRotate:
+          true,
+
+        tryInvert:
+          true,
+
+        maxNumberOfSymbols:
+          1,
+
+        formats: [
+
+          'EAN13',
+          'EAN8',
+
+          'UPCA',
+          'UPCE',
+
+          'Code128',
+          'Code39',
+
+          'ITF'
+
+        ]
+
+      }
+
+    );
+
+
+  if (
+    !Array.isArray(
+      resultados
+    ) ||
+    resultados.length === 0
+  ) {
+
+    return;
+
+  }
+
+
+  const resultado =
+    resultados[0];
+
+
+  const codigo =
+    String(
+
+      resultado.text ||
+      resultado.rawValue ||
+      ''
+
+    ).trim();
+
+
+  if (
+    !codigo
+  ) {
+
+    return;
+
+  }
+
+
+  processarCodigo(
+    codigo
+  );
+
+}
+
+
+
+// ==========================================
+// CÓDIGO IDENTIFICADO
+// ==========================================
+
+function processarCodigo(
+  codigo
+) {
+
+
+  if (
+    codigoJaLido
+  ) {
+
+    return;
+
+  }
+
+
+  codigoJaLido =
+    true;
+
+
+  codigoTexto.textContent =
+    codigo;
+
+
+  codigoLido.style.display =
+    'block';
+
+
+  mostrarStatus(
+    'Código identificado. Voltando para a consulta...',
+    'ok'
+  );
+
+
+  pararCamera();
+
+
+  setTimeout(
+    () => {
+
+
+      window.location.href =
+        URL_CONSULTA +
+        '?codigo=' +
+        encodeURIComponent(
+          codigo
+        );
+
+
+    },
+    700
+  );
+
+}
+
+
+
+// ==========================================
+// VOLTAR SEM CÓDIGO
+// ==========================================
+
+function voltarConsulta() {
+
+
+  pararCamera();
+
+
+  window.location.href =
+    URL_CONSULTA;
+
+}
+
+
+
+// ==========================================
+// FECHAR CÂMERA AO SAIR
+// ==========================================
+
+window.addEventListener(
+  'pagehide',
+  function() {
+
+    pararCamera();
+
+  }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
