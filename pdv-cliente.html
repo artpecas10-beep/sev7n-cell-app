@@ -1202,8 +1202,8 @@ const URL_BUSCAR_CLIENTE =
   'https://n8n.artpecascelular.com/webhook/buscar-cliente-os';
 
 
-const URL_FORM_PDV =
-  'https://n8n.artpecascelular.com/form/625a01a9-ceae-425c-8f1a-af965096b76d';
+const URL_PDV =
+  'https://n8n.artpecascelular.com/webhook/pdv-produtos';
 
 
 const URL_MENU =
@@ -1824,16 +1824,11 @@ function abrirPdvComCliente() {
 
   const url =
     new URL(
-      URL_FORM_PDV
+      URL_PDV
     );
 
 
   // CLIENTE
-  url.searchParams.set(
-    'Cliente',
-    clienteAtual.nome || ''
-  );
-
   url.searchParams.set(
     'cliente',
     clienteAtual.nome || ''
@@ -1844,11 +1839,6 @@ function abrirPdvComCliente() {
   if (
     clienteAtual.telefone
   ) {
-
-    url.searchParams.set(
-      'Telefone',
-      clienteAtual.telefone
-    );
 
     url.searchParams.set(
       'telefone',
@@ -1864,18 +1854,8 @@ function abrirPdvComCliente() {
   ) {
 
     url.searchParams.set(
-      'Tipo de documento',
-      'CPF'
-    );
-
-    url.searchParams.set(
       'tipo_documento',
       'CPF'
-    );
-
-    url.searchParams.set(
-      'CPF / CNPJ',
-      clienteAtual.cpf
     );
 
     url.searchParams.set(
@@ -1884,11 +1864,6 @@ function abrirPdvComCliente() {
     );
 
   } else {
-
-    url.searchParams.set(
-      'Tipo de documento',
-      'SEM DOCUMENTO'
-    );
 
     url.searchParams.set(
       'tipo_documento',
@@ -1911,7 +1886,7 @@ function abrirPdvComCliente() {
 function abrirPdvSemCliente() {
 
   window.location.href =
-    URL_FORM_PDV;
+    URL_PDV;
 
 }
 
