@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#071b3a"
+>
+
+<title>
+  SEV7N CELL - Venda de Produtos
+</title>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+
+  --azul-900: #071b3a;
+  --azul-800: #0b2d59;
+  --azul-700: #0f4c92;
+  --azul-600: #126be8;
+  --azul-500: #1687ff;
+
+  --cinza-50: #f7f9fc;
+  --cinza-100: #eef3f9;
+  --cinza-200: #dbe3ee;
+  --cinza-500: #66758a;
+  --cinza-700: #334155;
+
+  --branco: #ffffff;
+
+  --verde: #15803d;
+  --vermelho: #b91c1c;
+
+  --sombra:
+    0 14px 40px
+    rgba(7,27,58,0.12);
+}
+
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(22,135,255,0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f9fc 0%,
+      #eef3f9 100%
+    );
+
+  color:
+    #172033;
+}
+
+
+/* CABEÇALHO */
+
+header {
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--azul-900),
+      var(--azul-800)
+    );
+
+  color:
+    white;
+
+  padding:
+    24px 18px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(7,27,58,0.18);
+}
+
+
+.header-conteudo {
+
+  max-width:
+    980px;
+
+  margin:
+    0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    18px;
+}
+
+
+.marca h1 {
+
+  margin:
+    0;
+
+  font-size:
+    28px;
+
+  font-weight:
+    800;
+}
+
+
+.marca h1 span {
+
+  color:
+    #61b0ff;
+}
+
+
+.marca p {
+
+  margin:
+    6px 0 0;
+
+  color:
+    #cbd9ea;
+
+  font-size:
+    14px;
+}
+
+
+.selo {
+
+  border:
+    1px solid
+    rgba(255,255,255,0.22);
+
+  background:
+    rgba(255,255,255,0.08);
+
+  padding:
+    9px 12px;
+
+  border-radius:
+    999px;
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+
+  white-space:
+    nowrap;
+}
+
+
+/* CONTEÚDO */
+
+main {
+
+  max-width:
+    980px;
+
+  margin:
+    0 auto;
+
+  padding:
+    26px 16px 50px;
+}
+
+
+.card {
+
+  background:
+    var(--branco);
+
+  border:
+    1px solid
+    var(--cinza-200);
+
+  border-radius:
+    18px;
+
+  box-shadow:
+    var(--sombra);
+
+  overflow:
+    hidden;
+}
+
+
+.card-topo {
+
+  padding:
+    22px 22px 10px;
+}
+
+
+.card-topo h2 {
+
+  margin:
+    0 0 7px;
+
+  color:
+    var(--azul-900);
+
+  font-size:
+    22px;
+}
+
+
+.card-topo p {
+
+  margin:
+    0;
+
+  color:
+    var(--cinza-500);
+
+  line-height:
+    1.5;
+
+  font-size:
+    14px;
+}
+
+
+/* BUSCA */
+
+.busca-area {
+
+  padding:
+    18px 22px 22px;
+}
+
+
+.label {
+
+  display:
+    block;
+
+  margin-bottom:
+    8px;
+
+  color:
+    var(--cinza-700);
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+
+.busca-linha {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:
+    10px;
+}
+
+
+.busca-wrap {
+
+  position:
+    relative;
+}
+
+
+.busca {
+
+  width:
+    100%;
+
+  height:
+    52px;
+
+  border:
+    1px solid
+    #c9d5e5;
+
+  border-radius:
+    12px;
+
+  padding:
+    0 46px 0 15px;
+
+  font-size:
+    16px;
+
+  outline:
+    none;
+
+  background:
+    white;
+
+  color:
+    #172033;
+
+  transition:
+    0.18s ease;
+}
+
+
+.busca:focus {
+
+  border-color:
+    var(--azul-500);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(22,135,255,0.10);
+}
+
+
+.busca::placeholder {
+
+  color:
+    #8a98aa;
+}
+
+
+.icone-busca {
+
+  position:
+    absolute;
+
+  right:
+    15px;
+
+  top:
+    50%;
+
+  transform:
+    translateY(-50%);
+
+  color:
+    #718096;
+
+  pointer-events:
+    none;
+
+  font-size:
+    20px;
+}
+
+
+/* BOTÕES */
+
+button {
+
+  border:
+    0;
+
+  border-radius:
+    11px;
+
+  min-height:
+    48px;
+
+  padding:
+    0 18px;
+
+  font-weight:
+    800;
+
+  cursor:
+    pointer;
+
+  transition:
+    transform 0.12s ease,
+    opacity 0.12s ease;
+}
+
+
+button:active {
+
+  transform:
+    scale(0.99);
+}
+
+
+.btn-sem-cliente {
+
+  background:
+    var(--azul-900);
+
+  color:
+    white;
+
+  height:
+    52px;
+
+  white-space:
+    nowrap;
+}
+
+
+.btn-usar {
+
+  flex:
+    1;
+
+  min-width:
+    230px;
+
+  background:
+    var(--azul-600);
+
+  color:
+    white;
+}
+
+
+.btn-voltar {
+
+  background:
+    #e8edf4;
+
+  color:
+    #27364a;
+}
+
+
+.btn-limpar {
+
+  background:
+    transparent;
+
+  color:
+    var(--azul-700);
+
+  border:
+    1px solid
+    #bcd4ef;
+
+  min-height:
+    34px;
+
+  padding:
+    0 11px;
+
+  font-size:
+    12px;
+}
+
+
+/* STATUS */
+
+.status {
+
+  min-height:
+    22px;
+
+  margin-top:
+    10px;
+
+  font-size:
+    13px;
+
+  color:
+    var(--cinza-500);
+}
+
+
+.status.ok {
+
+  color:
+    var(--verde);
+
+  font-weight:
+    700;
+}
+
+
+.status.erro {
+
+  color:
+    var(--vermelho);
+
+  font-weight:
+    700;
+}
+
+
+/* RESULTADOS */
+
+.resultados {
+
+  margin-top:
+    12px;
+
+  border:
+    1px solid
+    var(--cinza-200);
+
+  border-radius:
+    13px;
+
+  overflow:
+    hidden;
+
+  background:
+    white;
+
+  display:
+    none;
+}
+
+
+.resultado-item {
+
+  width:
+    100%;
+
+  text-align:
+    left;
+
+  background:
+    white;
+
+  border:
+    0;
+
+  border-bottom:
+    1px solid
+    #edf1f6;
+
+  border-radius:
+    0;
+
+  padding:
+    14px 15px;
+
+  cursor:
+    pointer;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr auto;
+
+  gap:
+    12px;
+
+  align-items:
+    center;
+}
+
+
+.resultado-item:last-child {
+
+  border-bottom:
+    0;
+}
+
+
+.resultado-item:hover {
+
+  background:
+    #f8fbff;
+}
+
+
+.resultado-nome {
+
+  display:
+    block;
+
+  color:
+    var(--azul-900);
+
+  font-weight:
+    800;
+
+  font-size:
+    15px;
+
+  margin-bottom:
+    5px;
+}
+
+
+.resultado-detalhes {
+
+  color:
+    var(--cinza-500);
+
+  font-size:
+    12px;
+
+  line-height:
+    1.5;
+}
+
+
+.resultado-seta {
+
+  color:
+    var(--azul-500);
+
+  font-size:
+    20px;
+
+  font-weight:
+    800;
+}
+
+
+/* CLIENTE SELECIONADO */
+
+.selecionado {
+
+  margin-top:
+    18px;
+
+  padding:
+    18px;
+
+  border-radius:
+    15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7fbff,
+      #eef6ff
+    );
+
+  border:
+    1px solid
+    #bfdcff;
+
+  display:
+    none;
+}
+
+
+.selecionado-topo {
+
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    15px;
+
+  margin-bottom:
+    14px;
+}
+
+
+.selecionado-titulo {
+
+  color:
+    var(--azul-900);
+
+  font-weight:
+    800;
+
+  font-size:
+    17px;
+}
+
+
+.selecionado-sub {
+
+  margin-top:
+    4px;
+
+  color:
+    var(--cinza-500);
+
+  font-size:
+    12px;
+}
+
+
+.dados-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    10px;
+}
+
+
+.dado {
+
+  background:
+    white;
+
+  border:
+    1px solid
+    #dce8f5;
+
+  border-radius:
+    10px;
+
+  padding:
+    11px;
+
+  min-width:
+    0;
+}
+
+
+.dado small {
+
+  display:
+    block;
+
+  color:
+    #7b8ca0;
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  font-weight:
+    800;
+
+  margin-bottom:
+    5px;
+}
+
+
+.dado strong {
+
+  display:
+    block;
+
+  color:
+    #1f2d3d;
+
+  font-size:
+    13px;
+
+  overflow-wrap:
+    anywhere;
+}
+
+
+.acoes {
+
+  display:
+    flex;
+
+  gap:
+    10px;
+
+  margin-top:
+    16px;
+
+  flex-wrap:
+    wrap;
+}
+
+
+.rodape-acoes {
+
+  margin-top:
+    16px;
+
+  display:
+    flex;
+
+  justify-content:
+    flex-end;
+}
+
+
+.vazio {
+
+  padding:
+    20px 15px;
+
+  text-align:
+    center;
+
+  color:
+    var(--cinza-500);
+
+  font-size:
+    13px;
+}
+
+
+/* CARREGANDO */
+
+.carregando {
+
+  display:
+    inline-block;
+
+  width:
+    14px;
+
+  height:
+    14px;
+
+  border:
+    2px solid
+    #c7d7e9;
+
+  border-top-color:
+    var(--azul-500);
+
+  border-radius:
+    50%;
+
+  vertical-align:
+    -2px;
+
+  margin-right:
+    6px;
+
+  animation:
+    girar 0.8s linear infinite;
+}
+
+
+@keyframes girar {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+  .header-conteudo {
+
+    align-items:
+      flex-start;
+  }
+
+
+  .marca h1 {
+
+    font-size:
+      24px;
+  }
+
+
+  .selo {
+
+    font-size:
+      10px;
+  }
+
+
+  main {
+
+    padding:
+      16px 12px 35px;
+  }
+
+
+  .card-topo,
+  .busca-area {
+
+    padding-left:
+      16px;
+
+    padding-right:
+      16px;
+  }
+
+
+  .busca-linha {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .btn-sem-cliente {
+
+    width:
+      100%;
+  }
+
+
+  .dados-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .acoes {
+
+    display:
+      grid;
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .btn-usar,
+  .btn-voltar {
+
+    width:
+      100%;
+
+    min-width:
+      0;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-conteudo">
+
+    <div class="marca">
+
+      <h1>
+        SEV<span>7</span>N CELL
+      </h1>
+
+      <p>
+        Venda de Produtos • Identificação opcional
+      </p>
+
+    </div>
+
+
+    <div class="selo">
+      PDV
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="card">
+
+    <div class="card-topo">
+
+      <h2>
+        Identificar cliente
+      </h2>
+
+      <p>
+        Pesquise por nome, CPF ou telefone.
+        A identificação é opcional.
+        Se o cliente não quiser se identificar,
+        continue diretamente para o PDV.
+      </p>
+
+    </div>
+
+
+    <div class="busca-area">
+
+      <label
+        class="label"
+        for="buscaCliente"
+      >
+        Nome, CPF ou telefone
+      </label>
+
+
+      <div class="busca-linha">
+
+        <div class="busca-wrap">
+
+          <input
+            id="buscaCliente"
+            class="busca"
+            type="search"
+            autocomplete="off"
+            placeholder="Ex.: Willian, CPF ou telefone"
+          >
+
+          <span class="icone-busca">
+            ⌕
+          </span>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="btn-sem-cliente"
+          onclick="abrirPdvSemCliente()"
+        >
+          CONTINUAR SEM IDENTIFICAR
+        </button>
+
+      </div>
+
+
+      <div
+        id="status"
+        class="status"
+      >
+        Digite pelo menos 2 caracteres para pesquisar.
+      </div>
+
+
+      <div
+        id="resultados"
+        class="resultados"
+      ></div>
+
+
+      <div
+        id="clienteSelecionado"
+        class="selecionado"
+      >
+
+        <div class="selecionado-topo">
+
+          <div>
+
+            <div
+              id="selecionadoNome"
+              class="selecionado-titulo"
+            ></div>
+
+            <div class="selecionado-sub">
+              Cliente cadastrado no sistema
+            </div>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="btn-limpar"
+            onclick="limparSelecao()"
+          >
+            TROCAR
+          </button>
+
+        </div>
+
+
+        <div class="dados-grid">
+
+          <div class="dado">
+
+            <small>
+              CPF
+            </small>
+
+            <strong id="selecionadoCpf">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="dado">
+
+            <small>
+              Telefone
+            </small>
+
+            <strong id="selecionadoTelefone">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="dado">
+
+            <small>
+              Último atendimento
+            </small>
+
+            <strong id="selecionadoUltimo">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="acoes">
+
+          <button
+            type="button"
+            class="btn-usar"
+            onclick="abrirPdvComCliente()"
+          >
+            USAR ESTE CLIENTE E ABRIR PDV
+          </button>
+
+
+          <button
+            type="button"
+            class="btn-voltar"
+            onclick="limparSelecao()"
+          >
+            CANCELAR
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="rodape-acoes">
+
+        <button
+          type="button"
+          class="btn-voltar"
+          onclick="voltarMenu()"
+        >
+          ← VOLTAR
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+
+// ==========================================
+// ENDPOINTS
+// ==========================================
+
+const URL_BUSCAR_CLIENTE =
+  'https://n8n.artpecascelular.com/webhook/buscar-cliente-os';
+
+
+const URL_FORM_PDV =
+  'https://n8n.artpecascelular.com/form/625a01a9-ceae-425c-8f1a-af965096b76d';
+
+
+const URL_MENU =
+  'https://artpecas10-beep.github.io/sev7n-cell-app/';
+
+
+// ==========================================
+// ESTADO
+// ==========================================
+
+let timerBusca =
+  null;
+
+let clienteAtual =
+  null;
+
+let controleBusca =
+  0;
+
+
+// ==========================================
+// ELEMENTOS
+// ==========================================
+
+const campoBusca =
+  document.getElementById(
+    'buscaCliente'
+  );
+
+
+const resultadosEl =
+  document.getElementById(
+    'resultados'
+  );
+
+
+const statusEl =
+  document.getElementById(
+    'status'
+  );
+
+
+const clienteSelecionadoEl =
+  document.getElementById(
+    'clienteSelecionado'
+  );
+
+
+// ==========================================
+// UTILIDADES
+// ==========================================
+
+function escapar(texto) {
+
+  return String(texto ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+}
+
+
+function somenteNumeros(valor) {
+
+  return String(valor || '')
+    .replace(/\D/g, '');
+
+}
+
+
+function formatarCpf(valor) {
+
+  const n =
+    somenteNumeros(valor);
+
+  if (
+    n.length !== 11
+  ) {
+
+    return valor ||
+      'Não informado';
+
+  }
+
+  return (
+    n.slice(0,3) +
+    '.' +
+    n.slice(3,6) +
+    '.' +
+    n.slice(6,9) +
+    '-' +
+    n.slice(9)
+  );
+
+}
+
+
+function formatarTelefone(valor) {
+
+  const n =
+    somenteNumeros(valor);
+
+  if (!n) {
+
+    return 'Não informado';
+
+  }
+
+  if (
+    n.length === 11
+  ) {
+
+    return (
+      '(' +
+      n.slice(0,2) +
+      ') ' +
+      n.slice(2,7) +
+      '-' +
+      n.slice(7)
+    );
+
+  }
+
+  if (
+    n.length === 10
+  ) {
+
+    return (
+      '(' +
+      n.slice(0,2) +
+      ') ' +
+      n.slice(2,6) +
+      '-' +
+      n.slice(6)
+    );
+
+  }
+
+  return valor;
+
+}
+
+
+function formatarData(valor) {
+
+  if (!valor) {
+
+    return 'Não informado';
+
+  }
+
+  const data =
+    new Date(valor);
+
+  if (
+    Number.isNaN(
+      data.getTime()
+    )
+  ) {
+
+    return valor;
+
+  }
+
+  return data.toLocaleString(
+    'pt-BR',
+    {
+      dateStyle:
+        'short',
+
+      timeStyle:
+        'short'
+    }
+  );
+
+}
+
+
+function setStatus(
+  texto,
+  tipo = ''
+) {
+
+  statusEl.className =
+    'status ' + tipo;
+
+  statusEl.innerHTML =
+    texto || '';
+
+}
+
+
+// ==========================================
+// BUSCA AUTOMÁTICA
+// ==========================================
+
+campoBusca.addEventListener(
+  'input',
+  function() {
+
+    clienteAtual =
+      null;
+
+    clienteSelecionadoEl.style.display =
+      'none';
+
+    clearTimeout(
+      timerBusca
+    );
+
+    const termo =
+      this.value.trim();
+
+    if (
+      termo.length < 2
+    ) {
+
+      resultadosEl.style.display =
+        'none';
+
+      resultadosEl.innerHTML =
+        '';
+
+      setStatus(
+        'Digite pelo menos 2 caracteres para pesquisar.'
+      );
+
+      return;
+
+    }
+
+    setStatus(
+      '<span class="carregando"></span>Pesquisando clientes...'
+    );
+
+    timerBusca =
+      setTimeout(
+        () =>
+          buscarClientes(
+            termo
+          ),
+        350
+      );
+
+  }
+);
+
+
+// ==========================================
+// BUSCAR CLIENTES
+// ==========================================
+
+async function buscarClientes(
+  termo
+) {
+
+  const numeroBusca =
+    ++controleBusca;
+
+  try {
+
+    const corpo =
+      new URLSearchParams();
+
+    corpo.set(
+      'termo',
+      termo
+    );
+
+
+    const resposta =
+      await fetch(
+        URL_BUSCAR_CLIENTE,
+        {
+          method:
+            'POST',
+
+          body:
+            corpo,
+
+          mode:
+            'cors',
+
+          cache:
+            'no-store'
+        }
+      );
+
+
+    if (
+      numeroBusca !==
+      controleBusca
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      !resposta.ok
+    ) {
+
+      throw new Error(
+        'Falha ao consultar clientes.'
+      );
+
+    }
+
+
+    const dados =
+      await resposta.json();
+
+
+    const clientes =
+      Array.isArray(
+        dados.clientes
+      )
+        ? dados.clientes
+        : [];
+
+
+    renderizarResultados(
+      clientes
+    );
+
+
+  } catch (erro) {
+
+    console.error(
+      erro
+    );
+
+
+    resultadosEl.style.display =
+      'none';
+
+
+    resultadosEl.innerHTML =
+      '';
+
+
+    setStatus(
+      'Não foi possível consultar os clientes.',
+      'erro'
+    );
+
+  }
+
+}
+
+
+// ==========================================
+// RESULTADOS
+// ==========================================
+
+function renderizarResultados(
+  clientes
+) {
+
+  resultadosEl.innerHTML =
+    '';
+
+
+  if (
+    !clientes.length
+  ) {
+
+    resultadosEl.innerHTML =
+      '<div class="vazio">' +
+      'Nenhum cliente encontrado. Você pode continuar a venda normalmente.' +
+      '</div>';
+
+
+    resultadosEl.style.display =
+      'block';
+
+
+    setStatus(
+      'Nenhum cadastro localizado.'
+    );
+
+
+    return;
+
+  }
+
+
+  clientes.forEach(
+    cliente => {
+
+      const botao =
+        document.createElement(
+          'button'
+        );
+
+
+      botao.type =
+        'button';
+
+
+      botao.className =
+        'resultado-item';
+
+
+      const cpf =
+        cliente.cpf
+          ? formatarCpf(
+              cliente.cpf
+            )
+          : 'CPF não informado';
+
+
+      const telefone =
+        cliente.telefone
+          ? formatarTelefone(
+              cliente.telefone
+            )
+          : 'Telefone não informado';
+
+
+      botao.innerHTML =
+        '<div>' +
+
+          '<span class="resultado-nome">' +
+            escapar(
+              cliente.nome ||
+              'Cliente'
+            ) +
+          '</span>' +
+
+          '<div class="resultado-detalhes">' +
+            escapar(cpf) +
+            ' • ' +
+            escapar(telefone) +
+          '</div>' +
+
+        '</div>' +
+
+        '<div class="resultado-seta">' +
+          '›' +
+        '</div>';
+
+
+      botao.onclick =
+        function() {
+
+          selecionarCliente(
+            cliente
+          );
+
+        };
+
+
+      resultadosEl.appendChild(
+        botao
+      );
+
+    }
+  );
+
+
+  resultadosEl.style.display =
+    'block';
+
+
+  setStatus(
+    clientes.length === 1
+      ? '1 cliente encontrado.'
+      : clientes.length +
+        ' clientes encontrados.',
+    'ok'
+  );
+
+}
+
+
+// ==========================================
+// CLIENTE SELECIONADO
+// ==========================================
+
+function selecionarCliente(
+  cliente
+) {
+
+  clienteAtual =
+    cliente;
+
+
+  campoBusca.value =
+    cliente.nome || '';
+
+
+  resultadosEl.style.display =
+    'none';
+
+
+  resultadosEl.innerHTML =
+    '';
+
+
+  document
+    .getElementById(
+      'selecionadoNome'
+    )
+    .textContent =
+      cliente.nome ||
+      'Cliente';
+
+
+  document
+    .getElementById(
+      'selecionadoCpf'
+    )
+    .textContent =
+      cliente.cpf
+        ? formatarCpf(
+            cliente.cpf
+          )
+        : 'Não informado';
+
+
+  document
+    .getElementById(
+      'selecionadoTelefone'
+    )
+    .textContent =
+      cliente.telefone
+        ? formatarTelefone(
+            cliente.telefone
+          )
+        : 'Não informado';
+
+
+  document
+    .getElementById(
+      'selecionadoUltimo'
+    )
+    .textContent =
+      formatarData(
+        cliente.data_ultimo_atendimento
+      );
+
+
+  clienteSelecionadoEl.style.display =
+    'block';
+
+
+  setStatus(
+    'Cliente selecionado.',
+    'ok'
+  );
+
+}
+
+
+// ==========================================
+// LIMPAR
+// ==========================================
+
+function limparSelecao() {
+
+  clienteAtual =
+    null;
+
+
+  clienteSelecionadoEl.style.display =
+    'none';
+
+
+  campoBusca.value =
+    '';
+
+
+  resultadosEl.style.display =
+    'none';
+
+
+  resultadosEl.innerHTML =
+    '';
+
+
+  setStatus(
+    'Digite pelo menos 2 caracteres para pesquisar.'
+  );
+
+
+  setTimeout(
+    () =>
+      campoBusca.focus(),
+    100
+  );
+
+}
+
+
+// ==========================================
+// ABRIR PDV COM CLIENTE
+// ==========================================
+
+function abrirPdvComCliente() {
+
+  if (
+    !clienteAtual
+  ) {
+
+    setStatus(
+      'Selecione um cliente primeiro.',
+      'erro'
+    );
+
+    return;
+
+  }
+
+
+  const url =
+    new URL(
+      URL_FORM_PDV
+    );
+
+
+  // CLIENTE
+  url.searchParams.set(
+    'Cliente',
+    clienteAtual.nome || ''
+  );
+
+  url.searchParams.set(
+    'cliente',
+    clienteAtual.nome || ''
+  );
+
+
+  // TELEFONE
+  if (
+    clienteAtual.telefone
+  ) {
+
+    url.searchParams.set(
+      'Telefone',
+      clienteAtual.telefone
+    );
+
+    url.searchParams.set(
+      'telefone',
+      clienteAtual.telefone
+    );
+
+  }
+
+
+  // CPF
+  if (
+    clienteAtual.cpf
+  ) {
+
+    url.searchParams.set(
+      'Tipo de documento',
+      'CPF'
+    );
+
+    url.searchParams.set(
+      'tipo_documento',
+      'CPF'
+    );
+
+    url.searchParams.set(
+      'CPF / CNPJ',
+      clienteAtual.cpf
+    );
+
+    url.searchParams.set(
+      'documento',
+      clienteAtual.cpf
+    );
+
+  } else {
+
+    url.searchParams.set(
+      'Tipo de documento',
+      'SEM DOCUMENTO'
+    );
+
+    url.searchParams.set(
+      'tipo_documento',
+      'SEM DOCUMENTO'
+    );
+
+  }
+
+
+  window.location.href =
+    url.toString();
+
+}
+
+
+// ==========================================
+// ABRIR PDV SEM CLIENTE
+// ==========================================
+
+function abrirPdvSemCliente() {
+
+  window.location.href =
+    URL_FORM_PDV;
+
+}
+
+
+// ==========================================
+// VOLTAR
+// ==========================================
+
+function voltarMenu() {
+
+  window.location.href =
+    URL_MENU;
+
+}
+
+
+// ==========================================
+// FOCO INICIAL
+// ==========================================
+
+window.addEventListener(
+  'load',
+  function() {
+
+    setTimeout(
+      () =>
+        campoBusca.focus(),
+      150
+    );
+
+  }
+);
+
+
+</script>
+
+</body>
+
+</html>
