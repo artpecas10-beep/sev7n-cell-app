@@ -63,20 +63,27 @@
       color: white;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
       padding: 25px 15px;
     }
+
 
     .app {
       width: 100%;
       max-width: 520px;
     }
 
+
+    /* ====================================== */
     /* LOGO */
+    /* ====================================== */
 
     .logo-box {
+
       border: 2px solid #1f6fff;
 
       border-radius: 24px;
@@ -105,8 +112,11 @@
         );
     }
 
+
     .logo-img {
+
       width: 120px;
+
       height: 120px;
 
       object-fit: cover;
@@ -116,7 +126,9 @@
       margin-bottom: 15px;
     }
 
+
     .logo-box h1 {
+
       font-size: 38px;
 
       letter-spacing: 2px;
@@ -124,11 +136,15 @@
       font-weight: 800;
     }
 
+
     .logo-box h1 span {
+
       color: #1687ff;
     }
 
+
     .logo-box p {
+
       margin-top: 8px;
 
       color: #a9b8ca;
@@ -138,7 +154,9 @@
       letter-spacing: 3px;
     }
 
+
     .titulo {
+
       text-align: center;
 
       font-size: 18px;
@@ -150,9 +168,13 @@
       font-weight: 700;
     }
 
+
+    /* ====================================== */
     /* BOTÕES */
+    /* ====================================== */
 
     .botao {
+
       display: flex;
 
       align-items: center;
@@ -198,7 +220,9 @@
       text-align: left;
     }
 
+
     .botao:hover {
+
       transform:
         translateY(-2px);
 
@@ -206,12 +230,16 @@
         brightness(1.08);
     }
 
+
     .botao:active {
+
       transform:
         scale(0.98);
     }
 
+
     .icone {
+
       font-size: 34px;
 
       width: 45px;
@@ -221,11 +249,15 @@
       flex-shrink: 0;
     }
 
+
     .texto {
+
       flex: 1;
     }
 
+
     .texto small {
+
       display: block;
 
       font-size: 12px;
@@ -237,16 +269,22 @@
       opacity: 0.85;
     }
 
+
     .seta {
+
       font-size: 22px;
 
       transition:
         transform 0.25s ease;
     }
 
+
+    /* ====================================== */
     /* CORES PRINCIPAIS */
+    /* ====================================== */
 
     .servico {
+
       background:
         linear-gradient(
           135deg,
@@ -255,7 +293,9 @@
         );
     }
 
+
     .venda {
+
       background:
         linear-gradient(
           135deg,
@@ -264,7 +304,9 @@
         );
     }
 
+
     .cpf {
+
       background:
         linear-gradient(
           135deg,
@@ -273,7 +315,9 @@
         );
     }
 
+
     .produtos {
+
       background:
         linear-gradient(
           135deg,
@@ -282,7 +326,9 @@
         );
     }
 
+
     .administracao {
+
       background:
         linear-gradient(
           135deg,
@@ -291,9 +337,13 @@
         );
     }
 
+
+    /* ====================================== */
     /* SUBMENU */
+    /* ====================================== */
 
     .submenu {
+
       display: none;
 
       margin-top: -8px;
@@ -331,11 +381,15 @@
         );
     }
 
+
     .submenu.aberto {
+
       display: block;
     }
 
+
     .submenu .botao {
+
       margin-bottom: 12px;
 
       padding: 18px 16px;
@@ -345,11 +399,15 @@
       border-radius: 14px;
     }
 
+
     .submenu .botao:last-child {
+
       margin-bottom: 0;
     }
 
+
     .nova-venda {
+
       background:
         linear-gradient(
           135deg,
@@ -358,7 +416,9 @@
         );
     }
 
+
     .historico {
+
       background:
         linear-gradient(
           135deg,
@@ -367,7 +427,9 @@
         );
     }
 
+
     .consultar-produtos {
+
       background:
         linear-gradient(
           135deg,
@@ -376,7 +438,9 @@
         );
     }
 
+
     .admin-catalogo {
+
       background:
         linear-gradient(
           135deg,
@@ -385,7 +449,9 @@
         );
     }
 
+
     .camera-produto {
+
       background:
         linear-gradient(
           135deg,
@@ -394,9 +460,13 @@
         );
     }
 
+
+    /* ====================================== */
     /* RODAPÉ */
+    /* ====================================== */
 
     .rodape {
+
       text-align: center;
 
       margin-top: 28px;
@@ -406,27 +476,36 @@
       font-size: 12px;
     }
 
+
+    /* ====================================== */
     /* CELULAR */
+    /* ====================================== */
 
     @media (
       max-width: 500px
     ) {
 
       .logo-box h1 {
+
         font-size: 32px;
       }
 
+
       .botao {
+
         padding: 19px 16px;
 
         font-size: 18px;
       }
 
+
       .logo-img {
+
         width: 100px;
 
         height: 100px;
       }
+
     }
 
   </style>
@@ -435,9 +514,13 @@
 
 <body>
 
+
   <main class="app">
 
+
+    <!-- ===================================== -->
     <!-- LOGO -->
+    <!-- ===================================== -->
 
     <div class="logo-box">
 
@@ -459,14 +542,20 @@
 
 
     <div class="titulo">
+
       SELECIONE O QUE DESEJA FAZER
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- SERVIÇO -->
+    <!-- ===================================== -->
 
     <a
       class="botao servico"
+
       href="https://n8n.artpecascelular.com/form/4aea4778-ea9a-4cc5-befb-0dcccc34a286"
     >
 
@@ -487,7 +576,10 @@
     </a>
 
 
+
+    <!-- ===================================== -->
     <!-- VENDA DE APARELHO -->
+    <!-- ===================================== -->
 
     <button
       class="botao venda"
@@ -524,10 +616,10 @@
       id="submenuVenda"
     >
 
-      <!-- NOVA VENDA DE APARELHO -->
 
       <a
         class="botao nova-venda"
+
         href="venda-aparelho-cliente.html"
       >
 
@@ -548,10 +640,10 @@
       </a>
 
 
-      <!-- HISTÓRICO DE VENDA DE APARELHO -->
 
       <a
         class="botao historico"
+
         href="https://n8n.artpecascelular.com/webhook/historico-vendas"
       >
 
@@ -571,13 +663,18 @@
 
       </a>
 
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- CPF NA NOTA -->
+    <!-- ===================================== -->
 
     <a
       class="botao cpf"
+
       href="https://n8n.artpecascelular.com/form/83cb748e-1650-4726-8a49-24e29277da1a"
     >
 
@@ -598,7 +695,10 @@
     </a>
 
 
+
+    <!-- ===================================== -->
     <!-- VENDA DE PRODUTOS -->
+    <!-- ===================================== -->
 
     <button
       class="botao produtos"
@@ -630,16 +730,19 @@
     </button>
 
 
+
     <div
       class="submenu"
       id="submenuProdutos"
     >
 
+
       <!-- NOVA VENDA PRODUTOS -->
 
       <a
         class="botao nova-venda"
-        href="https://n8n.artpecascelular.com/webhook/pdv-produtos"
+
+        href="pdv-cliente.html"
       >
 
         <div class="icone">
@@ -659,10 +762,12 @@
       </a>
 
 
+
       <!-- CONSULTAR PRODUTOS -->
 
       <a
         class="botao consultar-produtos"
+
         href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
       >
 
@@ -683,10 +788,12 @@
       </a>
 
 
+
       <!-- HISTÓRICO -->
 
       <a
         class="botao historico"
+
         href="https://n8n.artpecascelular.com/webhook/historico-vendas-produtos"
       >
 
@@ -706,10 +813,14 @@
 
       </a>
 
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- ADMINISTRAÇÃO -->
+    <!-- ===================================== -->
 
     <button
       class="botao administracao"
@@ -741,15 +852,18 @@
     </button>
 
 
+
     <div
       class="submenu"
       id="submenuAdministracao"
     >
 
+
       <!-- ADMINISTRAÇÃO DO CATÁLOGO -->
 
       <a
         class="botao admin-catalogo"
+
         href="https://n8n.artpecascelular.com/webhook/catalogo-admin"
       >
 
@@ -770,10 +884,12 @@
       </a>
 
 
+
       <!-- CADASTRO COM CÂMERA -->
 
       <a
         class="botao camera-produto"
+
         href="cadastro-camera.html"
       >
 
@@ -793,21 +909,32 @@
 
       </a>
 
+
     </div>
 
 
+
+    <!-- ===================================== -->
     <!-- RODAPÉ -->
+    <!-- ===================================== -->
 
     <div class="rodape">
+
       SEV7N CELL • Sistema Interno
+
     </div>
+
 
   </main>
 
 
+
   <script>
 
+
+    // =======================================
     // MENU VENDA DE APARELHO
+    // =======================================
 
     function abrirMenuVenda() {
 
@@ -816,14 +943,17 @@
           'submenuVenda'
         );
 
+
       const seta =
         document.getElementById(
           'setaVenda'
         );
 
+
       submenu.classList.toggle(
         'aberto'
       );
+
 
       if (
         submenu.classList.contains(
@@ -839,10 +969,14 @@
         seta.style.transform =
           'rotate(0deg)';
       }
+
     }
 
 
+
+    // =======================================
     // MENU VENDA DE PRODUTOS
+    // =======================================
 
     function abrirMenuProdutos() {
 
@@ -851,14 +985,17 @@
           'submenuProdutos'
         );
 
+
       const seta =
         document.getElementById(
           'setaProdutos'
         );
 
+
       submenu.classList.toggle(
         'aberto'
       );
+
 
       if (
         submenu.classList.contains(
@@ -874,10 +1011,14 @@
         seta.style.transform =
           'rotate(0deg)';
       }
+
     }
 
 
+
+    // =======================================
     // MENU ADMINISTRAÇÃO
+    // =======================================
 
     function abrirMenuAdministracao() {
 
@@ -886,14 +1027,17 @@
           'submenuAdministracao'
         );
 
+
       const seta =
         document.getElementById(
           'setaAdministracao'
         );
 
+
       submenu.classList.toggle(
         'aberto'
       );
+
 
       if (
         submenu.classList.contains(
@@ -909,9 +1053,12 @@
         seta.style.transform =
           'rotate(0deg)';
       }
+
     }
 
+
   </script>
+
 
 </body>
 </html>
