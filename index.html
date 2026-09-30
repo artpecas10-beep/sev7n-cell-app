@@ -1377,45 +1377,43 @@ body {
 
 <script>
 
-
 // =======================================
 // FUNÇÃO GENÉRICA DOS SUBMENUS
 // =======================================
 
-function alternarMenu(
-  submenuId,
-  setaId
-) {
+function alternarMenu(submenuId, setaId) {
 
   const submenu =
-    document.getElementById(
-      submenuId
-    );
+    document.getElementById(submenuId);
 
   const seta =
-    document.getElementById(
-      setaId
+    document.getElementById(setaId);
+
+  if (!submenu) {
+    console.error(
+      'Submenu não encontrado:',
+      submenuId
     );
+    return;
+  }
 
+  submenu.classList.toggle('aberto');
 
-  submenu.classList.toggle(
-    'aberto'
-  );
+  if (seta) {
 
+    if (
+      submenu.classList.contains('aberto')
+    ) {
 
-  if (
-    submenu.classList.contains(
-      'aberto'
-    )
-  ) {
+      seta.style.transform =
+        'rotate(180deg)';
 
-    seta.style.transform =
-      'rotate(180deg)';
+    } else {
 
-  } else {
+      seta.style.transform =
+        'rotate(0deg)';
 
-    seta.style.transform =
-      'rotate(0deg)';
+    }
 
   }
 
@@ -1465,11 +1463,10 @@ function abrirMenuProdutos() {
 
 
 // =======================================
-// ADMINISTRAÇÃO COM SENHA
+// ADMINISTRAÇÃO
 // =======================================
 
-const SENHA_ADMINISTRACAO =
-  '4181';
+const SENHA_ADMINISTRACAO = '4181';
 
 
 function solicitarSenhaAdministracao() {
@@ -1479,23 +1476,24 @@ function solicitarSenhaAdministracao() {
       'submenuAdministracao'
     );
 
-
-  // Se o menu já estiver aberto,
-  // apenas fecha sem pedir senha novamente.
-  if (
-    submenu.classList.contains(
-      'aberto'
-    )
-  ) {
-
-    submenu.classList.remove(
-      'aberto'
-    );
-
+  const seta =
     document.getElementById(
       'setaAdministracao'
-    ).style.transform =
-      'rotate(0deg)';
+    );
+
+
+  // Se já estiver aberto, apenas fecha
+  if (
+    submenu &&
+    submenu.classList.contains('aberto')
+  ) {
+
+    submenu.classList.remove('aberto');
+
+    if (seta) {
+      seta.style.transform =
+        'rotate(0deg)';
+    }
 
     return;
 
@@ -1518,21 +1516,31 @@ function solicitarSenhaAdministracao() {
     );
 
 
-  erro.textContent =
-    '';
+  if (!modal || !campo) {
 
-  campo.value =
-    '';
+    console.error(
+      'Modal de senha da Administração não encontrado.'
+    );
 
-  modal.classList.add(
-    'aberto'
-  );
+    return;
+
+  }
 
 
-  setTimeout(
-    () => campo.focus(),
-    100
-  );
+  campo.value = '';
+
+  if (erro) {
+    erro.textContent = '';
+  }
+
+  modal.classList.add('aberto');
+
+
+  setTimeout(() => {
+
+    campo.focus();
+
+  }, 100);
 
 }
 
@@ -1549,6 +1557,12 @@ function validarSenhaAdministracao() {
       'erroSenha'
     );
 
+
+  if (!campo) {
+    return;
+  }
+
+
   const senhaDigitada =
     String(
       campo.value || ''
@@ -1560,11 +1574,14 @@ function validarSenhaAdministracao() {
     SENHA_ADMINISTRACAO
   ) {
 
-    erro.textContent =
-      'Senha incorreta.';
+    if (erro) {
 
-    campo.value =
-      '';
+      erro.textContent =
+        'Senha incorreta.';
+
+    }
+
+    campo.value = '';
 
     campo.focus();
 
@@ -1573,8 +1590,12 @@ function validarSenhaAdministracao() {
   }
 
 
-  erro.textContent =
-    '';
+  if (erro) {
+
+    erro.textContent = '';
+
+  }
+
 
   fecharModalSenha();
 
@@ -1590,12 +1611,21 @@ function validarSenhaAdministracao() {
     );
 
 
-  submenu.classList.add(
-    'aberto'
-  );
+  if (submenu) {
 
-  seta.style.transform =
-    'rotate(180deg)';
+    submenu.classList.add(
+      'aberto'
+    );
+
+  }
+
+
+  if (seta) {
+
+    seta.style.transform =
+      'rotate(180deg)';
+
+  }
 
 }
 
@@ -1618,15 +1648,27 @@ function fecharModalSenha() {
     );
 
 
-  modal.classList.remove(
-    'aberto'
-  );
+  if (modal) {
 
-  campo.value =
-    '';
+    modal.classList.remove(
+      'aberto'
+    );
 
-  erro.textContent =
-    '';
+  }
+
+
+  if (campo) {
+
+    campo.value = '';
+
+  }
+
+
+  if (erro) {
+
+    erro.textContent = '';
+
+  }
 
 }
 
@@ -1634,9 +1676,10 @@ function fecharModalSenha() {
 function verificarEnterSenha(event) {
 
   if (
-    event.key ===
-    'Enter'
+    event.key === 'Enter'
   ) {
+
+    event.preventDefault();
 
     validarSenhaAdministracao();
 
@@ -1648,6 +1691,7 @@ function verificarEnterSenha(event) {
 function fecharModalAoClicarFora(event) {
 
   if (
+    event.target &&
     event.target.id ===
     'modalSenha'
   ) {
@@ -1659,8 +1703,15 @@ function fecharModalAoClicarFora(event) {
 }
 
 
-</script>
+// =======================================
+// CONFIRMAÇÃO
+// =======================================
 
+console.log(
+  'SEV7N CELL - Menu carregado corretamente.'
+);
+
+</script>
 
 </body>
 
