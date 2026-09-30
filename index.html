@@ -15,9 +15,7 @@
   content="#07111f"
 >
 
-<title>
-  SEV7N CELL
-</title>
+<title>SEV7N CELL</title>
 
 <link
   rel="manifest"
@@ -35,7 +33,6 @@
   href="icone-sev7n.png"
 >
 
-
 <style>
 
 * {
@@ -44,12 +41,10 @@
   padding: 0;
 }
 
-
 html,
 body {
   min-height: 100%;
 }
-
 
 body {
 
@@ -79,7 +74,6 @@ body {
   padding: 25px 15px;
 
 }
-
 
 .app {
 
@@ -130,7 +124,6 @@ body {
 
 }
 
-
 .logo-img {
 
   width:
@@ -150,7 +143,6 @@ body {
 
 }
 
-
 .logo-box h1 {
 
   font-size:
@@ -164,14 +156,12 @@ body {
 
 }
 
-
 .logo-box h1 span {
 
   color:
     #1687ff;
 
 }
-
 
 .logo-box p {
 
@@ -188,7 +178,6 @@ body {
     3px;
 
 }
-
 
 .titulo {
 
@@ -277,7 +266,6 @@ body {
 
 }
 
-
 .botao:hover {
 
   transform:
@@ -288,14 +276,12 @@ body {
 
 }
 
-
 .botao:active {
 
   transform:
     scale(0.98);
 
 }
-
 
 .icone {
 
@@ -313,14 +299,12 @@ body {
 
 }
 
-
 .texto {
 
   flex:
     1;
 
 }
-
 
 .texto small {
 
@@ -340,7 +324,6 @@ body {
     0.85;
 
 }
-
 
 .seta {
 
@@ -368,7 +351,6 @@ body {
 
 }
 
-
 .venda {
 
   background:
@@ -379,7 +361,6 @@ body {
     );
 
 }
-
 
 .cpf {
 
@@ -392,7 +373,6 @@ body {
 
 }
 
-
 .produtos {
 
   background:
@@ -403,7 +383,6 @@ body {
     );
 
 }
-
 
 .administracao {
 
@@ -466,14 +445,12 @@ body {
 
 }
 
-
 .submenu.aberto {
 
   display:
     block;
 
 }
-
 
 .submenu .botao {
 
@@ -491,7 +468,6 @@ body {
 
 }
 
-
 .submenu .botao:last-child {
 
   margin-bottom:
@@ -499,6 +475,66 @@ body {
 
 }
 
+
+/* SERVIÇO */
+
+.nova-os {
+
+  background:
+    linear-gradient(
+      135deg,
+      #1687ff,
+      #0752b8
+    );
+
+}
+
+.atualizar-os {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b4c96,
+      #082f61
+    );
+
+}
+
+.consultar-os {
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #4c1d95
+    );
+
+}
+
+.historico-os {
+
+  background:
+    linear-gradient(
+      135deg,
+      #d97706,
+      #a64c00
+    );
+
+}
+
+.painel-os {
+
+  background:
+    linear-gradient(
+      135deg,
+      #0891b2,
+      #075985
+    );
+
+}
+
+
+/* VENDA */
 
 .nova-venda {
 
@@ -510,7 +546,6 @@ body {
     );
 
 }
-
 
 .historico {
 
@@ -524,6 +559,8 @@ body {
 }
 
 
+/* PRODUTOS */
+
 .consultar-produtos {
 
   background:
@@ -536,6 +573,8 @@ body {
 }
 
 
+/* ADMINISTRAÇÃO */
+
 .admin-catalogo {
 
   background:
@@ -546,7 +585,6 @@ body {
     );
 
 }
-
 
 .camera-produto {
 
@@ -596,7 +634,6 @@ body {
 
   }
 
-
   .botao {
 
     padding:
@@ -606,7 +643,6 @@ body {
       18px;
 
   }
-
 
   .logo-img {
 
@@ -666,9 +702,10 @@ body {
      SERVIÇO
 ===================================== -->
 
-<a
+<button
   class="botao servico"
-  href="nova-os.html"
+  type="button"
+  onclick="abrirMenuServico()"
 >
 
   <div class="icone">
@@ -680,12 +717,148 @@ body {
     SERVIÇO
 
     <small>
-      Abrir ordem de serviço
+      Ordens de Serviço
     </small>
 
   </div>
 
-</a>
+  <div
+    class="seta"
+    id="setaServico"
+  >
+    ▼
+  </div>
+
+</button>
+
+
+<div
+  class="submenu"
+  id="submenuServico"
+>
+
+
+  <!-- NOVA OS -->
+
+  <a
+    class="botao nova-os"
+    href="nova-os.html"
+  >
+
+    <div class="icone">
+      ➕
+    </div>
+
+    <div class="texto">
+
+      NOVA OS
+
+      <small>
+        Abrir nova Ordem de Serviço
+      </small>
+
+    </div>
+
+  </a>
+
+
+  <!-- ATUALIZAR OS -->
+
+  <a
+    class="botao atualizar-os"
+    href="https://n8n.artpecascelular.com/form/25a06f75-fb2a-4d2f-83bd-3f59004abb28"
+  >
+
+    <div class="icone">
+      ✏️
+    </div>
+
+    <div class="texto">
+
+      ATUALIZAR OS
+
+      <small>
+        Atualizar serviço em andamento
+      </small>
+
+    </div>
+
+  </a>
+
+
+  <!-- CONSULTAR OS -->
+
+  <a
+    class="botao consultar-os"
+    href="https://n8n.artpecascelular.com/form/c4792ac9-e6fc-4627-aea2-a1a8eb3b3750"
+  >
+
+    <div class="icone">
+      🔎
+    </div>
+
+    <div class="texto">
+
+      CONSULTAR OS
+
+      <small>
+        Localizar Ordem de Serviço
+      </small>
+
+    </div>
+
+  </a>
+
+
+  <!-- HISTÓRICO -->
+
+  <a
+    class="botao historico-os"
+    href="https://n8n.artpecascelular.com/webhook/historico-os-app"
+  >
+
+    <div class="icone">
+      📋
+    </div>
+
+    <div class="texto">
+
+      HISTÓRICO
+
+      <small>
+        Serviços autorizados e orçamentos
+      </small>
+
+    </div>
+
+  </a>
+
+
+  <!-- PAINEL -->
+
+  <a
+    class="botao painel-os"
+    href="https://n8n.artpecascelular.com/webhook/painel-servicos-app"
+  >
+
+    <div class="icone">
+      📊
+    </div>
+
+    <div class="texto">
+
+      PAINEL DE SERVIÇOS
+
+      <small>
+        Acompanhar status das Ordens de Serviço
+      </small>
+
+    </div>
+
+  </a>
+
+
+</div>
 
 
 
@@ -749,7 +922,6 @@ body {
     </div>
 
   </a>
-
 
 
   <a
@@ -839,14 +1011,11 @@ body {
 </button>
 
 
-
 <div
   class="submenu"
   id="submenuProdutos"
 >
 
-
-  <!-- NOVA VENDA PRODUTOS -->
 
   <a
     class="botao nova-venda"
@@ -870,9 +1039,6 @@ body {
   </a>
 
 
-
-  <!-- CONSULTAR PRODUTOS -->
-
   <a
     class="botao consultar-produtos"
     href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
@@ -894,9 +1060,6 @@ body {
 
   </a>
 
-
-
-  <!-- HISTÓRICO -->
 
   <a
     class="botao historico"
@@ -958,14 +1121,11 @@ body {
 </button>
 
 
-
 <div
   class="submenu"
   id="submenuAdministracao"
 >
 
-
-  <!-- ADMINISTRAÇÃO DO CATÁLOGO -->
 
   <a
     class="botao admin-catalogo"
@@ -988,9 +1148,6 @@ body {
 
   </a>
 
-
-
-  <!-- CADASTRO COM CÂMERA -->
 
   <a
     class="botao camera-produto"
@@ -1018,10 +1175,6 @@ body {
 
 
 
-<!-- =====================================
-     RODAPÉ
-===================================== -->
-
 <div class="rodape">
 
   SEV7N CELL • Sistema Interno
@@ -1036,130 +1189,100 @@ body {
 <script>
 
 
+function alternarMenu(
+  submenuId,
+  setaId
+) {
+
+  const submenu =
+    document.getElementById(
+      submenuId
+    );
+
+  const seta =
+    document.getElementById(
+      setaId
+    );
+
+  submenu.classList.toggle(
+    'aberto'
+  );
+
+  if (
+    submenu.classList.contains(
+      'aberto'
+    )
+  ) {
+
+    seta.style.transform =
+      'rotate(180deg)';
+
+  } else {
+
+    seta.style.transform =
+      'rotate(0deg)';
+
+  }
+
+}
+
+
+
 // =======================================
-// MENU VENDA DE APARELHO
+// SERVIÇO
+// =======================================
+
+function abrirMenuServico() {
+
+  alternarMenu(
+    'submenuServico',
+    'setaServico'
+  );
+
+}
+
+
+
+// =======================================
+// VENDA DE APARELHO
 // =======================================
 
 function abrirMenuVenda() {
 
-  const submenu =
-    document.getElementById(
-      'submenuVenda'
-    );
-
-
-  const seta =
-    document.getElementById(
-      'setaVenda'
-    );
-
-
-  submenu.classList.toggle(
-    'aberto'
+  alternarMenu(
+    'submenuVenda',
+    'setaVenda'
   );
-
-
-  if (
-    submenu.classList.contains(
-      'aberto'
-    )
-  ) {
-
-    seta.style.transform =
-      'rotate(180deg)';
-
-  } else {
-
-    seta.style.transform =
-      'rotate(0deg)';
-
-  }
 
 }
 
 
 
 // =======================================
-// MENU VENDA DE PRODUTOS
+// VENDA DE PRODUTOS
 // =======================================
 
 function abrirMenuProdutos() {
 
-  const submenu =
-    document.getElementById(
-      'submenuProdutos'
-    );
-
-
-  const seta =
-    document.getElementById(
-      'setaProdutos'
-    );
-
-
-  submenu.classList.toggle(
-    'aberto'
+  alternarMenu(
+    'submenuProdutos',
+    'setaProdutos'
   );
-
-
-  if (
-    submenu.classList.contains(
-      'aberto'
-    )
-  ) {
-
-    seta.style.transform =
-      'rotate(180deg)';
-
-  } else {
-
-    seta.style.transform =
-      'rotate(0deg)';
-
-  }
 
 }
 
 
 
 // =======================================
-// MENU ADMINISTRAÇÃO
+// ADMINISTRAÇÃO
 // =======================================
 
 function abrirMenuAdministracao() {
 
-  const submenu =
-    document.getElementById(
-      'submenuAdministracao'
-    );
-
-
-  const seta =
-    document.getElementById(
-      'setaAdministracao'
-    );
-
-
-  submenu.classList.toggle(
-    'aberto'
+  alternarMenu(
+    'submenuAdministracao',
+    'setaAdministracao'
   );
-
-
-  if (
-    submenu.classList.contains(
-      'aberto'
-    )
-  ) {
-
-    seta.style.transform =
-      'rotate(180deg)';
-
-  } else {
-
-    seta.style.transform =
-      'rotate(0deg)';
-
-  }
 
 }
 
