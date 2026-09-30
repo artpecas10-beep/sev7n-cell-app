@@ -1,1064 +1,1172 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta charset="UTF-8">
 
-  <title>SEV7N CELL</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
-  <meta
-    name="theme-color"
-    content="#07111f"
-  >
+<meta
+  name="theme-color"
+  content="#07111f"
+>
 
-  <link
-    rel="manifest"
-    href="manifest.webmanifest"
-  >
+<title>
+  SEV7N CELL
+</title>
 
-  <link
-    rel="icon"
-    type="image/png"
-    href="icone-sev7n.png"
-  >
+<link
+  rel="manifest"
+  href="manifest.webmanifest"
+>
 
-  <link
-    rel="apple-touch-icon"
-    href="icone-sev7n.png"
-  >
+<link
+  rel="icon"
+  type="image/png"
+  href="icone-sev7n.png"
+>
 
-  <style>
+<link
+  rel="apple-touch-icon"
+  href="icone-sev7n.png"
+>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    html,
-    body {
-      min-height: 100%;
-    }
+<style>
 
-    body {
-      min-height: 100vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
 
-      background:
-        radial-gradient(
-          circle at top,
-          #102b49 0%,
-          #07111f 45%,
-          #030812 100%
-        );
+html,
+body {
+  min-height: 100%;
+}
 
-      color: white;
 
-      display: flex;
+body {
 
-      justify-content: center;
+  min-height: 100vh;
 
-      align-items: center;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-      padding: 25px 15px;
-    }
+  background:
+    radial-gradient(
+      circle at top,
+      #102b49 0%,
+      #07111f 45%,
+      #030812 100%
+    );
 
+  color: white;
 
-    .app {
-      width: 100%;
-      max-width: 520px;
-    }
+  display: flex;
 
+  justify-content: center;
 
-    /* ====================================== */
-    /* LOGO */
-    /* ====================================== */
+  align-items: center;
 
-    .logo-box {
+  padding: 25px 15px;
 
-      border: 2px solid #1f6fff;
+}
 
-      border-radius: 24px;
 
-      padding: 28px 20px;
+.app {
 
-      text-align: center;
+  width: 100%;
 
-      margin-bottom: 35px;
+  max-width: 520px;
 
-      background:
-        rgba(
-          4,
-          15,
-          31,
-          0.80
-        );
+}
 
-      box-shadow:
-        0 0 25px
-        rgba(
-          31,
-          111,
-          255,
-          0.18
-        );
-    }
 
+/* ======================================
+   LOGO
+====================================== */
 
-    .logo-img {
+.logo-box {
 
-      width: 120px;
+  border:
+    2px solid #1f6fff;
 
-      height: 120px;
+  border-radius:
+    24px;
 
-      object-fit: cover;
+  padding:
+    28px 20px;
 
-      border-radius: 24px;
+  text-align:
+    center;
 
-      margin-bottom: 15px;
-    }
+  margin-bottom:
+    35px;
 
+  background:
+    rgba(
+      4,
+      15,
+      31,
+      0.80
+    );
 
-    .logo-box h1 {
+  box-shadow:
+    0 0 25px
+    rgba(
+      31,
+      111,
+      255,
+      0.18
+    );
 
-      font-size: 38px;
+}
 
-      letter-spacing: 2px;
 
-      font-weight: 800;
-    }
+.logo-img {
 
+  width:
+    120px;
 
-    .logo-box h1 span {
+  height:
+    120px;
 
-      color: #1687ff;
-    }
+  object-fit:
+    cover;
 
+  border-radius:
+    24px;
 
-    .logo-box p {
+  margin-bottom:
+    15px;
 
-      margin-top: 8px;
+}
 
-      color: #a9b8ca;
 
-      font-size: 14px;
+.logo-box h1 {
 
-      letter-spacing: 3px;
-    }
+  font-size:
+    38px;
 
+  letter-spacing:
+    2px;
 
-    .titulo {
+  font-weight:
+    800;
 
-      text-align: center;
+}
 
-      font-size: 18px;
 
-      margin-bottom: 24px;
+.logo-box h1 span {
 
-      color: #dce7f5;
+  color:
+    #1687ff;
 
-      font-weight: 700;
-    }
+}
 
 
-    /* ====================================== */
-    /* BOTÕES */
-    /* ====================================== */
+.logo-box p {
 
-    .botao {
+  margin-top:
+    8px;
 
-      display: flex;
+  color:
+    #a9b8ca;
 
-      align-items: center;
+  font-size:
+    14px;
 
-      gap: 18px;
+  letter-spacing:
+    3px;
 
-      width: 100%;
+}
 
-      border: none;
 
-      text-decoration: none;
+.titulo {
 
-      color: white;
+  text-align:
+    center;
 
-      padding: 22px 20px;
+  font-size:
+    18px;
 
-      border-radius: 18px;
+  margin-bottom:
+    24px;
 
-      margin-bottom: 18px;
+  color:
+    #dce7f5;
 
-      font-size: 20px;
+  font-weight:
+    700;
 
-      font-weight: 700;
+}
 
-      transition: 0.2s ease;
 
-      box-shadow:
-        0 8px 20px
-        rgba(
-          0,
-          0,
-          0,
-          0.25
-        );
+/* ======================================
+   BOTÕES
+====================================== */
 
-      cursor: pointer;
+.botao {
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  display:
+    flex;
 
-      text-align: left;
-    }
+  align-items:
+    center;
 
+  gap:
+    18px;
 
-    .botao:hover {
+  width:
+    100%;
 
-      transform:
-        translateY(-2px);
+  border:
+    none;
 
-      filter:
-        brightness(1.08);
-    }
+  text-decoration:
+    none;
 
+  color:
+    white;
 
-    .botao:active {
+  padding:
+    22px 20px;
 
-      transform:
-        scale(0.98);
-    }
+  border-radius:
+    18px;
 
+  margin-bottom:
+    18px;
 
-    .icone {
+  font-size:
+    20px;
 
-      font-size: 34px;
+  font-weight:
+    700;
 
-      width: 45px;
+  transition:
+    0.2s ease;
 
-      text-align: center;
+  box-shadow:
+    0 8px 20px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
 
-      flex-shrink: 0;
-    }
+  cursor:
+    pointer;
 
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-    .texto {
+  text-align:
+    left;
 
-      flex: 1;
-    }
+}
 
 
-    .texto small {
+.botao:hover {
 
-      display: block;
+  transform:
+    translateY(-2px);
 
-      font-size: 12px;
+  filter:
+    brightness(1.08);
 
-      font-weight: normal;
+}
 
-      margin-top: 5px;
 
-      opacity: 0.85;
-    }
+.botao:active {
 
+  transform:
+    scale(0.98);
 
-    .seta {
+}
 
-      font-size: 22px;
 
-      transition:
-        transform 0.25s ease;
-    }
+.icone {
 
+  font-size:
+    34px;
 
-    /* ====================================== */
-    /* CORES PRINCIPAIS */
-    /* ====================================== */
+  width:
+    45px;
 
-    .servico {
+  text-align:
+    center;
 
-      background:
-        linear-gradient(
-          135deg,
-          #0868ff,
-          #0047b8
-        );
-    }
+  flex-shrink:
+    0;
 
+}
 
-    .venda {
 
-      background:
-        linear-gradient(
-          135deg,
-          #12a856,
-          #08763b
-        );
-    }
+.texto {
 
+  flex:
+    1;
 
-    .cpf {
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          #ff8a00,
-          #d95b00
-        );
-    }
 
+.texto small {
 
-    .produtos {
+  display:
+    block;
 
-      background:
-        linear-gradient(
-          135deg,
-          #00a7a7,
-          #006d73
-        );
-    }
+  font-size:
+    12px;
 
+  font-weight:
+    normal;
 
-    .administracao {
+  margin-top:
+    5px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #45556b,
-          #253244
-        );
-    }
+  opacity:
+    0.85;
 
+}
 
-    /* ====================================== */
-    /* SUBMENU */
-    /* ====================================== */
 
-    .submenu {
+.seta {
 
-      display: none;
+  font-size:
+    22px;
 
-      margin-top: -8px;
+  transition:
+    transform 0.25s ease;
 
-      margin-bottom: 20px;
+}
 
-      padding: 16px;
 
-      border-radius: 18px;
+/* ======================================
+   CORES PRINCIPAIS
+====================================== */
 
-      background:
-        rgba(
-          4,
-          15,
-          31,
-          0.92
-        );
+.servico {
 
-      border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.10
-        );
+  background:
+    linear-gradient(
+      135deg,
+      #0868ff,
+      #0047b8
+    );
 
-      box-shadow:
-        0 8px 20px
-        rgba(
-          0,
-          0,
-          0,
-          0.25
-        );
-    }
+}
 
 
-    .submenu.aberto {
+.venda {
 
-      display: block;
-    }
+  background:
+    linear-gradient(
+      135deg,
+      #12a856,
+      #08763b
+    );
 
+}
 
-    .submenu .botao {
 
-      margin-bottom: 12px;
+.cpf {
 
-      padding: 18px 16px;
+  background:
+    linear-gradient(
+      135deg,
+      #ff8a00,
+      #d95b00
+    );
 
-      font-size: 17px;
+}
 
-      border-radius: 14px;
-    }
 
+.produtos {
 
-    .submenu .botao:last-child {
+  background:
+    linear-gradient(
+      135deg,
+      #00a7a7,
+      #006d73
+    );
 
-      margin-bottom: 0;
-    }
+}
 
 
-    .nova-venda {
+.administracao {
 
-      background:
-        linear-gradient(
-          135deg,
-          #18b563,
-          #0a7f40
-        );
-    }
+  background:
+    linear-gradient(
+      135deg,
+      #45556b,
+      #253244
+    );
 
+}
 
-    .historico {
 
-      background:
-        linear-gradient(
-          135deg,
-          #7652ff,
-          #4a2db3
-        );
-    }
+/* ======================================
+   SUBMENU
+====================================== */
 
+.submenu {
 
-    .consultar-produtos {
+  display:
+    none;
 
-      background:
-        linear-gradient(
-          135deg,
-          #1687ff,
-          #0752b8
-        );
-    }
+  margin-top:
+    -8px;
 
+  margin-bottom:
+    20px;
 
-    .admin-catalogo {
+  padding:
+    16px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #64748b,
-          #334155
-        );
-    }
+  border-radius:
+    18px;
 
+  background:
+    rgba(
+      4,
+      15,
+      31,
+      0.92
+    );
 
-    .camera-produto {
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.10
+    );
 
-      background:
-        linear-gradient(
-          135deg,
-          #2563eb,
-          #0f3f99
-        );
-    }
+  box-shadow:
+    0 8px 20px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
 
+}
 
-    /* ====================================== */
-    /* RODAPÉ */
-    /* ====================================== */
 
-    .rodape {
+.submenu.aberto {
 
-      text-align: center;
+  display:
+    block;
 
-      margin-top: 28px;
+}
 
-      color: #65758a;
 
-      font-size: 12px;
-    }
+.submenu .botao {
 
+  margin-bottom:
+    12px;
 
-    /* ====================================== */
-    /* CELULAR */
-    /* ====================================== */
+  padding:
+    18px 16px;
 
-    @media (
-      max-width: 500px
-    ) {
+  font-size:
+    17px;
 
-      .logo-box h1 {
+  border-radius:
+    14px;
 
-        font-size: 32px;
-      }
+}
 
 
-      .botao {
+.submenu .botao:last-child {
 
-        padding: 19px 16px;
+  margin-bottom:
+    0;
 
-        font-size: 18px;
-      }
+}
 
 
-      .logo-img {
+.nova-venda {
 
-        width: 100px;
+  background:
+    linear-gradient(
+      135deg,
+      #18b563,
+      #0a7f40
+    );
 
-        height: 100px;
-      }
+}
 
-    }
 
-  </style>
+.historico {
+
+  background:
+    linear-gradient(
+      135deg,
+      #7652ff,
+      #4a2db3
+    );
+
+}
+
+
+.consultar-produtos {
+
+  background:
+    linear-gradient(
+      135deg,
+      #1687ff,
+      #0752b8
+    );
+
+}
+
+
+.admin-catalogo {
+
+  background:
+    linear-gradient(
+      135deg,
+      #64748b,
+      #334155
+    );
+
+}
+
+
+.camera-produto {
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0f3f99
+    );
+
+}
+
+
+/* ======================================
+   RODAPÉ
+====================================== */
+
+.rodape {
+
+  text-align:
+    center;
+
+  margin-top:
+    28px;
+
+  color:
+    #65758a;
+
+  font-size:
+    12px;
+
+}
+
+
+/* ======================================
+   CELULAR
+====================================== */
+
+@media (
+  max-width: 500px
+) {
+
+  .logo-box h1 {
+
+    font-size:
+      32px;
+
+  }
+
+
+  .botao {
+
+    padding:
+      19px 16px;
+
+    font-size:
+      18px;
+
+  }
+
+
+  .logo-img {
+
+    width:
+      100px;
+
+    height:
+      100px;
+
+  }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-  <main class="app">
+<main class="app">
 
 
-    <!-- ===================================== -->
-    <!-- LOGO -->
-    <!-- ===================================== -->
+<!-- =====================================
+     LOGO
+===================================== -->
 
-    <div class="logo-box">
+<div class="logo-box">
 
-      <img
-        src="icone-sev7n.png"
-        alt="SEV7N CELL"
-        class="logo-img"
-      >
+  <img
+    src="icone-sev7n.png"
+    alt="SEV7N CELL"
+    class="logo-img"
+  >
 
-      <h1>
-        SEV<span>7</span>N CELL
-      </h1>
+  <h1>
+    SEV<span>7</span>N CELL
+  </h1>
 
-      <p>
-        SISTEMA DA LOJA
-      </p>
+  <p>
+    SISTEMA DA LOJA
+  </p>
+
+</div>
+
+
+<div class="titulo">
+
+  SELECIONE O QUE DESEJA FAZER
+
+</div>
+
+
+
+<!-- =====================================
+     SERVIÇO
+===================================== -->
+
+<a
+  class="botao servico"
+  href="nova-os.html"
+>
+
+  <div class="icone">
+    🔧
+  </div>
+
+  <div class="texto">
+
+    SERVIÇO
+
+    <small>
+      Abrir ordem de serviço
+    </small>
+
+  </div>
+
+</a>
+
+
+
+<!-- =====================================
+     VENDA DE APARELHO
+===================================== -->
+
+<button
+  class="botao venda"
+  type="button"
+  onclick="abrirMenuVenda()"
+>
+
+  <div class="icone">
+    📱
+  </div>
+
+  <div class="texto">
+
+    VENDA DE APARELHO
+
+    <small>
+      Nova venda ou histórico
+    </small>
+
+  </div>
+
+  <div
+    class="seta"
+    id="setaVenda"
+  >
+    ▼
+  </div>
+
+</button>
+
+
+<div
+  class="submenu"
+  id="submenuVenda"
+>
+
+
+  <a
+    class="botao nova-venda"
+    href="venda-aparelho-cliente.html"
+  >
+
+    <div class="icone">
+      ➕
+    </div>
+
+    <div class="texto">
+
+      NOVA VENDA
+
+      <small>
+        Registrar venda de aparelho
+      </small>
 
     </div>
 
+  </a>
 
-    <div class="titulo">
 
-      SELECIONE O QUE DESEJA FAZER
+
+  <a
+    class="botao historico"
+    href="https://n8n.artpecascelular.com/webhook/historico-vendas"
+  >
+
+    <div class="icone">
+      📋
+    </div>
+
+    <div class="texto">
+
+      HISTÓRICO DE VENDAS
+
+      <small>
+        Consultar vendas realizadas
+      </small>
 
     </div>
 
+  </a>
 
 
-    <!-- ===================================== -->
-    <!-- SERVIÇO -->
-    <!-- ===================================== -->
-
-    <a
-      class="botao servico"
-
-      href="https://n8n.artpecascelular.com/form/4aea4778-ea9a-4cc5-befb-0dcccc34a286"
-    >
-
-      <div class="icone">
-        🔧
-      </div>
-
-      <div class="texto">
-
-        SERVIÇO
-
-        <small>
-          Abrir ordem de serviço
-        </small>
-
-      </div>
-
-    </a>
+</div>
 
 
 
-    <!-- ===================================== -->
-    <!-- VENDA DE APARELHO -->
-    <!-- ===================================== -->
+<!-- =====================================
+     CPF NA NOTA
+===================================== -->
 
-    <button
-      class="botao venda"
-      type="button"
-      onclick="abrirMenuVenda()"
-    >
+<a
+  class="botao cpf"
+  href="https://n8n.artpecascelular.com/form/83cb748e-1650-4726-8a49-24e29277da1a"
+>
 
-      <div class="icone">
-        📱
-      </div>
+  <div class="icone">
+    🧾
+  </div>
 
-      <div class="texto">
+  <div class="texto">
 
-        VENDA DE APARELHO
+    CPF NA NOTA
 
-        <small>
-          Nova venda ou histórico
-        </small>
+    <small>
+      Emitir NFC-e com CPF
+    </small>
 
-      </div>
+  </div>
 
-      <div
-        class="seta"
-        id="setaVenda"
-      >
-        ▼
-      </div>
-
-    </button>
-
-
-    <div
-      class="submenu"
-      id="submenuVenda"
-    >
-
-
-      <a
-        class="botao nova-venda"
-
-        href="venda-aparelho-cliente.html"
-      >
-
-        <div class="icone">
-          ➕
-        </div>
-
-        <div class="texto">
-
-          NOVA VENDA
-
-          <small>
-            Registrar venda de aparelho
-          </small>
-
-        </div>
-
-      </a>
+</a>
 
 
 
-      <a
-        class="botao historico"
+<!-- =====================================
+     VENDA DE PRODUTOS
+===================================== -->
 
-        href="https://n8n.artpecascelular.com/webhook/historico-vendas"
-      >
+<button
+  class="botao produtos"
+  type="button"
+  onclick="abrirMenuProdutos()"
+>
 
-        <div class="icone">
-          📋
-        </div>
+  <div class="icone">
+    🛒
+  </div>
 
-        <div class="texto">
+  <div class="texto">
 
-          HISTÓRICO DE VENDAS
+    VENDA DE PRODUTOS
 
-          <small>
-            Consultar vendas realizadas
-          </small>
+    <small>
+      Venda, consulta ou histórico
+    </small>
 
-        </div>
+  </div>
 
-      </a>
+  <div
+    class="seta"
+    id="setaProdutos"
+  >
+    ▼
+  </div>
 
+</button>
+
+
+
+<div
+  class="submenu"
+  id="submenuProdutos"
+>
+
+
+  <!-- NOVA VENDA PRODUTOS -->
+
+  <a
+    class="botao nova-venda"
+    href="pdv-cliente.html"
+  >
+
+    <div class="icone">
+      ➕
+    </div>
+
+    <div class="texto">
+
+      NOVA VENDA
+
+      <small>
+        Abrir PDV de produtos
+      </small>
 
     </div>
 
-
-
-    <!-- ===================================== -->
-    <!-- CPF NA NOTA -->
-    <!-- ===================================== -->
-
-    <a
-      class="botao cpf"
-
-      href="https://n8n.artpecascelular.com/form/83cb748e-1650-4726-8a49-24e29277da1a"
-    >
-
-      <div class="icone">
-        🧾
-      </div>
-
-      <div class="texto">
-
-        CPF NA NOTA
-
-        <small>
-          Emitir NFC-e com CPF
-        </small>
-
-      </div>
-
-    </a>
+  </a>
 
 
 
-    <!-- ===================================== -->
-    <!-- VENDA DE PRODUTOS -->
-    <!-- ===================================== -->
+  <!-- CONSULTAR PRODUTOS -->
 
-    <button
-      class="botao produtos"
-      type="button"
-      onclick="abrirMenuProdutos()"
-    >
+  <a
+    class="botao consultar-produtos"
+    href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
+  >
 
-      <div class="icone">
-        🛒
-      </div>
+    <div class="icone">
+      📦
+    </div>
 
-      <div class="texto">
+    <div class="texto">
 
-        VENDA DE PRODUTOS
+      CONSULTAR PRODUTOS
 
-        <small>
-          Venda, consulta ou histórico
-        </small>
-
-      </div>
-
-      <div
-        class="seta"
-        id="setaProdutos"
-      >
-        ▼
-      </div>
-
-    </button>
-
-
-
-    <div
-      class="submenu"
-      id="submenuProdutos"
-    >
-
-
-      <!-- NOVA VENDA PRODUTOS -->
-
-      <a
-        class="botao nova-venda"
-
-        href="pdv-cliente.html"
-      >
-
-        <div class="icone">
-          ➕
-        </div>
-
-        <div class="texto">
-
-          NOVA VENDA
-
-          <small>
-            Abrir PDV de produtos
-          </small>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- CONSULTAR PRODUTOS -->
-
-      <a
-        class="botao consultar-produtos"
-
-        href="https://n8n.artpecascelular.com/webhook/catalogo-vendedores"
-      >
-
-        <div class="icone">
-          📦
-        </div>
-
-        <div class="texto">
-
-          CONSULTAR PRODUTOS
-
-          <small>
-            Consultar preços e disponibilidade
-          </small>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- HISTÓRICO -->
-
-      <a
-        class="botao historico"
-
-        href="https://n8n.artpecascelular.com/webhook/historico-vendas-produtos"
-      >
-
-        <div class="icone">
-          📋
-        </div>
-
-        <div class="texto">
-
-          HISTÓRICO DE VENDAS
-
-          <small>
-            Consultar vendas de produtos
-          </small>
-
-        </div>
-
-      </a>
-
+      <small>
+        Consultar preços e disponibilidade
+      </small>
 
     </div>
 
-
-
-    <!-- ===================================== -->
-    <!-- ADMINISTRAÇÃO -->
-    <!-- ===================================== -->
-
-    <button
-      class="botao administracao"
-      type="button"
-      onclick="abrirMenuAdministracao()"
-    >
-
-      <div class="icone">
-        ⚙️
-      </div>
-
-      <div class="texto">
-
-        ADMINISTRAÇÃO
-
-        <small>
-          Catálogo e cadastro de produtos
-        </small>
-
-      </div>
-
-      <div
-        class="seta"
-        id="setaAdministracao"
-      >
-        ▼
-      </div>
-
-    </button>
+  </a>
 
 
 
-    <div
-      class="submenu"
-      id="submenuAdministracao"
-    >
+  <!-- HISTÓRICO -->
 
+  <a
+    class="botao historico"
+    href="https://n8n.artpecascelular.com/webhook/historico-vendas-produtos"
+  >
 
-      <!-- ADMINISTRAÇÃO DO CATÁLOGO -->
+    <div class="icone">
+      📋
+    </div>
 
-      <a
-        class="botao admin-catalogo"
+    <div class="texto">
 
-        href="https://n8n.artpecascelular.com/webhook/catalogo-admin"
-      >
+      HISTÓRICO DE VENDAS
 
-        <div class="icone">
-          ⚙️
-        </div>
-
-        <div class="texto">
-
-          ADMINISTRAÇÃO DO CATÁLOGO
-
-          <small>
-            Gerenciar, editar e desativar produtos
-          </small>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- CADASTRO COM CÂMERA -->
-
-      <a
-        class="botao camera-produto"
-
-        href="cadastro-camera.html"
-      >
-
-        <div class="icone">
-          📷
-        </div>
-
-        <div class="texto">
-
-          CADASTRAR PRODUTO COM CÂMERA
-
-          <small>
-            Ler código de barras e cadastrar produto
-          </small>
-
-        </div>
-
-      </a>
-
+      <small>
+        Consultar vendas de produtos
+      </small>
 
     </div>
 
+  </a>
 
 
-    <!-- ===================================== -->
-    <!-- RODAPÉ -->
-    <!-- ===================================== -->
+</div>
 
-    <div class="rodape">
 
-      SEV7N CELL • Sistema Interno
+
+<!-- =====================================
+     ADMINISTRAÇÃO
+===================================== -->
+
+<button
+  class="botao administracao"
+  type="button"
+  onclick="abrirMenuAdministracao()"
+>
+
+  <div class="icone">
+    ⚙️
+  </div>
+
+  <div class="texto">
+
+    ADMINISTRAÇÃO
+
+    <small>
+      Catálogo e cadastro de produtos
+    </small>
+
+  </div>
+
+  <div
+    class="seta"
+    id="setaAdministracao"
+  >
+    ▼
+  </div>
+
+</button>
+
+
+
+<div
+  class="submenu"
+  id="submenuAdministracao"
+>
+
+
+  <!-- ADMINISTRAÇÃO DO CATÁLOGO -->
+
+  <a
+    class="botao admin-catalogo"
+    href="https://n8n.artpecascelular.com/webhook/catalogo-admin"
+  >
+
+    <div class="icone">
+      ⚙️
+    </div>
+
+    <div class="texto">
+
+      ADMINISTRAÇÃO DO CATÁLOGO
+
+      <small>
+        Gerenciar, editar e desativar produtos
+      </small>
 
     </div>
 
-
-  </main>
-
-
-
-  <script>
-
-
-    // =======================================
-    // MENU VENDA DE APARELHO
-    // =======================================
-
-    function abrirMenuVenda() {
-
-      const submenu =
-        document.getElementById(
-          'submenuVenda'
-        );
-
-
-      const seta =
-        document.getElementById(
-          'setaVenda'
-        );
-
-
-      submenu.classList.toggle(
-        'aberto'
-      );
-
-
-      if (
-        submenu.classList.contains(
-          'aberto'
-        )
-      ) {
-
-        seta.style.transform =
-          'rotate(180deg)';
-
-      } else {
-
-        seta.style.transform =
-          'rotate(0deg)';
-      }
-
-    }
+  </a>
 
 
 
-    // =======================================
-    // MENU VENDA DE PRODUTOS
-    // =======================================
+  <!-- CADASTRO COM CÂMERA -->
 
-    function abrirMenuProdutos() {
+  <a
+    class="botao camera-produto"
+    href="cadastro-camera.html"
+  >
 
-      const submenu =
-        document.getElementById(
-          'submenuProdutos'
-        );
+    <div class="icone">
+      📷
+    </div>
+
+    <div class="texto">
+
+      CADASTRAR PRODUTO COM CÂMERA
+
+      <small>
+        Ler código de barras e cadastrar produto
+      </small>
+
+    </div>
+
+  </a>
 
 
-      const seta =
-        document.getElementById(
-          'setaProdutos'
-        );
-
-
-      submenu.classList.toggle(
-        'aberto'
-      );
-
-
-      if (
-        submenu.classList.contains(
-          'aberto'
-        )
-      ) {
-
-        seta.style.transform =
-          'rotate(180deg)';
-
-      } else {
-
-        seta.style.transform =
-          'rotate(0deg)';
-      }
-
-    }
+</div>
 
 
 
-    // =======================================
-    // MENU ADMINISTRAÇÃO
-    // =======================================
+<!-- =====================================
+     RODAPÉ
+===================================== -->
 
-    function abrirMenuAdministracao() {
+<div class="rodape">
 
-      const submenu =
-        document.getElementById(
-          'submenuAdministracao'
-        );
+  SEV7N CELL • Sistema Interno
 
-
-      const seta =
-        document.getElementById(
-          'setaAdministracao'
-        );
+</div>
 
 
-      submenu.classList.toggle(
-        'aberto'
-      );
+</main>
 
 
-      if (
-        submenu.classList.contains(
-          'aberto'
-        )
-      ) {
 
-        seta.style.transform =
-          'rotate(180deg)';
-
-      } else {
-
-        seta.style.transform =
-          'rotate(0deg)';
-      }
-
-    }
+<script>
 
 
-  </script>
+// =======================================
+// MENU VENDA DE APARELHO
+// =======================================
+
+function abrirMenuVenda() {
+
+  const submenu =
+    document.getElementById(
+      'submenuVenda'
+    );
+
+
+  const seta =
+    document.getElementById(
+      'setaVenda'
+    );
+
+
+  submenu.classList.toggle(
+    'aberto'
+  );
+
+
+  if (
+    submenu.classList.contains(
+      'aberto'
+    )
+  ) {
+
+    seta.style.transform =
+      'rotate(180deg)';
+
+  } else {
+
+    seta.style.transform =
+      'rotate(0deg)';
+
+  }
+
+}
+
+
+
+// =======================================
+// MENU VENDA DE PRODUTOS
+// =======================================
+
+function abrirMenuProdutos() {
+
+  const submenu =
+    document.getElementById(
+      'submenuProdutos'
+    );
+
+
+  const seta =
+    document.getElementById(
+      'setaProdutos'
+    );
+
+
+  submenu.classList.toggle(
+    'aberto'
+  );
+
+
+  if (
+    submenu.classList.contains(
+      'aberto'
+    )
+  ) {
+
+    seta.style.transform =
+      'rotate(180deg)';
+
+  } else {
+
+    seta.style.transform =
+      'rotate(0deg)';
+
+  }
+
+}
+
+
+
+// =======================================
+// MENU ADMINISTRAÇÃO
+// =======================================
+
+function abrirMenuAdministracao() {
+
+  const submenu =
+    document.getElementById(
+      'submenuAdministracao'
+    );
+
+
+  const seta =
+    document.getElementById(
+      'setaAdministracao'
+    );
+
+
+  submenu.classList.toggle(
+    'aberto'
+  );
+
+
+  if (
+    submenu.classList.contains(
+      'aberto'
+    )
+  ) {
+
+    seta.style.transform =
+      'rotate(180deg)';
+
+  } else {
+
+    seta.style.transform =
+      'rotate(0deg)';
+
+  }
+
+}
+
+
+</script>
 
 
 </body>
+
 </html>
