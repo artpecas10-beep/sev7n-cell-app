@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#071b3a"
+>
+
+<title>
+  SEV7N CELL - Nova Ordem de Serviço
+</title>
+
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --azul-900: #071b3a;
+  --azul-800: #0b2d59;
+  --azul-700: #0f4c92;
+  --azul-600: #126be8;
+  --azul-500: #1687ff;
+
+  --cinza-50: #f8fafc;
+  --cinza-100: #eef3f9;
+  --cinza-200: #d7e0ea;
+  --cinza-300: #cbd5e1;
+  --cinza-500: #64748b;
+  --cinza-700: #334155;
+
+  --verde: #15803d;
+  --vermelho: #b91c1c;
+  --branco: #ffffff;
+}
+
+
+body {
+  margin: 0;
+
+  min-height: 100vh;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #edf4fb 0%,
+      #f8fafc 100%
+    );
+
+  color:
+    #172033;
+}
+
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+header {
+  background:
+    linear-gradient(
+      135deg,
+      var(--azul-900),
+      var(--azul-800)
+    );
+
+  color:
+    white;
+
+  padding:
+    24px 18px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(7,27,58,.18);
+}
+
+
+.header-conteudo {
+  max-width:
+    1050px;
+
+  margin:
+    0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+}
+
+
+.marca h1 {
+  margin:
+    0;
+
+  font-size:
+    30px;
+
+  font-weight:
+    900;
+}
+
+
+.marca h1 span {
+  color:
+    #58aaff;
+}
+
+
+.marca p {
+  margin:
+    6px 0 0;
+
+  color:
+    #cbd9ea;
+
+  font-size:
+    14px;
+}
+
+
+.selo {
+  padding:
+    8px 13px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.22);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,.08);
+
+  font-size:
+    11px;
+
+  font-weight:
+    800;
+}
+
+
+/* ==========================================
+   ÁREA PRINCIPAL
+========================================== */
+
+main {
+  max-width:
+    1050px;
+
+  margin:
+    0 auto;
+
+  padding:
+    24px 16px 50px;
+}
+
+
+.card {
+  margin-bottom:
+    18px;
+
+  background:
+    white;
+
+  border:
+    1px solid
+    var(--cinza-200);
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(7,27,58,.07);
+
+  overflow:
+    hidden;
+}
+
+
+.card-titulo {
+  padding:
+    15px 20px;
+
+  background:
+    #edf4fc;
+
+  border-bottom:
+    1px solid
+    #d7e4f2;
+
+  color:
+    var(--azul-900);
+
+  font-size:
+    14px;
+
+  font-weight:
+    900;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .4px;
+}
+
+
+.card-conteudo {
+  padding:
+    20px;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.grid {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:
+    17px;
+}
+
+
+.grid-3 {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    17px;
+}
+
+
+.campo-total {
+  grid-column:
+    1 / -1;
+}
+
+
+/* ==========================================
+   CAMPOS
+========================================== */
+
+label {
+  display:
+    block;
+
+  margin-bottom:
+    7px;
+
+  color:
+    #24364d;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+}
+
+
+input,
+select,
+textarea {
+  width:
+    100%;
+
+  min-height:
+    46px;
+
+  padding:
+    11px 13px;
+
+  border:
+    1px solid
+    var(--cinza-300);
+
+  border-radius:
+    10px;
+
+  background:
+    white;
+
+  color:
+    #172033;
+
+  font-size:
+    15px;
+
+  outline:
+    none;
+
+  transition:
+    .18s ease;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color:
+    var(--azul-500);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(22,135,255,.10);
+}
+
+
+textarea {
+  min-height:
+    95px;
+
+  resize:
+    vertical;
+}
+
+
+.campo small {
+  display:
+    block;
+
+  margin-top:
+    5px;
+
+  color:
+    var(--cinza-500);
+
+  font-size:
+    11px;
+}
+
+
+/* ==========================================
+   RADIO
+========================================== */
+
+.opcoes {
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    9px;
+}
+
+
+.opcao-radio {
+  position:
+    relative;
+}
+
+
+.opcao-radio input {
+  position:
+    absolute;
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+}
+
+
+.opcao-radio span {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    41px;
+
+  padding:
+    8px 15px;
+
+  border:
+    1px solid
+    var(--cinza-300);
+
+  border-radius:
+    9px;
+
+  background:
+    #f8fafc;
+
+  color:
+    #334155;
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  cursor:
+    pointer;
+}
+
+
+.opcao-radio input:checked + span {
+  background:
+    var(--azul-900);
+
+  border-color:
+    var(--azul-900);
+
+  color:
+    white;
+}
+
+
+/* ==========================================
+   TESTES
+========================================== */
+
+.teste {
+  padding:
+    13px;
+
+  border:
+    1px solid
+    var(--cinza-200);
+
+  border-radius:
+    11px;
+
+  background:
+    #f8fafc;
+}
+
+
+.teste-titulo {
+  margin-bottom:
+    9px;
+
+  color:
+    var(--azul-900);
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+}
+
+
+/* ==========================================
+   PIN
+========================================== */
+
+#campoPin {
+  display:
+    none;
+}
+
+
+.aviso-pin {
+  margin-top:
+    6px;
+
+  color:
+    #92400e;
+
+  font-size:
+    11px;
+}
+
+
+/* ==========================================
+   TERMOS
+========================================== */
+
+.termos-box {
+  max-height:
+    170px;
+
+  overflow-y:
+    auto;
+
+  padding:
+    15px;
+
+  border:
+    1px solid
+    var(--cinza-200);
+
+  border-radius:
+    10px;
+
+  background:
+    #f8fafc;
+
+  color:
+    #475569;
+
+  font-size:
+    12px;
+
+  line-height:
+    1.5;
+}
+
+
+.aceite {
+  display:
+    flex;
+
+  gap:
+    10px;
+
+  align-items:
+    flex-start;
+
+  margin-top:
+    15px;
+}
+
+
+.aceite input {
+  width:
+    20px;
+
+  min-height:
+    20px;
+
+  margin:
+    1px 0 0;
+
+  flex-shrink:
+    0;
+}
+
+
+.aceite label {
+  margin:
+    0;
+
+  font-weight:
+    700;
+}
+
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+.acoes {
+  display:
+    flex;
+
+  gap:
+    12px;
+
+  justify-content:
+    flex-end;
+
+  margin-top:
+    22px;
+
+  flex-wrap:
+    wrap;
+}
+
+
+button {
+  min-height:
+    48px;
+
+  padding:
+    0 20px;
+
+  border:
+    0;
+
+  border-radius:
+    10px;
+
+  font-weight:
+    900;
+
+  cursor:
+    pointer;
+}
+
+
+.btn-voltar {
+  background:
+    #e8edf4;
+
+  color:
+    #27364a;
+}
+
+
+.btn-salvar {
+  min-width:
+    250px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--azul-600),
+      var(--azul-700)
+    );
+
+  color:
+    white;
+
+  box-shadow:
+    0 7px 18px
+    rgba(18,107,232,.22);
+}
+
+
+button:disabled {
+  opacity:
+    .6;
+
+  cursor:
+    not-allowed;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+  min-height:
+    21px;
+
+  margin-top:
+    13px;
+
+  font-size:
+    13px;
+}
+
+
+.status.erro {
+  color:
+    var(--vermelho);
+
+  font-weight:
+    700;
+}
+
+
+.status.ok {
+  color:
+    var(--verde);
+
+  font-weight:
+    700;
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 760px) {
+
+  .header-conteudo {
+    align-items:
+      flex-start;
+  }
+
+
+  .marca h1 {
+    font-size:
+      25px;
+  }
+
+
+  main {
+    padding:
+      14px 10px 35px;
+  }
+
+
+  .grid,
+  .grid-3 {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .campo-total {
+    grid-column:
+      auto;
+  }
+
+
+  .card-conteudo {
+    padding:
+      16px;
+  }
+
+
+  .opcoes {
+    display:
+      grid;
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+
+  .opcao-radio span {
+    width:
+      100%;
+  }
+
+
+  .acoes {
+    display:
+      grid;
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .btn-voltar,
+  .btn-salvar {
+    width:
+      100%;
+
+    min-width:
+      0;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-conteudo">
+
+    <div class="marca">
+
+      <h1>
+        SEV<span>7</span>N CELL
+      </h1>
+
+      <p>
+        Nova Ordem de Serviço
+      </p>
+
+    </div>
+
+
+    <div class="selo">
+      ATENDIMENTO
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<form
+  id="formOS"
+  autocomplete="off"
+>
+
+
+<!-- ======================================
+     ATENDIMENTO
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Dados do atendimento
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="grid">
+
+      <div class="campo">
+
+        <label>
+          Tipo de atendimento *
+        </label>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="tipo_atendimento"
+              value="orçamento"
+              required
+            >
+
+            <span>
+              Orçamento
+            </span>
+
+          </label>
+
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="tipo_atendimento"
+              value="autorizado"
+            >
+
+            <span>
+              Autorizado
+            </span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="vendedor">
+          Vendedor *
+        </label>
+
+        <select
+          id="vendedor"
+          name="Vendedor"
+          required
+        >
+
+          <option value="">
+            Selecione...
+          </option>
+
+          <option>Dário Ribas</option>
+          <option>Jo Ribas</option>
+          <option>Carlos Miguel</option>
+          <option>Josi</option>
+          <option>Will</option>
+          <option>Cintia</option>
+          <option>Sidney</option>
+          <option>naty</option>
+
+        </select>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="valorAutorizado">
+          Valor autorizado (R$)
+        </label>
+
+        <input
+          id="valorAutorizado"
+          name="Valor autorizado (R$)"
+          type="number"
+          min="0"
+          step="0.01"
+          value="0"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="dataEntrada">
+          Data de entrada
+        </label>
+
+        <input
+          id="dataEntrada"
+          name="Data de entrada"
+          type="date"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="previsaoEntrega">
+          Previsão de entrega
+        </label>
+
+        <input
+          id="previsaoEntrega"
+          name="Previsão de entrega"
+          type="date"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     CLIENTE
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Dados do cliente
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="grid">
+
+      <div class="campo campo-total">
+
+        <label for="nomeCliente">
+          Nome do cliente *
+        </label>
+
+        <input
+          id="nomeCliente"
+          name="Nome do cliente"
+          type="text"
+          required
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="cpf">
+          CPF
+        </label>
+
+        <input
+          id="cpf"
+          name="CPF"
+          type="text"
+          inputmode="numeric"
+          maxlength="14"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="telefone">
+          Telefone / WhatsApp
+        </label>
+
+        <input
+          id="telefone"
+          name="Telefone"
+          type="tel"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="endereco">
+          Endereço
+        </label>
+
+        <input
+          id="endereco"
+          name="Endereço"
+          type="text"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="numeroEndereco">
+          Número
+        </label>
+
+        <input
+          id="numeroEndereco"
+          name="Número"
+          type="text"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     EQUIPAMENTO
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Equipamento
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="grid">
+
+      <div class="campo">
+
+        <label for="tipoEquipamento">
+          Tipo de equipamento *
+        </label>
+
+        <select
+          id="tipoEquipamento"
+          name="tipo_equipamento"
+          required
+        >
+
+          <option value="">
+            Selecione...
+          </option>
+
+          <option value="Celular">
+            Celular / Smartphone
+          </option>
+
+          <option value="Tablet">
+            Tablet
+          </option>
+
+          <option value="Notebook">
+            Notebook
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="modelo">
+          Marca / Modelo *
+        </label>
+
+        <input
+          id="modelo"
+          name="Marca / Modelo"
+          type="text"
+          required
+          placeholder="Ex.: Samsung A15"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="imei">
+          IMEI / Número de série
+        </label>
+
+        <input
+          id="imei"
+          name="IMEI / Número de série"
+          type="text"
+        >
+
+      </div>
+
+
+      <div class="campo campo-total">
+
+        <label for="defeito">
+          Defeito relatado *
+        </label>
+
+        <textarea
+          id="defeito"
+          name="Defeito relatado"
+          required
+          placeholder="Descreva o defeito informado pelo cliente..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="campo campo-total">
+
+        <label for="observacoes">
+          Observações / estado físico
+        </label>
+
+        <textarea
+          id="observacoes"
+          name="Observações"
+          placeholder="Riscos, trincas, marcas, acessórios entregues etc..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     TESTES
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Testes iniciais
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="grid-3">
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Aparelho liga?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Aparelho liga?"
+              value="sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Aparelho liga?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Aparelho carrega?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Aparelho carrega?"
+              value="Sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Aparelho carrega?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Tela ou película trincada?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Tela ou película trincada?"
+              value="sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Tela ou película trincada?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Câmera funciona?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Câmera funciona?"
+              value="sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Câmera funciona?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Wi-Fi funcionando?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Wi-Fi funcionando?"
+              value="sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Wi-Fi funcionando?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="teste">
+
+        <div class="teste-titulo">
+          Slot de chip funciona?
+        </div>
+
+        <div class="opcoes">
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Slot de chip funciona?"
+              value="sim"
+            >
+
+            <span>Sim</span>
+
+          </label>
+
+          <label class="opcao-radio">
+
+            <input
+              type="radio"
+              name="Slot de chip funciona?"
+              value="Não"
+            >
+
+            <span>Não</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     BLOQUEIO
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Bloqueio do aparelho
+  </div>
+
+  <div class="card-conteudo">
+
+
+    <div class="campo">
+
+      <label>
+        Tipo de bloqueio
+      </label>
+
+      <div class="opcoes">
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Tipo de bloqueio do aparelho"
+            value="Sem senha"
+            onchange="alterarBloqueio()"
+            checked
+          >
+
+          <span>
+            Sem senha
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Tipo de bloqueio do aparelho"
+            value="Senha / PIN"
+            onchange="alterarBloqueio()"
+          >
+
+          <span>
+            Senha / PIN
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Tipo de bloqueio do aparelho"
+            value="Padrão de desenho"
+            onchange="alterarBloqueio()"
+          >
+
+          <span>
+            Padrão de desenho
+          </span>
+
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="campoPin"
+      class="campo"
+      style="margin-top:17px;"
+    >
+
+      <label for="senhaPin">
+        Senha / PIN do aparelho
+      </label>
+
+      <input
+        id="senhaPin"
+        name="Senha / PIN do aparelho"
+        type="text"
+        inputmode="numeric"
+        autocomplete="off"
+      >
+
+      <div class="aviso-pin">
+        A senha será exibida somente na via da loja.
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     GARANTIA
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Garantia
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="campo">
+
+      <label>
+        Prazo da garantia
+      </label>
+
+      <div class="opcoes">
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Prazo da garantia"
+            value="Sem garantia"
+            checked
+          >
+
+          <span>
+            Sem garantia
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Prazo da garantia"
+            value="30 dias"
+          >
+
+          <span>
+            30 dias
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Prazo da garantia"
+            value="60 dias"
+          >
+
+          <span>
+            60 dias
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Prazo da garantia"
+            value="90 dias"
+          >
+
+          <span>
+            90 dias
+          </span>
+
+        </label>
+
+
+        <label class="opcao-radio">
+
+          <input
+            type="radio"
+            name="Prazo da garantia"
+            value="180 dias"
+          >
+
+          <span>
+            180 dias
+          </span>
+
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="campo"
+      style="margin-top:17px;"
+    >
+
+      <label for="dataGarantia">
+        Data da garantia
+      </label>
+
+      <input
+        id="dataGarantia"
+        name="Data da garantia"
+        type="date"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     TERMOS
+====================================== -->
+
+<section class="card">
+
+  <div class="card-titulo">
+    Termos
+  </div>
+
+  <div class="card-conteudo">
+
+    <div class="termos-box">
+
+      O cliente declara estar ciente de que aparelhos que não ligam
+      podem possuir defeitos adicionais que somente poderão ser
+      identificados após a abertura ou reparo.
+
+      <br><br>
+
+      A SEV7N CELL não se responsabiliza por perda de dados,
+      fotos, contatos, arquivos ou aplicativos armazenados
+      no aparelho.
+
+      <br><br>
+
+      Aparelhos com sinais de líquido, oxidação, quedas,
+      impactos ou intervenções anteriores poderão apresentar
+      outros defeitos durante ou após o procedimento técnico.
+
+      <br><br>
+
+      A garantia cobre exclusivamente o serviço executado
+      e/ou a peça substituída pela SEV7N CELL dentro do prazo
+      informado na Ordem de Serviço.
+
+      <br><br>
+
+      Durante o período de garantia, o aparelho não poderá ser
+      aberto ou reparado por terceiros. Caso isso ocorra,
+      a garantia poderá ser cancelada.
+
+    </div>
+
+
+    <div class="aceite">
+
+      <input
+        id="aceite"
+        type="checkbox"
+        required
+      >
+
+      <label for="aceite">
+        Li e aceito os termos da Ordem de Serviço.
+      </label>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ======================================
+     AÇÕES
+====================================== -->
+
+<div class="acoes">
+
+  <button
+    type="button"
+    class="btn-voltar"
+    onclick="voltarMenu()"
+  >
+    ← VOLTAR
+  </button>
+
+
+  <button
+    id="btnSalvar"
+    type="submit"
+    class="btn-salvar"
+  >
+    SALVAR ORDEM DE SERVIÇO
+  </button>
+
+</div>
+
+
+<div
+  id="status"
+  class="status"
+></div>
+
+
+</form>
+
+</main>
+
+
+
+<script>
+
+
+// ==========================================
+// ENDPOINTS
+// ==========================================
+
+const URL_SALVAR_OS =
+  'https://n8n.artpecascelular.com/webhook/nova-os-app';
+
+
+const URL_MENU =
+  'https://artpecas10-beep.github.io/sev7n-cell-app/';
+
+
+// ==========================================
+// BLOQUEIO
+// ==========================================
+
+function alterarBloqueio() {
+
+  const selecionado =
+    document.querySelector(
+      'input[name="Tipo de bloqueio do aparelho"]:checked'
+    );
+
+
+  const campoPin =
+    document.getElementById(
+      'campoPin'
+    );
+
+
+  const senha =
+    document.getElementById(
+      'senhaPin'
+    );
+
+
+  if (
+    selecionado &&
+    selecionado.value === 'Senha / PIN'
+  ) {
+
+    campoPin.style.display =
+      'block';
+
+    senha.required =
+      true;
+
+  } else {
+
+    campoPin.style.display =
+      'none';
+
+    senha.required =
+      false;
+
+
+    if (
+      selecionado &&
+      selecionado.value !== 'Senha / PIN'
+    ) {
+
+      senha.value =
+        '';
+
+    }
+
+  }
+
+}
+
+
+// ==========================================
+// DATA INICIAL
+// ==========================================
+
+function preencherDataHoje() {
+
+  const campo =
+    document.getElementById(
+      'dataEntrada'
+    );
+
+
+  if (
+    !campo.value
+  ) {
+
+    const hoje =
+      new Date();
+
+
+    const ano =
+      hoje.getFullYear();
+
+
+    const mes =
+      String(
+        hoje.getMonth() + 1
+      ).padStart(
+        2,
+        '0'
+      );
+
+
+    const dia =
+      String(
+        hoje.getDate()
+      ).padStart(
+        2,
+        '0'
+      );
+
+
+    campo.value =
+      ano +
+      '-' +
+      mes +
+      '-' +
+      dia;
+
+  }
+
+}
+
+
+// ==========================================
+// FORM
+// ==========================================
+
+document
+  .getElementById(
+    'formOS'
+  )
+  .addEventListener(
+    'submit',
+    async function(evento) {
+
+      evento.preventDefault();
+
+
+      const btn =
+        document.getElementById(
+          'btnSalvar'
+        );
+
+
+      const status =
+        document.getElementById(
+          'status'
+        );
+
+
+      status.className =
+        'status';
+
+
+      status.textContent =
+        '';
+
+
+      if (
+        !this.checkValidity()
+      ) {
+
+        this.reportValidity();
+
+        return;
+
+      }
+
+
+      const dados =
+        {};
+
+
+      const formData =
+        new FormData(
+          this
+        );
+
+
+      for (
+        const [chave, valor]
+        of formData.entries()
+      ) {
+
+        dados[chave] =
+          valor;
+
+      }
+
+
+      dados[
+        'Aceite dos termos'
+      ] =
+        [
+          'Aceito os termos'
+        ];
+
+
+      btn.disabled =
+        true;
+
+
+      btn.textContent =
+        'SALVANDO...';
+
+
+      status.textContent =
+        'Enviando Ordem de Serviço...';
+
+
+      try {
+
+        const resposta =
+          await fetch(
+            URL_SALVAR_OS,
+            {
+              method:
+                'POST',
+
+              headers: {
+                'Content-Type':
+                  'application/json'
+              },
+
+              body:
+                JSON.stringify(
+                  dados
+                )
+            }
+          );
+
+
+        if (
+          !resposta.ok
+        ) {
+
+          throw new Error(
+            'Não foi possível salvar a OS.'
+          );
+
+        }
+
+
+        const retorno =
+          await resposta.json();
+
+
+        status.className =
+          'status ok';
+
+
+        status.textContent =
+          'Ordem de Serviço criada com sucesso.';
+
+
+        if (
+          retorno.redirect_url
+        ) {
+
+          window.location.href =
+            retorno.redirect_url;
+
+          return;
+
+        }
+
+
+        if (
+          retorno.url
+        ) {
+
+          window.location.href =
+            retorno.url;
+
+          return;
+
+        }
+
+
+      } catch (erro) {
+
+        console.error(
+          erro
+        );
+
+
+        status.className =
+          'status erro';
+
+
+        status.textContent =
+          'Erro ao salvar a Ordem de Serviço.';
+
+
+        btn.disabled =
+          false;
+
+
+        btn.textContent =
+          'SALVAR ORDEM DE SERVIÇO';
+
+      }
+
+    }
+  );
+
+
+// ==========================================
+// VOLTAR
+// ==========================================
+
+function voltarMenu() {
+
+  window.location.href =
+    URL_MENU;
+
+}
+
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+window.addEventListener(
+  'load',
+  function() {
+
+    preencherDataHoje();
+
+    alterarBloqueio();
+
+  }
+);
+
+
+</script>
+
+
+</body>
+</html>
