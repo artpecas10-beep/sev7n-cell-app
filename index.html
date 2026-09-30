@@ -47,7 +47,6 @@ body {
 }
 
 body {
-
   min-height: 100vh;
 
   font-family:
@@ -66,21 +65,15 @@ body {
   color: white;
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   padding: 25px 15px;
-
 }
 
 .app {
-
   width: 100%;
-
   max-width: 520px;
-
 }
 
 
@@ -89,7 +82,6 @@ body {
 ====================================== */
 
 .logo-box {
-
   border:
     2px solid #1f6fff;
 
@@ -121,16 +113,11 @@ body {
       255,
       0.18
     );
-
 }
 
 .logo-img {
-
-  width:
-    120px;
-
-  height:
-    120px;
+  width: 120px;
+  height: 120px;
 
   object-fit:
     cover;
@@ -140,11 +127,9 @@ body {
 
   margin-bottom:
     15px;
-
 }
 
 .logo-box h1 {
-
   font-size:
     38px;
 
@@ -153,18 +138,14 @@ body {
 
   font-weight:
     800;
-
 }
 
 .logo-box h1 span {
-
   color:
     #1687ff;
-
 }
 
 .logo-box p {
-
   margin-top:
     8px;
 
@@ -176,11 +157,9 @@ body {
 
   letter-spacing:
     3px;
-
 }
 
 .titulo {
-
   text-align:
     center;
 
@@ -195,7 +174,6 @@ body {
 
   font-weight:
     700;
-
 }
 
 
@@ -204,7 +182,6 @@ body {
 ====================================== */
 
 .botao {
-
   display:
     flex;
 
@@ -263,28 +240,22 @@ body {
 
   text-align:
     left;
-
 }
 
 .botao:hover {
-
   transform:
     translateY(-2px);
 
   filter:
     brightness(1.08);
-
 }
 
 .botao:active {
-
   transform:
     scale(0.98);
-
 }
 
 .icone {
-
   font-size:
     34px;
 
@@ -296,18 +267,14 @@ body {
 
   flex-shrink:
     0;
-
 }
 
 .texto {
-
   flex:
     1;
-
 }
 
 .texto small {
-
   display:
     block;
 
@@ -322,17 +289,14 @@ body {
 
   opacity:
     0.85;
-
 }
 
 .seta {
-
   font-size:
     22px;
 
   transition:
     transform 0.25s ease;
-
 }
 
 
@@ -341,58 +305,48 @@ body {
 ====================================== */
 
 .servico {
-
   background:
     linear-gradient(
       135deg,
       #0868ff,
       #0047b8
     );
-
 }
 
 .venda {
-
   background:
     linear-gradient(
       135deg,
       #12a856,
       #08763b
     );
-
 }
 
 .cpf {
-
   background:
     linear-gradient(
       135deg,
       #ff8a00,
       #d95b00
     );
-
 }
 
 .produtos {
-
   background:
     linear-gradient(
       135deg,
       #00a7a7,
       #006d73
     );
-
 }
 
 .administracao {
-
   background:
     linear-gradient(
       135deg,
       #45556b,
       #253244
     );
-
 }
 
 
@@ -401,7 +355,6 @@ body {
 ====================================== */
 
 .submenu {
-
   display:
     none;
 
@@ -442,18 +395,14 @@ body {
       0,
       0.25
     );
-
 }
 
 .submenu.aberto {
-
   display:
     block;
-
 }
 
 .submenu .botao {
-
   margin-bottom:
     12px;
 
@@ -465,136 +414,336 @@ body {
 
   border-radius:
     14px;
-
 }
 
 .submenu .botao:last-child {
-
   margin-bottom:
     0;
-
 }
 
 
-/* SERVIÇO */
+/* ======================================
+   SERVIÇO
+====================================== */
 
 .nova-os {
-
   background:
     linear-gradient(
       135deg,
       #1687ff,
       #0752b8
     );
-
 }
 
 .atualizar-os {
-
   background:
     linear-gradient(
       135deg,
       #0b4c96,
       #082f61
     );
-
 }
 
 .consultar-os {
-
   background:
     linear-gradient(
       135deg,
       #7c3aed,
       #4c1d95
     );
-
 }
 
 .historico-os {
-
   background:
     linear-gradient(
       135deg,
       #d97706,
       #a64c00
     );
-
 }
 
 .painel-os {
-
   background:
     linear-gradient(
       135deg,
       #0891b2,
       #075985
     );
-
 }
 
 
-/* VENDA */
+/* ======================================
+   VENDA
+====================================== */
 
 .nova-venda {
-
   background:
     linear-gradient(
       135deg,
       #18b563,
       #0a7f40
     );
-
 }
 
 .historico {
-
   background:
     linear-gradient(
       135deg,
       #7652ff,
       #4a2db3
     );
-
 }
 
 
-/* PRODUTOS */
+/* ======================================
+   PRODUTOS
+====================================== */
 
 .consultar-produtos {
-
   background:
     linear-gradient(
       135deg,
       #1687ff,
       #0752b8
     );
-
 }
 
 
-/* ADMINISTRAÇÃO */
+/* ======================================
+   ADMIN
+====================================== */
 
 .admin-catalogo {
-
   background:
     linear-gradient(
       135deg,
       #64748b,
       #334155
     );
-
 }
 
 .camera-produto {
-
   background:
     linear-gradient(
       135deg,
       #2563eb,
       #0f3f99
     );
+}
 
+
+/* ======================================
+   MODAL DA SENHA
+====================================== */
+
+.modal-senha {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  display:
+    none;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    20px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.72
+    );
+
+  z-index:
+    9999;
+}
+
+.modal-senha.aberto {
+  display:
+    flex;
+}
+
+.modal-box {
+  width:
+    100%;
+
+  max-width:
+    380px;
+
+  padding:
+    26px;
+
+  background:
+    #0b1728;
+
+  border:
+    1px solid
+    #27486b;
+
+  border-radius:
+    20px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(
+      0,
+      0,
+      0,
+      0.45
+    );
+
+  text-align:
+    center;
+}
+
+.modal-icone {
+  font-size:
+    42px;
+
+  margin-bottom:
+    10px;
+}
+
+.modal-box h2 {
+  font-size:
+    22px;
+
+  margin-bottom:
+    6px;
+}
+
+.modal-box p {
+  color:
+    #a9b8ca;
+
+  font-size:
+    13px;
+
+  margin-bottom:
+    20px;
+}
+
+.campo-senha {
+  width:
+    100%;
+
+  padding:
+    14px 15px;
+
+  border:
+    1px solid
+    #365777;
+
+  border-radius:
+    11px;
+
+  background:
+    #07111f;
+
+  color:
+    white;
+
+  font-size:
+    22px;
+
+  letter-spacing:
+    6px;
+
+  text-align:
+    center;
+
+  outline:
+    none;
+
+  margin-bottom:
+    10px;
+}
+
+.campo-senha:focus {
+  border-color:
+    #1687ff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      22,
+      135,
+      255,
+      .15
+    );
+}
+
+.erro-senha {
+  min-height:
+    18px;
+
+  color:
+    #ff6464;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    10px;
+}
+
+.modal-acoes {
+  display:
+    flex;
+
+  gap:
+    9px;
+}
+
+.btn-modal {
+  flex:
+    1;
+
+  border:
+    none;
+
+  border-radius:
+    10px;
+
+  padding:
+    13px;
+
+  font-size:
+    13px;
+
+  font-weight:
+    800;
+
+  cursor:
+    pointer;
+}
+
+.btn-cancelar {
+  background:
+    #26364a;
+
+  color:
+    white;
+}
+
+.btn-entrar {
+  background:
+    #1687ff;
+
+  color:
+    white;
 }
 
 
@@ -603,7 +752,6 @@ body {
 ====================================== */
 
 .rodape {
-
   text-align:
     center;
 
@@ -615,7 +763,6 @@ body {
 
   font-size:
     12px;
-
 }
 
 
@@ -628,30 +775,24 @@ body {
 ) {
 
   .logo-box h1 {
-
     font-size:
       32px;
-
   }
 
   .botao {
-
     padding:
       19px 16px;
 
     font-size:
       18px;
-
   }
 
   .logo-img {
-
     width:
       100px;
 
     height:
       100px;
-
   }
 
 }
@@ -667,9 +808,7 @@ body {
 <main class="app">
 
 
-<!-- =====================================
-     LOGO
-===================================== -->
+<!-- LOGO -->
 
 <div class="logo-box">
 
@@ -691,9 +830,7 @@ body {
 
 
 <div class="titulo">
-
   SELECIONE O QUE DESEJA FAZER
-
 </div>
 
 
@@ -737,9 +874,6 @@ body {
   id="submenuServico"
 >
 
-
-  <!-- NOVA OS -->
-
   <a
     class="botao nova-os"
     href="nova-os.html"
@@ -761,8 +895,6 @@ body {
 
   </a>
 
-
-  <!-- ATUALIZAR OS -->
 
   <a
     class="botao atualizar-os"
@@ -786,8 +918,6 @@ body {
   </a>
 
 
-  <!-- CONSULTAR OS -->
-
   <a
     class="botao consultar-os"
     href="https://n8n.artpecascelular.com/form/c4792ac9-e6fc-4627-aea2-a1a8eb3b3750"
@@ -809,8 +939,6 @@ body {
 
   </a>
 
-
-  <!-- HISTÓRICO -->
 
   <a
     class="botao historico-os"
@@ -834,8 +962,6 @@ body {
   </a>
 
 
-  <!-- PAINEL -->
-
   <a
     class="botao painel-os"
     href="https://n8n.artpecascelular.com/webhook/painel-servicos-app"
@@ -856,7 +982,6 @@ body {
     </div>
 
   </a>
-
 
 </div>
 
@@ -901,7 +1026,6 @@ body {
   id="submenuVenda"
 >
 
-
   <a
     class="botao nova-venda"
     href="venda-aparelho-cliente.html"
@@ -944,7 +1068,6 @@ body {
     </div>
 
   </a>
-
 
 </div>
 
@@ -1016,7 +1139,6 @@ body {
   id="submenuProdutos"
 >
 
-
   <a
     class="botao nova-venda"
     href="pdv-cliente.html"
@@ -1082,7 +1204,6 @@ body {
 
   </a>
 
-
 </div>
 
 
@@ -1094,11 +1215,11 @@ body {
 <button
   class="botao administracao"
   type="button"
-  onclick="abrirMenuAdministracao()"
+  onclick="solicitarSenhaAdministracao()"
 >
 
   <div class="icone">
-    ⚙️
+    🔒
   </div>
 
   <div class="texto">
@@ -1106,7 +1227,7 @@ body {
     ADMINISTRAÇÃO
 
     <small>
-      Catálogo e cadastro de produtos
+      Acesso protegido
     </small>
 
   </div>
@@ -1125,7 +1246,6 @@ body {
   class="submenu"
   id="submenuAdministracao"
 >
-
 
   <a
     class="botao admin-catalogo"
@@ -1170,7 +1290,6 @@ body {
 
   </a>
 
-
 </div>
 
 
@@ -1186,8 +1305,82 @@ body {
 
 
 
+<!-- =====================================
+     MODAL SENHA ADMINISTRAÇÃO
+===================================== -->
+
+<div
+  class="modal-senha"
+  id="modalSenha"
+  onclick="fecharModalAoClicarFora(event)"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-icone">
+      🔐
+    </div>
+
+    <h2>
+      Administração
+    </h2>
+
+    <p>
+      Digite a senha para continuar.
+    </p>
+
+
+    <input
+      id="senhaAdministracao"
+      class="campo-senha"
+      type="password"
+      inputmode="numeric"
+      maxlength="4"
+      autocomplete="off"
+      placeholder="••••"
+      onkeydown="verificarEnterSenha(event)"
+    >
+
+
+    <div
+      class="erro-senha"
+      id="erroSenha"
+    ></div>
+
+
+    <div class="modal-acoes">
+
+      <button
+        type="button"
+        class="btn-modal btn-cancelar"
+        onclick="fecharModalSenha()"
+      >
+        CANCELAR
+      </button>
+
+
+      <button
+        type="button"
+        class="btn-modal btn-entrar"
+        onclick="validarSenhaAdministracao()"
+      >
+        ENTRAR
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
 <script>
 
+
+// =======================================
+// FUNÇÃO GENÉRICA DOS SUBMENUS
+// =======================================
 
 function alternarMenu(
   submenuId,
@@ -1204,9 +1397,11 @@ function alternarMenu(
       setaId
     );
 
+
   submenu.classList.toggle(
     'aberto'
   );
+
 
   if (
     submenu.classList.contains(
@@ -1227,7 +1422,6 @@ function alternarMenu(
 }
 
 
-
 // =======================================
 // SERVIÇO
 // =======================================
@@ -1240,7 +1434,6 @@ function abrirMenuServico() {
   );
 
 }
-
 
 
 // =======================================
@@ -1257,7 +1450,6 @@ function abrirMenuVenda() {
 }
 
 
-
 // =======================================
 // VENDA DE PRODUTOS
 // =======================================
@@ -1272,34 +1464,204 @@ function abrirMenuProdutos() {
 }
 
 
-
 // =======================================
-// ADMINISTRAÇÃO
+// ADMINISTRAÇÃO COM SENHA
 // =======================================
-function abrirMenuAdministracao() {
 
-  const senhaCorreta = '4181';
+const SENHA_ADMINISTRACAO =
+  '4181';
 
-  const senhaDigitada = prompt(
-    'Digite a senha da Administração:'
-  );
 
-  if (senhaDigitada === null) {
-    return;
-  }
+function solicitarSenhaAdministracao() {
 
-  if (senhaDigitada !== senhaCorreta) {
-
-    alert(
-      'Senha incorreta.'
+  const submenu =
+    document.getElementById(
+      'submenuAdministracao'
     );
 
+
+  // Se o menu já estiver aberto,
+  // apenas fecha sem pedir senha novamente.
+  if (
+    submenu.classList.contains(
+      'aberto'
+    )
+  ) {
+
+    submenu.classList.remove(
+      'aberto'
+    );
+
+    document.getElementById(
+      'setaAdministracao'
+    ).style.transform =
+      'rotate(0deg)';
+
     return;
+
   }
 
-  alternarMenu(
-    'submenuAdministracao',
-    'setaAdministracao'
+
+  const modal =
+    document.getElementById(
+      'modalSenha'
+    );
+
+  const campo =
+    document.getElementById(
+      'senhaAdministracao'
+    );
+
+  const erro =
+    document.getElementById(
+      'erroSenha'
+    );
+
+
+  erro.textContent =
+    '';
+
+  campo.value =
+    '';
+
+  modal.classList.add(
+    'aberto'
+  );
+
+
+  setTimeout(
+    () => campo.focus(),
+    100
   );
 
 }
+
+
+function validarSenhaAdministracao() {
+
+  const campo =
+    document.getElementById(
+      'senhaAdministracao'
+    );
+
+  const erro =
+    document.getElementById(
+      'erroSenha'
+    );
+
+  const senhaDigitada =
+    String(
+      campo.value || ''
+    ).trim();
+
+
+  if (
+    senhaDigitada !==
+    SENHA_ADMINISTRACAO
+  ) {
+
+    erro.textContent =
+      'Senha incorreta.';
+
+    campo.value =
+      '';
+
+    campo.focus();
+
+    return;
+
+  }
+
+
+  erro.textContent =
+    '';
+
+  fecharModalSenha();
+
+
+  const submenu =
+    document.getElementById(
+      'submenuAdministracao'
+    );
+
+  const seta =
+    document.getElementById(
+      'setaAdministracao'
+    );
+
+
+  submenu.classList.add(
+    'aberto'
+  );
+
+  seta.style.transform =
+    'rotate(180deg)';
+
+}
+
+
+function fecharModalSenha() {
+
+  const modal =
+    document.getElementById(
+      'modalSenha'
+    );
+
+  const campo =
+    document.getElementById(
+      'senhaAdministracao'
+    );
+
+  const erro =
+    document.getElementById(
+      'erroSenha'
+    );
+
+
+  modal.classList.remove(
+    'aberto'
+  );
+
+  campo.value =
+    '';
+
+  erro.textContent =
+    '';
+
+}
+
+
+function verificarEnterSenha(event) {
+
+  if (
+    event.key ===
+    'Enter'
+  ) {
+
+    validarSenhaAdministracao();
+
+  }
+
+}
+
+
+function fecharModalAoClicarFora(event) {
+
+  if (
+    event.target.id ===
+    'modalSenha'
+  ) {
+
+    fecharModalSenha();
+
+  }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
