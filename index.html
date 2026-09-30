@@ -1276,8 +1276,26 @@ function abrirMenuProdutos() {
 // =======================================
 // ADMINISTRAÇÃO
 // =======================================
-
 function abrirMenuAdministracao() {
+
+  const senhaCorreta = '4181';
+
+  const senhaDigitada = prompt(
+    'Digite a senha da Administração:'
+  );
+
+  if (senhaDigitada === null) {
+    return;
+  }
+
+  if (senhaDigitada !== senhaCorreta) {
+
+    alert(
+      'Senha incorreta.'
+    );
+
+    return;
+  }
 
   alternarMenu(
     'submenuAdministracao',
@@ -1285,11 +1303,3 @@ function abrirMenuAdministracao() {
   );
 
 }
-
-
-</script>
-
-
-</body>
-
-</html>
