@@ -2001,40 +2001,34 @@ document
         }
 
 
-        const retorno =
-          await resposta.json();
-
-
-        status.className =
-          'status ok';
-
-
-        status.textContent =
-          'Ordem de Serviço criada com sucesso.';
-
-
-        if (
-          retorno.redirect_url
-        ) {
-
-          window.location.href =
-            retorno.redirect_url;
-
-          return;
-
+        const bruto = await resposta.json();
+        const retorno = Array.isArray(bruto) ? (bruto[0]?.json || bruto[0] || {}) : (bruto?.json || bruto || {});
+        if (retorno.sucesso === false || retorno.erro) throw new Error(retorno.mensagem || 'Não foi possível confirmar a OS.');
+        const numeroOS = String(retorno.numero_os || '').trim();
+        let destino = retorno.redirect_url || retorno.url || '';
+        if (!destino && numeroOS) {
+          const padrao = String(dados['Tipo de bloqueio do aparelho'] || '').includes('Padrão');
+          destino = 'https://n8n.artpecascelular.com/webhook/' +
+            (padrao ? 'padrao-desenho' : 'os-final-app') + '?os=' + encodeURIComponent(numeroOS);
         }
-
-
-        if (
-          retorno.url
-        ) {
-
-          window.location.href =
-            retorno.url;
-
+        status.className = 'status ok';
+        status.textContent = 'OS criada' + (numeroOS ? ': ' + numeroOS : '') + '.';
+        btn.disabled = true;
+        btn.textContent = 'OS SALVA';
+        if (destino) {
+          let url;
+          try { url = new URL(destino, URL_SALVAR_OS); } catch (_) { status.textContent += ' Link de impressão inválido. Consulte a OS no histórico; não envie novamente.'; return; }
+          if (url.origin !== new URL(URL_SALVAR_OS).origin) { status.textContent += ' Endereço de impressão inesperado. Consulte a OS no histórico; não envie novamente.'; return; }
+          url.searchParams.set('autoimprimir', '1');
+          const link = document.createElement('a');
+          link.href = url.href;
+          link.textContent = ' ABRIR COMPROVANTE / IMPRIMIR';
+          link.style.cssText = 'display:block;margin-top:16px;padding:14px;background:#0752b8;color:white;border-radius:10px;text-align:center';
+          status.appendChild(link);
+          window.location.assign(url.href);
           return;
-
         }
+        status.textContent += ' O servidor não devolveu o link de impressão. Consulte a OS no histórico; não envie novamente.';
 
 
       } catch (erro) {
@@ -2098,3 +2092,4 @@ window.addEventListener(
 
 </body>
 </html>
+
